@@ -1,14 +1,14 @@
 ---
 name: gitlab-pipeline-status
-description: Check GitLab CI/CD pipeline status and generate summary with verdict. Use when user asks to check GitLab pipeline status, monitor CI/CD jobs, or get a pipeline summary from gitlab.com or any self-hosted GitLab instance. Works without command execution — no curl, no scripts, no Bash.
+description: Check GitLab CI/CD pipeline status and generate summary with verdict. Use when user asks to check GitLab pipeline status, monitor CI/CD jobs, or get a pipeline summary from gitlab.com or any self-hosted GitLab instance. Works without command execution — no scripts, no Bash.
 ---
 
 # GitLab Pipeline Status (No-Exec Mode)
 
-Check GitLab CI/CD pipeline status and generate rich summaries with root cause analysis — without running any scripts, curl commands, or shell tools.
+Check GitLab CI/CD pipeline status and generate rich summaries with root cause analysis — without running any scripts, or shell tools.
 
 > ⛔ **NO-EXEC RULES — follow these strictly:**
-> - **Never** use `curl`, `wget`, `python`, `bash`, or any shell/terminal tool.
+> - **Never** use `wget`, `python`, `bash`, or any shell/terminal tool.
 > - **Never** propose a command for the user to run (unless they explicitly ask for a manual workaround).
 > - **First choice**: use the `read_url_content` tool to fetch API responses directly.
 > - **If `read_url_content` is unavailable**: provide the user with fully-formed URLs to open in their browser or Postman, and ask them to paste the JSON response back into the chat. Then analyse the pasted JSON.
@@ -100,7 +100,7 @@ Retain the last `tail` lines (default 50) from each log.
 
 ## Step 3 — Manual Fallback (if `read_url_content` is unavailable)
 
-> Only use this path if the `read_url_content` tool is not available. Do **not** use `curl` or any shell command.
+> Only use this path if the `read_url_content` tool is not available. Do **not** use any shell command.
 
 Construct the full API URLs below (substituting real values) and ask the user to open them in a **browser** or **Postman**, then paste the JSON response back into the chat:
 
