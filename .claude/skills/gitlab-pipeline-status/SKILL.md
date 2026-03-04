@@ -1,203 +1,285 @@
 ---
 name: gitlab-pipeline-status
-description: Check GitLab CI/CD pipeline status and generate summary with verdict. Use when user asks to check GitLab pipeline status, monitor CI/CD jobs, or get pipeline summary from gitlab.com or self-hosted GitLab instances.
+description: Check GitLab CI/CD pipeline status and generate summary with verdict. Use when user asks to check GitLab pipeline status, monitor CI/CD jobs, or get a pipeline summary from gitlab.com or any self-hosted GitLab instance. Works without command execution — no curl, no scripts, no Bash.
 ---
 
-# GitLab Pipeline Status
+# GitLab Pipeline Status (No-Exec Mode)
 
-Check GitLab CI/CD pipeline status and generate comprehensive summaries with verdicts.
+Check GitLab CI/CD pipeline status and generate rich summaries with root cause analysis — without running any scripts, curl commands, or shell tools.
 
-## Quick Start
+> ⛔ **NO-EXEC RULES — follow these strictly:**
+> - **Never** use `curl`, `wget`, `python`, `bash`, or any shell/terminal tool.
+> - **Never** propose a command for the user to run (unless they explicitly ask for a manual workaround).
+> - **First choice**: use the `read_url_content` tool to fetch API responses directly.
+> - **If `read_url_content` is unavailable**: provide the user with fully-formed URLs to open in their browser or Postman, and ask them to paste the JSON response back into the chat. Then analyse the pasted JSON.
 
-The `check_pipeline.py` script connects to GitLab API (gitlab.com or self-hosted) and generates a summary with:
-- Pipeline status and metadata
-- Job breakdown by status
-- Failed jobs details with log tails
-- Root cause analysis against an optional knowledge base (with confidence %)
-- Simple verdict (PASS/FAIL/IN PROGRESS)
+---
 
-## Usage
+## Step 1: Gather Inputs
 
-### Check via Direct URL (Easiest)
+Ask the user for the following information. All items except the pipeline URL/ID are optional:
 
-Paste a pipeline or job URL directly — the script extracts the instance, project, and ID automatically:
+| Input | Required | Notes |
+|---|---|---|
+| Pipeline or job URL **or** project ID/path + pipeline ID | Yes (one of) | e.g. `https://gitlab.com/group/project/-/pipelines/123` or project `278964` |
+| GitLab instance URL | No | Default: `https://gitlab.com` |
+| GitLab API token | No | Required for private projects — user pastes it in chat |
+| Knowledge base sources | No | URLs (including GitLab Pages) or text pasted in chat |
+| Log tail size | No | Number of log lines to show per failed job (default: 50) |
 
-```bash
-python scripts/check_pipeline.py --link https://gitlab.example.com/group/project/-/pipelines/283
-python scripts/check_pipeline.py --link https://gitlab.example.com/group/project/-/jobs/794
+> **Token note**: Since there is no command execution, the user should paste their token directly in the chat. Remind them it will only be used for this session and not stored. For read-only access, a token with `read_api` scope is sufficient.
+
+---
+
+## Step 2: Parse the Input
+
+**If a pipeline or job URL was provided**, extract from it:
+- `gitlab_url` — the scheme + host (e.g. `https://gitlab.com`)
+- `project` — the path between the host and `/-/` (e.g. `group/subgroup/project`)
+- `type` — `pipelines` or `jobs`
+- `id` — the numeric ID at the end
+
+Supported URL formats:
+```
+https://gitlab.example.com/group/project/-/pipelines/283
+https://gitlab.example.com/group/project/-/jobs/794
 ```
 
-For private projects, add `--token`:
+**If `--project` and optional `--pipeline` were provided**, use them directly with the configured GitLab URL.
 
-```bash
-python scripts/check_pipeline.py --link https://gitlab.example.com/group/project/-/pipelines/283 --token YOUR_TOKEN
+URL-encode the project path for API calls by replacing `/` with `%2F` (e.g. `group/project` → `group%2Fproject`).
+
+---
+
+## Step 3: Fetch Pipeline Data
+
+**Try `read_url_content` first.** If that tool is not available, skip to [Step 3 — Manual Fallback](#step-3-manual-fallback-if-read_url_content-is-unavailable) below.
+
+Tokens are appended as a query parameter (e.g. `?private_token=<token>`) since `read_url_content` does not support custom headers.
+
+### 3a. If a Job URL was given — resolve to pipeline ID
+
+```
+GET {gitlab_url}/api/v4/projects/{encoded_project}/jobs/{job_id}?private_token={token}
 ```
 
-Job URLs are resolved to their parent pipeline automatically.
+Extract `pipeline.id` from the response to get the parent pipeline ID.
 
-### Check Latest Pipeline (Public Project)
+### 3b. Fetch pipeline details
 
-For public projects on gitlab.com, only the project ID is required:
+If no pipeline ID is known, fetch the latest:
+```
+GET {gitlab_url}/api/v4/projects/{encoded_project}/pipelines?per_page=1&private_token={token}
+```
+Take the first result's `id`.
 
-```bash
-python scripts/check_pipeline.py --project 278964
+Then fetch the specific pipeline:
+```
+GET {gitlab_url}/api/v4/projects/{encoded_project}/pipelines/{pipeline_id}?private_token={token}
 ```
 
-### Check Specific Pipeline
+### 3c. Fetch pipeline jobs
 
-Specify a pipeline ID to check a specific run:
-
-```bash
-python scripts/check_pipeline.py --project 278964 --pipeline 123456789
+```
+GET {gitlab_url}/api/v4/projects/{encoded_project}/pipelines/{pipeline_id}/jobs?private_token={token}
 ```
 
-### Private Projects (With Token)
+---
 
-For private projects, provide a GitLab API token:
+## Step 4: Fetch Failed Job Logs
 
-```bash
-python scripts/check_pipeline.py --project 278964 --token YOUR_GITLAB_TOKEN
+For each job where `status == "failed"`, fetch its trace log:
+
+```
+GET {gitlab_url}/api/v4/projects/{encoded_project}/jobs/{job_id}/trace?private_token={token}
 ```
 
-### Self-Hosted GitLab
+Retain the last `tail` lines (default 50) from each log.
 
-Use the `--url` flag to specify a custom GitLab instance:
+---
 
-```bash
-python scripts/check_pipeline.py \
-  --url https://gitlab.example.com \
-  --project 42 \
-  --token YOUR_TOKEN
+## Step 3 — Manual Fallback (if `read_url_content` is unavailable)
+
+> Only use this path if the `read_url_content` tool is not available. Do **not** use `curl` or any shell command.
+
+Construct the full API URLs below (substituting real values) and ask the user to open them in a **browser** or **Postman**, then paste the JSON response back into the chat:
+
+**1. Resolve job → pipeline (only if a job URL was given)**
+```
+{gitlab_url}/api/v4/projects/{encoded_project}/jobs/{job_id}?private_token={token}
 ```
 
-## Parameters
-
-- `--link`: Direct GitLab pipeline or job URL (extracts instance, project, and ID automatically)
-- `--url`: GitLab instance URL (default: https://gitlab.com)
-- `--project`: Project ID or path - e.g., '278964' or 'group/project' (required if `--link` not used)
-- `--pipeline`: Pipeline ID (optional - fetches latest if not specified)
-- `--token`: GitLab API token (required for private projects)
-- `--tail`: Number of log lines per failed job (default: 50, 0 = full log)
-- `--knowledge`: One or more knowledge base sources for root cause analysis (URLs or local file paths)
-
-## Knowledge Base (Root Cause Analysis)
-
-Provide `--knowledge` sources to correlate failed job logs against known issues.
-The script extracts error phrases from logs, matches them against the knowledge base,
-and reports a confidence percentage for each failed job.
-
-### Supported Sources
-
-- **URLs**: Any HTTP(S) URL returning text (GitLab blob URLs are auto-converted to raw)
-- **Local files**: Paths relative to the `knowledge/` folder, or absolute paths
-
-### Examples
-
-```bash
-# Use a project README as knowledge base
-python scripts/check_pipeline.py \
-  --link https://gitlab.example.com/group/project/-/pipelines/283 \
-  --token YOUR_TOKEN \
-  --knowledge https://gitlab.example.com/group/project/-/blob/main/README.md
-
-# Use a local runbook
-python scripts/check_pipeline.py \
-  --link https://gitlab.example.com/group/project/-/pipelines/283 \
-  --knowledge example-runbook.md
-
-# Multiple sources
-python scripts/check_pipeline.py \
-  --link https://gitlab.example.com/group/project/-/pipelines/283 \
-  --knowledge example-runbook.md https://gitlab.example.com/group/project/-/blob/main/docs/ci-troubleshooting.md
+**2. Get latest pipeline** (omit if pipeline ID already known)
+```
+{gitlab_url}/api/v4/projects/{encoded_project}/pipelines?per_page=1&private_token={token}
 ```
 
-### Knowledge Folder
+**3. Get pipeline details**
+```
+{gitlab_url}/api/v4/projects/{encoded_project}/pipelines/{pipeline_id}?private_token={token}
+```
 
-Place local knowledge files under the `knowledge/` folder (next to `scripts/`).
-An example runbook is provided at `knowledge/example-runbook.md`.
+**4. Get pipeline jobs**
+```
+{gitlab_url}/api/v4/projects/{encoded_project}/pipelines/{pipeline_id}/jobs?private_token={token}
+```
 
-## Finding Project/Pipeline IDs
+**5. Get failed job trace(s)** — ask for each failed job ID found in step 4
+```
+{gitlab_url}/api/v4/projects/{encoded_project}/jobs/{job_id}/trace?private_token={token}
+```
 
-### Project ID
-- Navigate to your GitLab project
-- Look under the project name - the ID is displayed there
-- Or use the project path like 'group/subgroup/project'
+> For **public** projects, omit `?private_token={token}`. For **private** projects, the user can also open the browser while already logged into GitLab — the session cookie will authenticate automatically (no token needed in the URL).
 
-### Pipeline ID
-- Go to CI/CD → Pipelines in your project
-- Click on a pipeline - the ID is in the URL: `/pipelines/123456789`
+Once the user pastes each JSON/text response, continue with Step 5 using the pasted data.
 
-## Creating a GitLab Token
+---
 
-For private projects or self-hosted instances:
+## Step 5: Fetch Knowledge Base (Optional)
 
-1. Go to GitLab → User Settings → Access Tokens
-2. Create a token with `read_api` scope
-3. Copy the token and use it with `--token`
+If the user provided knowledge base sources:
 
-## Output Format
+- **GitLab blob URLs**: Auto-convert `/-/blob/` → `/-/raw/` before fetching.
+- **GitLab Pages URLs**: Fetch directly (they are standard HTTPS).
+- **Any other URL**: Fetch directly with `read_url_content`.
+- **Pasted text**: Use as-is.
 
-The script generates a structured summary:
+Token may be needed for private GitLab repos; append `?private_token={token}` as needed.
+
+---
+
+## Step 6: Analyze and Summarize
+
+### Root Cause Analysis (if knowledge base provided)
+
+Using LLM reasoning (no scripts needed), analyze the failed job logs against the knowledge base:
+
+- Identify error messages, file names, module paths, and identifiers in the failure logs.
+- Compare against the knowledge base content.
+- Estimate relevance:
+  - **High (60%+)**: Failure references files/modules described in the KB → likely a code-level issue
+  - **Moderate (30–59%)**: Some overlap → may involve KB content
+  - **Low (<30%)**: Little overlap → likely environmental, infrastructure, or config issue
+
+### Generate Summary
+
+Produce a structured summary in this format:
 
 ```
 ============================================================
 🔍 GITLAB PIPELINE STATUS SUMMARY
 ============================================================
 
-Pipeline ID:  123456789
-Status:       ✅ SUCCESS
-Branch/Tag:   main
-Duration:     5m 23s
-Created:      2026-02-26T08:00:00.000Z
-URL:          https://gitlab.com/group/project/-/pipelines/123456789
+Pipeline ID:  <id>
+Status:       <emoji> <STATUS>
+Branch/Tag:   <ref>
+Duration:     <Xm Ys>
+Created:      <timestamp>
+URL:          <web_url>
 
 📊 JOB BREAKDOWN:
 ------------------------------------------------------------
-  ✅ Success: 8 job(s)
-  ❌ Failed: 1 job(s)
+  ✅ Success: N job(s)
+  ❌ Failed: N job(s)
+  🔄 Running: N job(s)   (if applicable)
 
 ❌ FAILED JOBS:
 ------------------------------------------------------------
-  • test:integration (stage: test)
+  • <job-name> (stage: <stage>)
+
+📋 FAILED JOB LOGS:
+============================================================
+--- <job-name> (job #<id>) ---
+<last N lines of trace log>
+
+📚 KNOWLEDGE BASE:          (if provided)
+------------------------------------------------------------
+  📄 <source>
+     <120-char preview>...
+
+🔬 ROOT CAUSE ANALYSIS:    (if knowledge base provided)
+============================================================
+  Job: <job-name> (#<id>)
+  Error: <first error line>
+  KB relevance: [████████░░░░░░░░░░░░] <N>%
+  → <low/moderate/high relevance interpretation>
 
 🎯 VERDICT:
 ------------------------------------------------------------
-  ❌ FAIL - Pipeline failed (1 job(s) failed)
+  ✅ PASS - All jobs completed successfully
+  — or —
+  ❌ FAIL - Pipeline failed (N job(s) failed)
+  — or —
+  🔄 IN PROGRESS - Pipeline is currently running
 
 ============================================================
 ```
 
-## Exit Codes
+Status emoji reference:
+| Status | Emoji |
+|--------|-------|
+| success | ✅ |
+| failed | ❌ |
+| running | 🔄 |
+| pending | ⏳ |
+| canceled | 🚫 |
+| skipped | ⏭️ |
+| manual | 🤚 |
+| created | 🆕 |
 
-The script returns different exit codes for automation:
-- `0`: Pipeline succeeded
-- `1`: Pipeline failed or canceled
-- `2`: Pipeline running/pending/other status
-- `3`: Error (API error, network error, etc.)
+---
 
-## Dependencies
+## Handling Errors
 
-The script requires the `requests` library:
+| Error | Action |
+|---|---|
+| 401 Unauthorized | Ask user to provide or re-check their GitLab API token |
+| 404 Not Found | Ask user to verify the project path and pipeline ID |
+| Network/timeout | Report the error and suggest retrying |
+| No pipelines found | Tell the user no pipelines exist for the project |
+
+---
+
+## Knowledge Base Tips
+
+The knowledge base is most useful when it contains **project-specific content** that describes your code and infrastructure:
+
+- **GitLab Pages runbook**: Host a `runbook.md` on GitLab Pages and pass the URL as a knowledge source — works without any token since Pages can be public.
+- **Project README**: Pass the GitLab blob URL for the README; it will be auto-converted to a raw fetch.
+- **CI/CD config docs**: Descriptions of what each pipeline stage/job does helps identify root causes.
+- **Repomix output**: A single-file summary of the entire project codebase.
+
+### Example GitLab Pages Knowledge Base
+
+If your team hosts docs on GitLab Pages at `https://your-team.gitlab.io/runbook/ci-failures.html`, simply pass that URL when prompted for knowledge sources. Claude will fetch and use it during root cause analysis.
+
+---
+
+## Finding Project and Pipeline IDs
+
+**Project ID / path**:
+- Navigate to your GitLab project → the numeric ID is shown below the project name
+- Or use the path directly: `group/subgroup/project`
+
+**Pipeline ID**:
+- Go to CI/CD → Pipelines → click a pipeline → the ID is in the URL: `/-/pipelines/123456789`
+
+**Creating a token** (if needed):
+1. GitLab → User Settings → Access Tokens
+2. Create a token with `read_api` scope
+3. Paste it into the chat when prompted
+
+---
+
+## Alternative: Script-Based Mode
+
+If command execution is available, the `scripts/check_pipeline.py` script provides identical functionality and can be run directly:
 
 ```bash
-pip install requests
+python scripts/check_pipeline.py --link https://gitlab.example.com/group/project/-/pipelines/283
+python scripts/check_pipeline.py --link https://gitlab.example.com/group/project/-/pipelines/283 \
+  --token YOUR_TOKEN \
+  --knowledge https://your-team.gitlab.io/runbook/ci-failures.html
 ```
 
-## Example: Monitoring Latest Pipeline
-
-To check if the latest pipeline on a public project is passing:
-
-```bash
-python scripts/check_pipeline.py --project 278964
-echo "Exit code: $LASTEXITCODE"
-```
-
-## Example: Checking Private Project
-
-For private projects, store your token securely and use it:
-
-```bash
-python scripts/check_pipeline.py \
-  --project my-group/my-project \
-  --token $env:GITLAB_TOKEN
-```
+See the script's `--help` output for all options.
