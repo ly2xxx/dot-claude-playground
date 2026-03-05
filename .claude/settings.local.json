@@ -1,0 +1,15 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "mcp__gitlab__list_projects",
+      "mcp__gitlab__get_pipeline",
+      "mcp__gitlab__list_pipeline_jobs",
+      "mcp__gitlab__get_pipeline_job",
+      "mcp__gitlab__get_project"
+    ]
+  },
+  "teammateMode": "in-process"
+}

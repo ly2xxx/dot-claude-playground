@@ -1,0 +1,16 @@
+{
+    "mcpServers": {
+        "gitlab": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@structured-world/gitlab-mcp"
+            ],
+            "env": {
+                "GITLAB_TOKEN": "${GITLAB_TOKEN}",
+                "GITLAB_API_URL": "http://host.docker.internal",
+                "GITLAB_READ_ONLY_MODE": "true"
+            }
+        }
+    }
+}
