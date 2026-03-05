@@ -8,7 +8,8 @@
       "mcp__gitlab__get_pipeline",
       "mcp__gitlab__list_pipeline_jobs",
       "mcp__gitlab__get_pipeline_job",
-      "mcp__gitlab__get_project"
+      "mcp__gitlab__get_project",
+      "mcp__gitlab__get_pipeline_job_output"
     ]
   },
   "teammateMode": "in-process"

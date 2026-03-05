@@ -99,9 +99,33 @@ If the user provided knowledge base sources:
 
 - **GitLab repository files**: Use `mcp__gitlab__get_file_contents` with the `project_id`, `file_path`, and optional `ref` (branch/tag).
 - **GitLab blob URLs**: Extract the project path, file path, and ref from the URL and use `mcp__gitlab__get_file_contents`.
-- **GitLab Pages URLs**: Fetch directly with `WebFetch`.
+- **GitLab Pages URLs**: Fetch with `curl` (preferred for internal URLs) or `WebFetch`.
 - **Any other URL**: Fetch directly with `WebFetch`.
 - **Pasted text**: Use as-is.
+
+### Crawling static documentation sites
+
+Knowledge base URLs often point to **generated documentation sites** (Docusaurus, MkDocs, Jekyll, Hugo, Sphinx, GitLab Pages). These sites have navigation structures that must be explored to find relevant content.
+
+**Strategy — crawl with purpose, not exhaustively:**
+
+1. **Fetch the landing page** first. Parse it for navigation links (sidebar, table of contents, `<nav>`, `<ul>` link lists).
+2. **Extract error keywords** from the failed job logs — error messages, module names, command names, exit codes, package names.
+3. **Follow only links whose text or URL path matches the error keywords**. For example, if the error is about Docker, follow links containing "docker", "container", "dind", "runner", etc. If the error is about a test framework, follow links about "testing", "pytest", "jest", etc.
+4. **Limit crawl depth to 2 levels** from the landing page to avoid excessive fetching.
+5. **Stop early** once you find content that directly addresses the failure (e.g. a troubleshooting page, a runbook entry, a FAQ about the error).
+
+**Common static site patterns to recognize:**
+- **Docusaurus**: Sidebar links in `<nav>`, docs at `/docs/...` paths
+- **MkDocs / Material**: Navigation in `<nav>`, pages often at `/topic/subtopic/`
+- **Jekyll**: Posts at `/YYYY/MM/DD/...`, pages linked from index
+- **Sphinx**: Table of contents with `toctree`, pages at `/topic.html`
+- **Plain HTML**: Follow `<a href>` links from the index page
+
+**Do NOT:**
+- Fetch every link on the site — only those relevant to the error keywords
+- Follow external links (different domain) unless they are explicitly part of the KB
+- Fetch asset files (CSS, JS, images, fonts)
 
 ---
 
@@ -109,14 +133,26 @@ If the user provided knowledge base sources:
 
 ### Root Cause Analysis (if knowledge base provided)
 
-Analyze the failed job logs against the knowledge base:
+Analyze the failed job logs against the knowledge base content gathered in Step 5:
 
-- Identify error messages, file names, module paths, and identifiers in the failure logs.
-- Compare against the knowledge base content.
-- Estimate relevance:
-  - **High (60%+)**: Failure references files/modules described in the KB
-  - **Moderate (30-59%)**: Some overlap
-  - **Low (<30%)**: Little overlap — likely environmental, infrastructure, or config issue
+1. **Extract failure signals** from each failed job log:
+   - Error messages and exit codes
+   - File paths, module names, package names
+   - Command names and flags
+   - Stack traces and assertion failures
+
+2. **Search the KB content** for matches against these signals:
+   - Direct mentions of the error message or error code
+   - Documentation about the failing command, tool, or module
+   - Troubleshooting sections, FAQs, or known issues
+   - Configuration guidance related to the failure
+
+3. **Score KB relevance per failed job** based on how much the KB content explains or addresses the failure:
+   - **High (60-100%)**: KB directly describes the error, provides a fix, or documents the failing component in detail
+   - **Moderate (30-59%)**: KB covers related topics (e.g. documents the tool that failed but not this specific error)
+   - **Low (0-29%)**: KB has little or no content related to the failure — likely an environmental, infrastructure, or config issue outside the KB's scope
+
+4. **Compute an overall KB relevance score** — weighted average across all failed jobs (blocking jobs weighted higher than allow_failure jobs)
 
 ### Generate Summary
 
@@ -168,6 +204,10 @@ VERDICT:
   FAIL - Pipeline failed (N job(s) failed)
   -- or --
   IN PROGRESS - Pipeline is currently running
+
+  KB RELEVANCE: <N>%         (if knowledge base provided)
+  [========............]
+  <interpretation of how useful the KB was for diagnosing the failure>
 
 ============================================================
 ```

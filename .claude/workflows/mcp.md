@@ -6,6 +6,18 @@ description: Add or manage MCP servers for this project
 
 MCP servers for Claude Code are configured in `.mcp.json` at the project root.
 
+### Prerequisites
+
+MCP servers using `npx` require Node.js and npm to be installed. Verify with:
+
+```powershell
+node --version
+npm --version
+npx --version
+```
+
+If any command fails, download and install Node.js (LTS) from [nodejs.org](https://nodejs.org) — it includes npm and npx.
+
 ### Steps
 
 1. Open `.mcp.json` at the project root (create it if it doesn't exist).
