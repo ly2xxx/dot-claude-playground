@@ -8,9 +8,9 @@ description: Check GitLab CI/CD pipeline status and generate summary with verdic
 Check GitLab CI/CD pipeline status and generate rich summaries with root cause analysis using the **GitLab MCP server** tools.
 
 > **Tool preference:**
-> - **Primary**: Use `mcp__gitlab__*` MCP tools for all GitLab API queries.
-> - **Fallback**: If MCP tools are unavailable or fail, use `curl` via the Bash tool with the equivalent REST API endpoints.
-> - **Never** use `wget` or `python` scripts.
+> - Use `mcp__gitlab__*` MCP tools for **all** GitLab API queries.
+> - Use `WebFetch` for fetching external knowledge base URLs.
+> - **Never** use `Bash`, `curl`, `wget`, or `python` scripts — even as a fallback.
 
 ---
 
@@ -99,7 +99,7 @@ If the user provided knowledge base sources:
 
 - **GitLab repository files**: Use `mcp__gitlab__get_file_contents` with the `project_id`, `file_path`, and optional `ref` (branch/tag).
 - **GitLab blob URLs**: Extract the project path, file path, and ref from the URL and use `mcp__gitlab__get_file_contents`.
-- **GitLab Pages URLs**: Fetch with `curl` (preferred for internal URLs) or `WebFetch`.
+- **GitLab Pages URLs**: Fetch with `WebFetch`. If WebFetch fails (e.g. HTTP-only internal URLs that get upgraded to HTTPS), provide the URL to the user and ask them to paste the content.
 - **Any other URL**: Fetch directly with `WebFetch`.
 - **Pasted text**: Use as-is.
 
@@ -232,19 +232,8 @@ Status emoji reference:
 |---|---|
 | MCP tool returns 401/403 | Ask user to check their GitLab token in MCP server config |
 | MCP tool returns 404 | Ask user to verify the project path and pipeline ID |
-| MCP tool unavailable | Fall back to `curl` via Bash with REST API endpoints |
+| MCP tool unavailable | Inform the user that the GitLab MCP server is required and ask them to check `.mcp.json` configuration |
 | No pipelines found | Tell the user no pipelines exist for the project |
-
-### Curl Fallback
-
-If MCP tools are not available, use `curl` with the GitLab REST API. The user must provide a token and the GitLab instance URL.
-
-```
-curl -s "{gitlab_url}/api/v4/projects/{encoded_project}/jobs/{job_id}?private_token={token}"
-curl -s "{gitlab_url}/api/v4/projects/{encoded_project}/pipelines/{pipeline_id}?private_token={token}"
-curl -s "{gitlab_url}/api/v4/projects/{encoded_project}/pipelines/{pipeline_id}/jobs?private_token={token}"
-curl -s "{gitlab_url}/api/v4/projects/{encoded_project}/jobs/{job_id}/trace?private_token={token}"
-```
 
 ---
 
