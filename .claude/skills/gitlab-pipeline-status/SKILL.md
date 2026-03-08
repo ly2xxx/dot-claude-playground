@@ -91,6 +91,32 @@ and reports a confidence percentage for each failed job.
 - **URLs**: Any HTTP(S) URL returning text (GitLab blob URLs are auto-converted to raw)
 - **Local files**: Paths relative to the `knowledge/` folder, or absolute paths
 
+### Crawling static documentation sites
+
+Knowledge base URLs often point to generated documentation sites (Docusaurus, MkDocs, Jekyll, Hugo, Sphinx, GitLab Pages). These sites have navigation structures that must be explored to find relevant content.
+
+Strategy — crawl with purpose, not exhaustively:
+
+- Fetch the landing page first. Parse it for navigation links (sidebar, table of contents, `<nav>`, `<ul>` link lists).
+- Extract error keywords from the failed job logs — error messages, module names, command names, exit codes, package names.
+- Follow only links whose text or URL path matches the error keywords. For example, if the error is about Docker, follow links containing "docker", "container", "dind", "runner", etc. If the error is about a test framework, follow links about "testing", "pytest", "jest", etc.
+- Limit crawl depth to 2 levels from the landing page to avoid excessive fetching.
+- Stop early once you find content that directly addresses the failure (e.g. a troubleshooting page, a runbook entry, a FAQ about the error).
+
+Common static site patterns to recognize:
+
+- **Docusaurus**: Sidebar links in `<nav>`, docs at `/docs/...` paths
+- **MkDocs / Material**: Navigation in `<nav>`, pages often at `/topic/subtopic/`
+- **Jekyll**: Posts at `/YYYY/MM/DD/...`, pages linked from index
+- **Sphinx**: Table of contents with `toctree`, pages at `/topic.html`
+- **Plain HTML**: Follow `<a href>` links from the index page
+
+Do NOT:
+
+- Fetch every link on the site — only those relevant to the error keywords
+- Follow external links (different domain) unless they are explicitly part of the KB
+- Fetch asset files (CSS, JS, images, fonts)
+
 ### Examples
 
 ```bash
