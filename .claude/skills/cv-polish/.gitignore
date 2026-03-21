@@ -14,6 +14,8 @@ assets/support-materials/*
 # Archive folder
 assets/archive/
 
+scripts/generate_cv.py
+
 # Python
 __pycache__/
 *.py[cod]
@@ -42,4 +44,3 @@ desktop.ini
 # Keep folder structure
 !assets/.gitkeep
 !assets/support-materials/.gitkeep
-!assets/CV_CHANGELOG.md
