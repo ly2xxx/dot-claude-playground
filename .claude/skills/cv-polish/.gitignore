@@ -1,0 +1,45 @@
+# CV Polish Skill - Git Ignore
+# Protect your personal CV files and support materials
+
+# Personal CV files (keep these private!)
+assets/*.docx
+assets/*.pdf
+assets/*.doc
+assets/*.rtf
+
+# Support materials
+assets/support-materials/*
+!assets/support-materials/.gitkeep
+
+# Archive folder
+assets/archive/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Keep folder structure
+!assets/.gitkeep
+!assets/support-materials/.gitkeep
+!assets/CV_CHANGELOG.md
