@@ -13,6 +13,7 @@ assets/support-materials/*
 
 # Archive folder
 assets/archive/
+assets/CV_CHANGELOG.md
 
 scripts/generate_cv.py
 
