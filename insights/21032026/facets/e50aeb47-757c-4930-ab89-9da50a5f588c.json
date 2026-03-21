@@ -1,0 +1,15 @@
+{
+  "underlying_goal": "No clear goal established - user only said hello before interrupting",
+  "goal_categories": {
+    "warmup_minimal": 1
+  },
+  "outcome": "unclear_from_transcript",
+  "user_satisfaction_counts": {},
+  "claude_helpfulness": "unhelpful",
+  "session_type": "single_task",
+  "friction_counts": {},
+  "friction_detail": "",
+  "primary_success": "none",
+  "brief_summary": "User said hello and immediately interrupted the session before any work was done.",
+  "session_id": "e50aeb47-757c-4930-ab89-9da50a5f588c"
+}
