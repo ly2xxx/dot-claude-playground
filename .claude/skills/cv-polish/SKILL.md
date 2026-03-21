@@ -13,16 +13,6 @@ author: Helpful Bob
 tags: [career, cv, resume, job-application, ats-optimization]
 ---
 
-# CV Polish - Production-Ready CV Optimization Skill
-
-**A comprehensive skill for polishing, tailoring, and optimizing CVs/resumes for job applications.**
-
-> **Inspired by:** [How to Build a Production-Ready Claude Code Skill](https://towardsdatascience.com/how-to-build-a-production-ready-claude-code-skill/)
->
-> This skill follows production-ready patterns: progressive disclosure, deterministic processing via scripts, industry-specific references, and realistic user interaction flows.
-
----
-
 ## 🎯 Core Use Cases
 
 This skill handles six primary workflows:
@@ -563,15 +553,6 @@ A successful CV polish session results in:
 - `"Make my CV ATS-friendly"` → Check and fix ATS issues
 - `"Help me rewrite this bullet point: [paste text]"` → Improve specific achievement
 - `"Create a tech industry version of my CV"` → Industry-specific variant
-
----
-
-## 📚 Further Reading
-
-- [How to Build a Production-Ready Claude Code Skill](https://towardsdatascience.com/how-to-build-a-production-ready-claude-code-skill/) - Skill design principles applied here
-- [Google's Resume Guide](https://www.google.com/about/careers/applications/how-we-hire/) - XYZ formula origin
-- [Harvard Career Services CV Guide](https://hwpi.harvard.edu/files/ocs/files/undergrad_resumes_and_cover_letters.pdf) - Traditional best practices
-- [Jobscan Blog](https://www.jobscan.co/blog/) - ATS optimization tips
 
 ---
 

@@ -334,6 +334,7 @@ Found a bug? Want a feature?
 
 - [How to Build a Production-Ready Claude Code Skill](https://towardsdatascience.com/how-to-build-a-production-ready-claude-code-skill/) - Skill design principles
 - [Google's Resume Guide](https://www.google.com/about/careers/applications/how-we-hire/) - XYZ formula
+- [Harvard Career Services CV Guide](https://hwpi.harvard.edu/files/ocs/files/undergrad_resumes_and_cover_letters.pdf) - Traditional best practices
 - [Jobscan](https://www.jobscan.co/) - ATS testing tool
 
 ---
