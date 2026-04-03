@@ -1,0 +1,10 @@
+# Python dependencies for Claude Skill BDD testing
+
+# Behave - BDD framework for Python
+behave>=1.2.6
+
+# Optional: HTML reporting
+# behave-html-formatter>=0.9.10
+
+# Optional: Parallel execution
+# behave-parallel>=1.2.6
