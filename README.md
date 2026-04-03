@@ -3,3 +3,4 @@
 dot-claude-playground
 
 ![1774223669368](image/README/1774223669368.png)
+![cheat sheet](image/README/cheat_sheet.png)
