@@ -9,7 +9,7 @@ import re
 import shutil
 import subprocess
 from pathlib import Path
-from behave import given, when, then, step
+from behave import given, when, then
 from behave import step_matcher
 
 step_matcher("parse")
@@ -21,6 +21,7 @@ def run_claude(context, prompt, timeout=300):
     cmd = context.claude_cmd + ["-p", prompt]
     env = os.environ.copy()
     env["CLAUDE_CODE_DISABLE_IDE"] = "true"
+    env.pop("CLAUDECODE", None)          # allow nested Claude invocation
     try:
         result = subprocess.run(cmd, cwd=context.work_dir, capture_output=True,
                                 text=True, env=env, timeout=timeout)
