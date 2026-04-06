@@ -5,9 +5,9 @@ Fixtures are stored in `tests/fixtures/` (one folder per scenario).
 
 ## Run (replay — default)
 
-```bash
+```powershell
 cd .claude/skills/cv-polish/tests
-behave features/
+python -m behave features/
 ```
 
 No env var needed. Restores recorded fixtures and asserts instantly — no Claude calls.
@@ -15,7 +15,7 @@ No env var needed. Restores recorded fixtures and asserts instantly — no Claud
 ## Re-record after SKILL.md changes
 
 ```powershell
-$env:CLAUDE_MOCK="record"; behave features/
+$env:CLAUDE_MOCK="record"; python -m behave features/
 ```
 
 Re-runs every scenario against real Claude and overwrites all fixtures.
@@ -23,7 +23,7 @@ Re-runs every scenario against real Claude and overwrites all fixtures.
 ## Re-record a single scenario
 
 ```powershell
-$env:CLAUDE_MOCK="record"; behave features/ --name "Output uses strong action verbs"
+$env:CLAUDE_MOCK="record"; python -m behave features/ --name "Output uses strong action verbs"
 ```
 
 ## Modes
