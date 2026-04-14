@@ -15,26 +15,25 @@ from rate_limiter import RateLimiter
 # Helpers / fixtures
 # ---------------------------------------------------------------------------
 
-class FakeRedisFactory:
-    """Returns a single shared FakeRedis instance (simulates one Redis server)."""
+def make_app(monkeypatch, rate_limit_max: int = 100, rate_limit_window: int = 60):
+    """Helper that creates a test Flask app backed by a fresh FakeRedis instance."""
+    fake_redis = fakeredis.FakeRedis(decode_responses=True)
 
-    def __init__(self):
-        self._server = fakeredis.FakeServer()
+    import redis as _redis
+    monkeypatch.setattr(_redis, "from_url", lambda url, **kw: fake_redis)
 
-    def from_url(self, url, **kwargs):
-        return fakeredis.FakeRedis(server=self._server, decode_responses=True)
+    return create_app(
+        redis_url="redis://localhost/0",
+        testing=True,
+        rate_limit_max=rate_limit_max,
+        rate_limit_window=rate_limit_window,
+    )
 
 
 @pytest.fixture
 def app(monkeypatch):
-    """Create a test Flask application backed by fakeredis."""
-    fake_factory = FakeRedisFactory()
-
-    import redis as _redis
-    monkeypatch.setattr(_redis, "from_url", fake_factory.from_url)
-
-    application = create_app(redis_url="redis://localhost/0", testing=True)
-    return application
+    """Default test app with a 100-request limit."""
+    return make_app(monkeypatch, rate_limit_max=100)
 
 
 @pytest.fixture
@@ -113,52 +112,24 @@ class TestItemsEndpoints:
 # ---------------------------------------------------------------------------
 
 class TestRateLimiting:
-    """Tests that the rate limit is applied and the correct headers are set."""
+    """Tests that the rate limit is applied and the correct headers are returned."""
 
-    def _exhaust_limit(self, client, ip: str, limit: int):
-        """Make `limit` requests from the given IP."""
-        for _ in range(limit):
-            client.get("/health", headers={"X-Forwarded-For": ip})
-
-    def test_requests_within_limit_are_allowed(self, app, client):
+    def test_requests_within_limit_are_allowed(self, monkeypatch):
         """The first N requests (up to the limit) should all succeed."""
-        # The test app uses the real RateLimiter with default settings (100).
-        # We just verify a modest number of requests succeeds.
+        small_app = make_app(monkeypatch, rate_limit_max=5)
+        test_client = small_app.test_client()
         ip = "10.1.1.1"
-        for _ in range(10):
-            resp = client.get("/health", headers={"X-Forwarded-For": ip})
+        for _ in range(5):
+            resp = test_client.get("/health", headers={"X-Forwarded-For": ip})
             assert resp.status_code == 200
 
-    def test_exceeding_limit_returns_429(self, monkeypatch, app, client):
+    def test_exceeding_limit_returns_429(self, monkeypatch):
         """The (max+1)th request from the same IP should get 429."""
-        # Lower the limit to 3 so the test runs fast
-        import rate_limiter as rl_module
-        original_max = rl_module.RATE_LIMIT_MAX
-        original_window = rl_module.RATE_LIMIT_WINDOW
-
+        small_app = make_app(monkeypatch, rate_limit_max=3)
+        test_client = small_app.test_client()
         ip = "10.2.2.2"
 
-        # Patch the limiter on the app to use a 3-request limit
-        fake_redis = fakeredis.FakeRedis(decode_responses=True)
-        small_limiter = RateLimiter(fake_redis, max_requests=3, window_seconds=60)
-
-        # Inject the small limiter by patching before_request
-        with app.test_request_context():
-            pass  # ensure request context works
-
-        # We patch via a new app with custom limiter
-        import redis as _redis
-
-        def mock_from_url(url, **kwargs):
-            return fake_redis
-
-        monkeypatch.setattr(_redis, "from_url", mock_from_url)
-        monkeypatch.setattr(rl_module, "RATE_LIMIT_MAX", 3)
-
-        small_app = create_app(redis_url="redis://localhost/0", testing=True)
-        test_client = small_app.test_client()
-
-        # 3 allowed
+        # First 3 allowed
         for _ in range(3):
             resp = test_client.get("/health", headers={"X-Forwarded-For": ip})
             assert resp.status_code == 200
@@ -167,22 +138,11 @@ class TestRateLimiting:
         resp = test_client.get("/health", headers={"X-Forwarded-For": ip})
         assert resp.status_code == 429
 
-    def test_429_response_has_retry_after_header(self, monkeypatch, app, client):
+    def test_429_response_has_retry_after_header(self, monkeypatch):
         """HTTP 429 response must include a Retry-After header."""
-        import rate_limiter as rl_module
-        import redis as _redis
-
-        ip = "10.3.3.3"
-        fake_redis = fakeredis.FakeRedis(decode_responses=True)
-
-        def mock_from_url(url, **kwargs):
-            return fake_redis
-
-        monkeypatch.setattr(_redis, "from_url", mock_from_url)
-        monkeypatch.setattr(rl_module, "RATE_LIMIT_MAX", 2)
-
-        small_app = create_app(redis_url="redis://localhost/0", testing=True)
+        small_app = make_app(monkeypatch, rate_limit_max=2)
         test_client = small_app.test_client()
+        ip = "10.3.3.3"
 
         for _ in range(3):
             resp = test_client.get("/health", headers={"X-Forwarded-For": ip})
@@ -191,22 +151,11 @@ class TestRateLimiting:
         assert "Retry-After" in resp.headers
         assert int(resp.headers["Retry-After"]) > 0
 
-    def test_429_response_body_contains_error_info(self, monkeypatch, client):
+    def test_429_response_body_contains_error_info(self, monkeypatch):
         """The 429 body must contain error, message, and retry_after fields."""
-        import rate_limiter as rl_module
-        import redis as _redis
-
-        ip = "10.4.4.4"
-        fake_redis = fakeredis.FakeRedis(decode_responses=True)
-
-        def mock_from_url(url, **kwargs):
-            return fake_redis
-
-        monkeypatch.setattr(_redis, "from_url", mock_from_url)
-        monkeypatch.setattr(rl_module, "RATE_LIMIT_MAX", 2)
-
-        small_app = create_app(redis_url="redis://localhost/0", testing=True)
+        small_app = make_app(monkeypatch, rate_limit_max=2)
         test_client = small_app.test_client()
+        ip = "10.4.4.4"
 
         for _ in range(3):
             resp = test_client.get("/health", headers={"X-Forwarded-For": ip})
@@ -215,27 +164,18 @@ class TestRateLimiting:
         assert data["error"] == "Too Many Requests"
         assert "message" in data
         assert "retry_after" in data
+        assert isinstance(data["retry_after"], int)
+        assert data["retry_after"] > 0
 
     def test_different_ips_do_not_share_quota(self, monkeypatch):
         """Exhausting the quota for one IP must not affect another IP."""
-        import rate_limiter as rl_module
-        import redis as _redis
-
-        fake_redis = fakeredis.FakeRedis(decode_responses=True)
-
-        def mock_from_url(url, **kwargs):
-            return fake_redis
-
-        monkeypatch.setattr(_redis, "from_url", mock_from_url)
-        monkeypatch.setattr(rl_module, "RATE_LIMIT_MAX", 2)
-
-        app = create_app(redis_url="redis://localhost/0", testing=True)
-        test_client = app.test_client()
+        small_app = make_app(monkeypatch, rate_limit_max=2)
+        test_client = small_app.test_client()
 
         ip_a = "10.5.5.5"
         ip_b = "10.6.6.6"
 
-        # Exhaust ip_a
+        # Exhaust ip_a (3 requests, limit is 2)
         for _ in range(3):
             test_client.get("/health", headers={"X-Forwarded-For": ip_a})
 
@@ -247,22 +187,24 @@ class TestRateLimiting:
 
     def test_x_forwarded_for_header_is_used_for_ip(self, monkeypatch):
         """The middleware must use X-Forwarded-For to identify the client IP."""
-        import rate_limiter as rl_module
-        import redis as _redis
-
-        fake_redis = fakeredis.FakeRedis(decode_responses=True)
-
-        def mock_from_url(url, **kwargs):
-            return fake_redis
-
-        monkeypatch.setattr(_redis, "from_url", mock_from_url)
-        monkeypatch.setattr(rl_module, "RATE_LIMIT_MAX", 2)
-
-        app = create_app(redis_url="redis://localhost/0", testing=True)
-        test_client = app.test_client()
-
+        small_app = make_app(monkeypatch, rate_limit_max=2)
+        test_client = small_app.test_client()
         ip = "10.7.7.7"
+
         for _ in range(3):
             resp = test_client.get("/health", headers={"X-Forwarded-For": ip})
 
         assert resp.status_code == 429
+
+    def test_retry_after_value_is_positive(self, monkeypatch):
+        """Retry-After header value must be a positive integer (seconds)."""
+        small_app = make_app(monkeypatch, rate_limit_max=1, rate_limit_window=30)
+        test_client = small_app.test_client()
+        ip = "10.8.8.8"
+
+        test_client.get("/health", headers={"X-Forwarded-For": ip})
+        resp = test_client.get("/health", headers={"X-Forwarded-For": ip})
+
+        assert resp.status_code == 429
+        retry_after = int(resp.headers["Retry-After"])
+        assert 0 < retry_after <= 30
