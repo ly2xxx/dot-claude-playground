@@ -32,6 +32,7 @@ venv.bak/
 # Claude
 .claude/settings.local.json
 .claude/skills/cv-polish/tests/fixtures
+.claude/worktrees/
 
 
 # IDEs
