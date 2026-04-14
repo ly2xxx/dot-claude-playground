@@ -1,0 +1,33 @@
+{
+  "eval_id": 3,
+  "eval_name": "json-cli-tool",
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Implementation summary file is produced",
+      "passed": true,
+      "evidence": "implementation_summary.md present with structured summary"
+    },
+    {
+      "text": "Summary mentions CLI tool or --file flag",
+      "passed": true,
+      "evidence": "Summary describes 'A Python CLI tool (skilo_lab/json-pretty-print/scripts/json_pretty_print.py)' and lists '--file (required)' as a CLI flag"
+    },
+    {
+      "text": "Summary mentions syntax highlighting or pretty-print",
+      "passed": true,
+      "evidence": "Summary: 'pretty-prints it with ANSI syntax highlighting via pygments'"
+    },
+    {
+      "text": "Summary includes a files-changed section or table",
+      "passed": true,
+      "evidence": "## Files created table with 3 rows (main script, test suite, requirements.txt)"
+    },
+    {
+      "text": "Summary mentions tests",
+      "passed": true,
+      "evidence": "'28 pytest tests in 5 classes'; all 28 passed; breakdown of test classes listed"
+    }
+  ],
+  "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1.0}
+}

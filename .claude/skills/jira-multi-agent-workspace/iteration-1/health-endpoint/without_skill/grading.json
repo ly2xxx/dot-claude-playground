@@ -1,0 +1,33 @@
+{
+  "eval_id": 1,
+  "eval_name": "health-endpoint",
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Implementation summary file is produced",
+      "passed": true,
+      "evidence": "implementation_summary.md present with structured sections"
+    },
+    {
+      "text": "Summary mentions the /health endpoint explicitly",
+      "passed": true,
+      "evidence": "Summary states 'A /health endpoint was added to the Python Flask API'"
+    },
+    {
+      "text": "Summary includes a files-changed section or table",
+      "passed": true,
+      "evidence": "## Files Changed section with a markdown table (6 rows)"
+    },
+    {
+      "text": "Summary mentions tests",
+      "passed": true,
+      "evidence": "## Tests Added section lists 6 pytest test cases with descriptions"
+    },
+    {
+      "text": "Summary includes acceptance criteria or caveats section",
+      "passed": true,
+      "evidence": "## Caveats / Acceptance Criteria table present with 7 rows covering all criteria"
+    }
+  ],
+  "summary": {"passed": 5, "failed": 0, "total": 5, "pass_rate": 1.0}
+}
