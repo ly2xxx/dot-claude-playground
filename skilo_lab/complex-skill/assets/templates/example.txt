@@ -1,0 +1,15 @@
+# Example Template
+
+This is a template file for demonstration purposes.
+
+## Usage
+
+1. Copy this template
+2. Modify as needed
+3. Use in your project
+
+## Variables
+
+- {{NAME}} - Replace with actual name
+- {{VERSION}} - Replace with version number
+- {{DATE}} - Replace with current date
