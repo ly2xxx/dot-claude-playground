@@ -1,0 +1,93 @@
+{
+  "skill_name": "jira-multi-agent",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to implement ENG-101. Here are the requirements directly (skip jira lookup): Add a /health endpoint to our Python Flask API that returns {\"status\": \"ok\", \"version\": \"<from config>\"} with HTTP 200. The codebase is in /home/user/dot-claude-playground. Use the jira-multi-agent skill.",
+      "expected_output": "The skill should: (1) parse the direct requirements correctly (skip Jira fetch), (2) spawn a Design agent that explores the codebase, (3) spawn Coding and Testing agents, (4) produce a committed implementation with test coverage, (5) output an implementation summary table.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Implementation summary file is produced",
+          "description": "A file named implementation_summary.md exists in the outputs directory"
+        },
+        {
+          "text": "Summary mentions the /health endpoint explicitly",
+          "description": "The implementation summary references the '/health' route or endpoint that was built"
+        },
+        {
+          "text": "Summary includes a files-changed section or table",
+          "description": "The summary lists which files were created or modified, ideally in a table"
+        },
+        {
+          "text": "Summary mentions tests",
+          "description": "The summary references test files or test cases that were added"
+        },
+        {
+          "text": "Summary includes acceptance criteria or caveats section",
+          "description": "The summary has a section covering acceptance criteria status or known caveats"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Can you implement this story for me? Requirements: Add rate limiting to the REST API — max 100 requests per minute per IP address. If exceeded, return HTTP 429 with a Retry-After header. Use Redis for the counter. The codebase is in /home/user/dot-claude-playground. Use the jira-multi-agent skill.",
+      "expected_output": "The skill should: (1) parse these as direct requirements, (2) run Design agent to explore the codebase and plan the Redis integration, (3) spawn parallel Coding and Testing agents with the design plan, (4) run tests, (5) commit with a conventional commit message, (6) produce a summary listing files changed, tests added, and acceptance criteria status.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Implementation summary file is produced",
+          "description": "A file named implementation_summary.md exists in the outputs directory"
+        },
+        {
+          "text": "Summary mentions rate limiting or HTTP 429",
+          "description": "The implementation summary references rate limiting, 429 status code, or request throttling"
+        },
+        {
+          "text": "Summary mentions Redis",
+          "description": "The implementation summary references Redis as the counter/storage mechanism"
+        },
+        {
+          "text": "Summary mentions Retry-After header",
+          "description": "The implementation references the Retry-After response header"
+        },
+        {
+          "text": "Summary includes a files-changed section or table",
+          "description": "The summary lists which files were created or modified"
+        },
+        {
+          "text": "Summary mentions tests",
+          "description": "The summary references test files or test cases that were added"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "hey can you just build this for me — need a simple CLI tool in the current repo (/home/user/dot-claude-playground) that reads a JSON config file and pretty-prints it with syntax highlighting. Should support --file flag. Write tests. Use the jira-multi-agent skill.",
+      "expected_output": "The skill should: (1) treat this as direct requirements (casual phrasing, no Jira ticket), (2) Design agent should identify the repo language/conventions, (3) implement the CLI tool with Coding agent, (4) Testing agent writes tests, (5) the result is committed with a summary covering what was built, files changed, and test coverage.",
+      "files": [],
+      "assertions": [
+        {
+          "text": "Implementation summary file is produced",
+          "description": "A file named implementation_summary.md exists in the outputs directory"
+        },
+        {
+          "text": "Summary mentions CLI tool or --file flag",
+          "description": "The implementation summary references the CLI tool that was built and/or the --file argument"
+        },
+        {
+          "text": "Summary mentions syntax highlighting or pretty-print",
+          "description": "The implementation references the syntax highlighting or JSON pretty-printing feature"
+        },
+        {
+          "text": "Summary includes a files-changed section or table",
+          "description": "The summary lists which files were created or modified"
+        },
+        {
+          "text": "Summary mentions tests",
+          "description": "The summary references test files or test cases that were added"
+        }
+      ]
+    }
+  ]
+}
