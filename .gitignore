@@ -43,3 +43,7 @@ venv.bak/
 # OS
 .DS_Store
 Thumbs.db
+
+# Rust
+skilo_lab/rust-guide/hello_rust/
+**/target/
