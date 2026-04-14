@@ -1,16 +1,7 @@
 ---
 name: cv-polish
-version: 1.0.0
-description: >
-  Polish, optimize, and tailor CVs/resumes for job applications with ATS optimization
-  and industry-specific best practices. Use when user mentions CV, resume, job application,
-  ATS, career document, LinkedIn profile optimization, or asks to polish/review/tailor/improve
-  their career documents. Also trigger when user uploads .docx, .pdf files with career-related
-  content (employment history, skills, education sections), or shares job posting URLs asking
-  for CV customization. Handles multi-stage workflows: analyze current CV → identify gaps →
-  tailor to job description → optimize for ATS → polish language → verify formatting.
-author: Helpful Bob
-tags: [career, cv, resume, job-application, ats-optimization]
+description: |
+  Polish, optimize, and tailor CVs/resumes for job applications with ATS optimization and industry-specific best practices. Use when user mentions CV, resume, job application, ATS, career document, LinkedIn profile optimization, or asks to polish/review/tailor/improve their career documents. Also trigger when user uploads .docx, .pdf files with career-related content (employment history, skills, education sections), or shares job posting URLs asking for CV customization. Handles multi-stage workflows: analyze current CV → identify gaps → tailor to job description → optimize for ATS → polish language → verify formatting.
 ---
 
 ## 🎯 Core Use Cases
