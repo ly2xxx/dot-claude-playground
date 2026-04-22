@@ -1,0 +1,38 @@
+{
+  "eval_id": 2,
+  "eval_name": "rate-limiting",
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Implementation summary file is produced",
+      "passed": true,
+      "evidence": "implementation_summary.md present with full structured summary"
+    },
+    {
+      "text": "Summary mentions rate limiting or HTTP 429",
+      "passed": true,
+      "evidence": "Summary explicitly mentions '100 requests/minute', 'HTTP 429 Too Many Requests', and 'rate limiter'"
+    },
+    {
+      "text": "Summary mentions Redis",
+      "passed": true,
+      "evidence": "Summary states 'A Redis-backed per-IP rate limiter'; Redis key design section included"
+    },
+    {
+      "text": "Summary mentions Retry-After header",
+      "passed": true,
+      "evidence": "Key behaviours bullet: 'Rejection response: HTTP 429 Too Many Requests with Retry-After header (value = remaining TTL in seconds)'"
+    },
+    {
+      "text": "Summary includes a files-changed section or table",
+      "passed": true,
+      "evidence": "## Files Changed / Created markdown table with 8 rows"
+    },
+    {
+      "text": "Summary mentions tests",
+      "passed": true,
+      "evidence": "## Tests Added section with detailed breakdown of 12 unit + 18 integration tests (30 total passing)"
+    }
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}
+}

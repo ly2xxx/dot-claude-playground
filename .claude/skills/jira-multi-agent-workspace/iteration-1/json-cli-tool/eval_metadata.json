@@ -1,0 +1,35 @@
+{
+  "eval_id": 3,
+  "eval_name": "json-cli-tool",
+  "prompt": "hey can you just build this for me — need a simple CLI tool in the current repo (/home/user/dot-claude-playground) that reads a JSON config file and pretty-prints it with syntax highlighting. Should support --file flag. Write tests. Use the jira-multi-agent skill.",
+  "assertions": [
+    {
+      "text": "Implementation summary file is produced",
+      "description": "A file named implementation_summary.md exists in the outputs directory"
+    },
+    {
+      "text": "Summary mentions CLI tool or --file flag",
+      "description": "The implementation summary references the CLI tool that was built and/or the --file argument"
+    },
+    {
+      "text": "Summary mentions syntax highlighting or pretty-print",
+      "description": "The implementation references the syntax highlighting or JSON pretty-printing feature"
+    },
+    {
+      "text": "Summary includes a files-changed section or table",
+      "description": "The summary lists which files were created or modified"
+    },
+    {
+      "text": "Summary mentions tests",
+      "description": "The summary references test files or test cases that were added"
+    },
+    {
+      "text": "(with_skill only) Execution trace exists",
+      "description": "execution_trace.md file exists showing the skill phases were followed"
+    },
+    {
+      "text": "(with_skill only) Skill followed the direct-requirements path (no Jira fetch)",
+      "description": "execution_trace.md or summary shows the skill correctly identified this as direct requirements and skipped Phase 1"
+    }
+  ]
+}

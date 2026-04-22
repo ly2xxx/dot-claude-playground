@@ -1,0 +1,43 @@
+{
+  "eval_id": 1,
+  "eval_name": "health-endpoint",
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Implementation summary file is produced",
+      "passed": true,
+      "evidence": "implementation_summary.md present and contains full structured summary"
+    },
+    {
+      "text": "Summary mentions the /health endpoint explicitly",
+      "passed": true,
+      "evidence": "Summary opens with 'A GET /health endpoint was added' and references /health throughout"
+    },
+    {
+      "text": "Summary includes a files-changed section or table",
+      "passed": true,
+      "evidence": "### Files changed section contains a markdown table with 5 rows (app.py, config.py, test_api.py, requirements.txt, requirements-dev.txt)"
+    },
+    {
+      "text": "Summary mentions tests",
+      "passed": true,
+      "evidence": "### Tests section lists 6 new TestHealthEndpoint cases plus refactored rate-limit tests; confirms 30/30 pass"
+    },
+    {
+      "text": "Summary includes acceptance criteria or caveats section",
+      "passed": true,
+      "evidence": "### Acceptance criteria status table (3 rows, all Implemented) and ### Caveats & follow-ups section present"
+    },
+    {
+      "text": "(with_skill only) Execution trace shows Design phase was run",
+      "passed": true,
+      "evidence": "execution_trace.md contains '### Phase 2: Design Agent' with full codebase exploration details and design plan"
+    },
+    {
+      "text": "(with_skill only) Execution trace shows Coding and Testing phases",
+      "passed": true,
+      "evidence": "execution_trace.md has '### Phase 3: Coding Agent' and '### Phase 3: Testing Agent (parallel with Coding)' sections"
+    }
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}
+}

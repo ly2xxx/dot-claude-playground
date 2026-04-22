@@ -1,0 +1,43 @@
+{
+  "eval_id": 2,
+  "eval_name": "rate-limiting",
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Implementation summary file is produced",
+      "passed": true,
+      "evidence": "implementation_summary.md present with full structured summary"
+    },
+    {
+      "text": "Summary mentions rate limiting or HTTP 429",
+      "passed": true,
+      "evidence": "Summary opens with 'Redis-backed rate limiting middleware was added' and explicitly references HTTP 429 multiple times"
+    },
+    {
+      "text": "Summary mentions Redis",
+      "passed": true,
+      "evidence": "Redis mentioned as counter mechanism throughout: 'Redis-backed', 'Redis INCR + EXPIRE pipeline', 'Use Redis for the counter' in acceptance criteria"
+    },
+    {
+      "text": "Summary mentions Retry-After header",
+      "passed": true,
+      "evidence": "Acceptance criteria row 'Include Retry-After header on 429: Implemented' and files section references response.headers[\"Retry-After\"]"
+    },
+    {
+      "text": "Summary includes a files-changed section or table",
+      "passed": true,
+      "evidence": "## Files changed table with 8 rows (rate_limiter.py, app.py, config.py, __init__.py, requirements.txt, requirements-dev.txt, test_rate_limiter.py, test_api.py)"
+    },
+    {
+      "text": "Summary mentions tests",
+      "passed": true,
+      "evidence": "## Tests section with 2-row table; 12 unit tests and 18 integration tests; 'Total: 30 tests, all passing'"
+    },
+    {
+      "text": "(with_skill only) Execution trace shows multi-agent phases",
+      "passed": true,
+      "evidence": "execution_trace.md summary table shows all 8 phases with separate Design Agent, Coding Agent, Testing Agent rows and their outcomes"
+    }
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}
+}

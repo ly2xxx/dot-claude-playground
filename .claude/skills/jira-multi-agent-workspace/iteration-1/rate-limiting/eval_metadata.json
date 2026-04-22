@@ -1,0 +1,35 @@
+{
+  "eval_id": 2,
+  "eval_name": "rate-limiting",
+  "prompt": "Can you implement this story for me? Requirements: Add rate limiting to the REST API — max 100 requests per minute per IP address. If exceeded, return HTTP 429 with a Retry-After header. Use Redis for the counter. The codebase is in /home/user/dot-claude-playground. Use the jira-multi-agent skill.",
+  "assertions": [
+    {
+      "text": "Implementation summary file is produced",
+      "description": "A file named implementation_summary.md exists in the outputs directory"
+    },
+    {
+      "text": "Summary mentions rate limiting or HTTP 429",
+      "description": "The implementation summary references rate limiting, 429 status code, or request throttling"
+    },
+    {
+      "text": "Summary mentions Redis",
+      "description": "The implementation summary references Redis as the counter/storage mechanism"
+    },
+    {
+      "text": "Summary mentions Retry-After header",
+      "description": "The implementation references the Retry-After response header"
+    },
+    {
+      "text": "Summary includes a files-changed section or table",
+      "description": "The summary lists which files were created or modified"
+    },
+    {
+      "text": "Summary mentions tests",
+      "description": "The summary references test files or test cases that were added"
+    },
+    {
+      "text": "(with_skill only) Execution trace shows multi-agent phases",
+      "description": "execution_trace.md shows Design, Coding, and Testing agents were invoked separately"
+    }
+  ]
+}

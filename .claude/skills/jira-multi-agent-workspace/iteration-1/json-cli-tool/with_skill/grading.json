@@ -1,0 +1,43 @@
+{
+  "eval_id": 3,
+  "eval_name": "json-cli-tool",
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Implementation summary file is produced",
+      "passed": true,
+      "evidence": "implementation_summary.md present with full structured summary"
+    },
+    {
+      "text": "Summary mentions CLI tool or --file flag",
+      "passed": true,
+      "evidence": "Summary opens with 'A Python CLI tool (tools/json_pretty/cli.py)' and acceptance criteria row 'CLI tool reads a JSON config file: Implemented'; --file flag mentioned in supported flags list"
+    },
+    {
+      "text": "Summary mentions syntax highlighting or pretty-print",
+      "passed": true,
+      "evidence": "Summary: 'pretty-prints it with terminal syntax highlighting powered by pygments'; acceptance criteria 'Syntax highlighting: Implemented'"
+    },
+    {
+      "text": "Summary includes a files-changed section or table",
+      "passed": true,
+      "evidence": "### Files changed table with 4 rows (cli.py, __init__.py, tests/__init__.py, tests/test_cli.py)"
+    },
+    {
+      "text": "Summary mentions tests",
+      "passed": true,
+      "evidence": "### Tests section: '29 test cases across 5 test classes' with breakdown; acceptance criteria 'Tests written: Implemented (29 passing pytest cases)'"
+    },
+    {
+      "text": "(with_skill only) Execution trace exists",
+      "passed": true,
+      "evidence": "execution_trace.md file exists and contains all 6 phases with detailed per-phase actions"
+    },
+    {
+      "text": "(with_skill only) Skill followed the direct-requirements path (no Jira fetch)",
+      "passed": true,
+      "evidence": "execution_trace.md Phase 0: 'Received direct requirements (no Jira ticket number)... skip Phase 1 (Jira fetch)'; Phase 1: 'Skipped — input was direct requirements'"
+    }
+  ],
+  "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}
+}

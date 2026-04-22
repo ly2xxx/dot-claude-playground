@@ -1,0 +1,188 @@
+{
+  "metadata": {
+    "skill_name": "jira-multi-agent",
+    "skill_path": ".claude/skills/jira-multi-agent",
+    "executor_model": "claude-sonnet-4-6",
+    "analyzer_model": "claude-sonnet-4-6",
+    "timestamp": "2026-04-14T23:30:00Z",
+    "evals_run": ["health-endpoint", "rate-limiting", "json-cli-tool"],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "eval_name": "health-endpoint",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 331.0,
+        "tokens": 57786,
+        "tool_calls": 68,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Implementation summary file is produced", "passed": true, "evidence": "implementation_summary.md present and contains full structured summary"},
+        {"text": "Summary mentions the /health endpoint explicitly", "passed": true, "evidence": "Summary opens with 'A GET /health endpoint was added'"},
+        {"text": "Summary includes a files-changed section or table", "passed": true, "evidence": "### Files changed table with 5 rows"},
+        {"text": "Summary mentions tests", "passed": true, "evidence": "### Tests section lists 6 new TestHealthEndpoint cases; confirms 30/30 pass"},
+        {"text": "Summary includes acceptance criteria or caveats section", "passed": true, "evidence": "### Acceptance criteria status table and ### Caveats & follow-ups present"},
+        {"text": "(with_skill only) Execution trace shows Design phase was run", "passed": true, "evidence": "execution_trace.md Phase 2: Design Agent section with full codebase exploration"},
+        {"text": "(with_skill only) Execution trace shows Coding and Testing phases", "passed": true, "evidence": "Phase 3: Coding Agent and Phase 3: Testing Agent (parallel) sections in execution_trace.md"}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "health-endpoint",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 160.0,
+        "tokens": 23846,
+        "tool_calls": 39,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Implementation summary file is produced", "passed": true, "evidence": "implementation_summary.md present with structured sections"},
+        {"text": "Summary mentions the /health endpoint explicitly", "passed": true, "evidence": "Summary states 'A /health endpoint was added to the Python Flask API'"},
+        {"text": "Summary includes a files-changed section or table", "passed": true, "evidence": "## Files Changed table with 6 rows"},
+        {"text": "Summary mentions tests", "passed": true, "evidence": "## Tests Added section with 6 test cases"},
+        {"text": "Summary includes acceptance criteria or caveats section", "passed": true, "evidence": "## Caveats / Acceptance Criteria table with 7 rows"}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "rate-limiting",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 414.7,
+        "tokens": 62716,
+        "tool_calls": 74,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Implementation summary file is produced", "passed": true, "evidence": "implementation_summary.md present with full structured summary"},
+        {"text": "Summary mentions rate limiting or HTTP 429", "passed": true, "evidence": "Summary opens with 'Redis-backed rate limiting middleware was added'"},
+        {"text": "Summary mentions Redis", "passed": true, "evidence": "Redis mentioned throughout: 'Redis INCR + EXPIRE pipeline'"},
+        {"text": "Summary mentions Retry-After header", "passed": true, "evidence": "Acceptance criteria row 'Include Retry-After header on 429: Implemented'"},
+        {"text": "Summary includes a files-changed section or table", "passed": true, "evidence": "## Files changed table with 8 rows"},
+        {"text": "Summary mentions tests", "passed": true, "evidence": "## Tests section; 12 unit + 18 integration = 30 total passing"},
+        {"text": "(with_skill only) Execution trace shows multi-agent phases", "passed": true, "evidence": "execution_trace.md summary table with Design Agent, Coding Agent, Testing Agent rows"}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "rate-limiting",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 335.1,
+        "tokens": 48739,
+        "tool_calls": 61,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Implementation summary file is produced", "passed": true, "evidence": "implementation_summary.md present"},
+        {"text": "Summary mentions rate limiting or HTTP 429", "passed": true, "evidence": "Summary mentions '100 requests/minute', 'HTTP 429 Too Many Requests'"},
+        {"text": "Summary mentions Redis", "passed": true, "evidence": "'A Redis-backed per-IP rate limiter' and Redis key design section"},
+        {"text": "Summary mentions Retry-After header", "passed": true, "evidence": "'Retry-After header (value = remaining TTL in seconds)' in key behaviours"},
+        {"text": "Summary includes a files-changed section or table", "passed": true, "evidence": "## Files Changed / Created table with 8 rows"},
+        {"text": "Summary mentions tests", "passed": true, "evidence": "## Tests Added: 12 unit + 18 integration = 30 total passing"}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "eval_name": "json-cli-tool",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 208.3,
+        "tokens": 39906,
+        "tool_calls": 34,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Implementation summary file is produced", "passed": true, "evidence": "implementation_summary.md present"},
+        {"text": "Summary mentions CLI tool or --file flag", "passed": true, "evidence": "'A Python CLI tool (tools/json_pretty/cli.py)'; --file flag in flags list"},
+        {"text": "Summary mentions syntax highlighting or pretty-print", "passed": true, "evidence": "'syntax highlighting powered by pygments'"},
+        {"text": "Summary includes a files-changed section or table", "passed": true, "evidence": "### Files changed table with 4 rows"},
+        {"text": "Summary mentions tests", "passed": true, "evidence": "### Tests: 29 test cases across 5 test classes"},
+        {"text": "(with_skill only) Execution trace exists", "passed": true, "evidence": "execution_trace.md present with all 6 phases"},
+        {"text": "(with_skill only) Skill followed the direct-requirements path (no Jira fetch)", "passed": true, "evidence": "Phase 0: 'skip Phase 1 (Jira fetch)'; Phase 1: 'Skipped — input was direct requirements'"}
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "eval_name": "json-cli-tool",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 184.7,
+        "tokens": 35872,
+        "tool_calls": 37,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "Implementation summary file is produced", "passed": true, "evidence": "implementation_summary.md present"},
+        {"text": "Summary mentions CLI tool or --file flag", "passed": true, "evidence": "'A Python CLI tool' and '--file (required)' flag"},
+        {"text": "Summary mentions syntax highlighting or pretty-print", "passed": true, "evidence": "'pretty-prints it with ANSI syntax highlighting via pygments'"},
+        {"text": "Summary includes a files-changed section or table", "passed": true, "evidence": "## Files created table with 3 rows"},
+        {"text": "Summary mentions tests", "passed": true, "evidence": "28 pytest tests in 5 classes; all 28 passed"}
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0},
+      "time_seconds": {"mean": 318.0, "stddev": 103.8, "min": 208.3, "max": 414.7},
+      "tokens": {"mean": 53469, "stddev": 12002, "min": 39906, "max": 62716}
+    },
+    "without_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0},
+      "time_seconds": {"mean": 226.6, "stddev": 94.8, "min": 160.0, "max": 335.1},
+      "tokens": {"mean": 36152, "stddev": 12448, "min": 23846, "max": 48739}
+    },
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": "+91.4",
+      "tokens": "+17317"
+    }
+  },
+  "notes": [
+    "All assertions pass in both configurations (100% pass rate) — current assertions check for output presence and keyword coverage, which both configs handle well. More discriminating assertions should target skill-specific behaviours: structured multi-agent phases, execution trace depth, acceptance criteria granularity.",
+    "with_skill uses +17317 tokens and +91.4s on average — the cost of 3-agent orchestration. For complex Jira tickets with deep codebases this overhead buys structured design docs and traceable phase execution.",
+    "without_skill produces correct, working implementations but skips the design phase — no codebase exploration plan, no explicit acceptance criteria mapping, no test scenario planning.",
+    "Eval 2 (rate-limiting) was the heaviest eval for both configs: with_skill 414.7s/62716 tokens, without_skill 335.1s/48739 tokens. The extra Redis + Flask scaffold complexity explains the gap.",
+    "The skill correctly routes all 3 evals through the direct-requirements path (Phase 1 Jira fetch skipped), matching the casual/explicit requirement inputs. A Jira-ticket eval would test Phase 1 fetch and MCP tool integration."
+  ]
+}
