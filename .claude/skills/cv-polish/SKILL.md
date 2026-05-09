@@ -1,7 +1,7 @@
 ---
 name: cv-polish
 description: |
-  Polish, optimize, and tailor CVs/resumes for job applications with ATS optimization and industry-specific best practices. Use when user mentions CV, resume, job application, ATS, career document, LinkedIn profile optimization, or asks to polish/review/tailor/improve their career documents. Also trigger when user uploads .docx, .pdf files with career-related content (employment history, skills, education sections), or shares job posting URLs asking for CV customization. Handles multi-stage workflows: analyze current CV → identify gaps → tailor to job description → optimize for ATS → polish language → verify formatting.
+  Polish, optimize, and tailor CVs/resumes for job applications with ATS optimization and industry-specific best practices. Use when user mentions CV, resume, job application, ATS, career document, LinkedIn profile optimization, or asks to polish/review/tailor/improve their career documents. Also trigger when user uploads .docx, .pdf files with career-related content (employment history, skills, education sections), or shares job posting URLs asking for CV customization. Handles multi-stage workflows: analyze current CV → identify gaps → tailor to job description → optimize for ATS → polish language → verify formatting. Can also export the polished CV as a PDF on request by delegating to the `generate-pdf` skill.
 ---
 
 ## 🎯 Core Use Cases
@@ -48,6 +48,15 @@ This skill handles six primary workflows:
 - Maintain master CV in `assets/`
 - Generate tailored versions with different emphasis
 - Track changes and versions
+
+### 7. **PDF Export**
+**User says:** "Generate a PDF of my CV", "Export this as PDF", "Give me a PDF version"
+- Save (or confirm) the polished CV as a markdown file in `assets/` (e.g. `CV_Yang_Li_2026.md`)
+- Delegate PDF rendering to the **`generate-pdf` skill** by invoking it via the `Skill` tool with the markdown path as the argument
+  - Example: invoke `Skill` with `skill: "generate-pdf"`, `args: "assets/CV_Yang_Li_2026.md"`
+- The generate-pdf skill writes the PDF to `output/pdfs/<filename>.pdf`
+- Report the final PDF path back to the user
+- Only trigger this branch when the user explicitly asks for a PDF — don't generate one automatically after a polish pass
 
 ---
 
@@ -544,6 +553,7 @@ A successful CV polish session results in:
 - `"Make my CV ATS-friendly"` → Check and fix ATS issues
 - `"Help me rewrite this bullet point: [paste text]"` → Improve specific achievement
 - `"Create a tech industry version of my CV"` → Industry-specific variant
+- `"Generate a PDF of my CV"` → Export polished CV to PDF via the `generate-pdf` skill
 
 ---
 
