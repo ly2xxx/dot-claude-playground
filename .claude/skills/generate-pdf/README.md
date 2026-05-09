@@ -16,7 +16,3 @@ One caveat worth flagging: `generate-pdf/SKILL.md:5` has `disable-model-invocati
 - Use the full path from `C:\` or a path relative to `.claude/skills/generate-pdf/`.
 - For testing without the full path, create a symlink (Windows `mklink /J`) from inside the skill directory: `mklink /J myproject ..\..\..\code\DevOps-labs\python-apps\myproject`.
 
-## Security
-
-This skill intentionally does **not** have `disable-model-invocation: true` in `SKILL.md`. That means it can be triggered directly by users, so ensure you trust the markdown sources you point it to. (We left the flag out because you said explicitly "it should be callable directly by users", but the security-first stance is important.)
-
