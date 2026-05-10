@@ -1,7 +1,6 @@
 ---
 name: generate-pdf
 description: Generate a professional PDF from a markdown file. Use when converting .md files to .pdf format or when user requests PDF generation.
-disable-model-invocation: true
 argument-hint: [filename.md]
 ---
 
