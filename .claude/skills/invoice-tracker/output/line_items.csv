@@ -1,0 +1,105 @@
+invoice_no,invoice_date,period_from,period_to,category,charge_date,vendor,description,total_amount,share,your_cost
+1883739,15/08/2025,29/05/2025,28/08/2025,Cleaning,05/08/2025,KC Janitorial Ltd,"Common Cleaning: 06/05/2025 - 05/08/2025",1586.22,1/35,45.33
+1883739,15/08/2025,29/05/2025,28/08/2025,Electricity,31/01/2024,SSE Scottish Hydro - A/C 00000000,"Common electricity supply : 12/10/2023 - 31/01/2024",11444.43,1/35,326.98
+1883739,15/08/2025,29/05/2025,28/08/2025,Electricity,01/06/2025,Ecotricity DD,"Common electricity supply 1: 15/03/2025 - 01/07/2025",1600.71,1/35,45.73
+1883739,15/08/2025,29/05/2025,28/08/2025,Lift Maintenance,30/06/2025,Chess ICT Ltd,"Lift telephone charges: 01/03/2025 - 30/06/2025",184.23,1/35,5.28
+1883739,15/08/2025,29/05/2025,28/08/2025,Life System,30/04/2025,PTM Security Solutions Ltd,"Sim card charge for the GSM door access system: 01/04/2025 - 30/04/2025",9.90,1/35,0.29
+1883739,15/08/2025,29/05/2025,28/08/2025,Life System,23/05/2025,PTM Security Solutions Ltd,"Attended site and downloaded CCTV footage from mailbox camera",148.50,1/35,4.25
+1883739,15/08/2025,29/05/2025,28/08/2025,Life System,31/05/2025,PTM Security Solutions Ltd,"Sim card charges for GSM door access system : 01/05/2025 - 31/05/2025",19.70,1/35,0.56
+1883739,15/08/2025,29/05/2025,28/08/2025,Life System,13/06/2025,PTM Security Solutions Ltd,"Quarterly fire alarm service",94.56,1/35,2.70
+1883739,15/08/2025,29/05/2025,28/08/2025,Life System,04/07/2025,VWS (UK) T/A Veolia Water Technologies,"Water testing & certification",570.00,1/35,16.28
+1883739,15/08/2025,29/05/2025,28/08/2025,Life System,10/07/2025,ASD Electrical Contractors Ltd,"Emergency lighting repair",723.36,1/18,40.19
+1883739,15/08/2025,29/05/2025,28/08/2025,Life System,10/07/2025,ASD Electrical Contractors Ltd,"Emergency lighting repair",723.60,1/35,20.68
+1883739,15/08/2025,29/05/2025,28/08/2025,Life System,31/07/2025,PTM Security Solutions Ltd,"Door entry SIM card charge: 26/06/2025 - 31/07/2025",22.90,1/35,0.66
+1883739,15/08/2025,29/05/2025,28/08/2025,Repairs,31/08/2024,Ritchie Mackenzie & Co Ltd,"vecon drive at pump",1969.20,1/35,56.27
+1883739,15/08/2025,29/05/2025,28/08/2025,Repairs,31/10/2024,Ritchie Mackenzie & Co Ltd,"Service checks of 1 x booster set",216.00,1/35,6.17
+1883739,15/08/2025,29/05/2025,28/08/2025,Repairs,23/04/2025,PTM Security Solutions Ltd,"Attended site to re-fit fan control cabinet to the wall: 26/03/2025 - 23/04/2025",484.50,1/35,13.85
+1883739,15/08/2025,29/05/2025,28/08/2025,Repairs,31/05/2025,Ritchie Mackenzie & Co Ltd,"Replace faulty ball valves",1378.52,1/35,39.38
+1883739,15/08/2025,29/05/2025,28/08/2025,Repairs,01/06/2025,PTM Security Solutions Ltd,"Quarterly service and inspection car park garage shutter: 01/06/2025 - 30/09/2025",520.08,1/18,28.90
+1883739,15/08/2025,29/05/2025,28/08/2025,Repairs,17/06/2025,PTM Security Solutions Ltd,"Attended site and removed snib from fire door. Dry riser door was detached from wall so attached timber batons to secure door",103.94,1/35,2.96
+1883739,15/08/2025,29/05/2025,28/08/2025,Repairs,01/07/2025,PTM Security Solutions Ltd,"Attended site to program numbers as requested",36.00,1/35,1.03
+1883739,15/08/2025,29/05/2025,28/08/2025,Management Fee,28/08/2025,Newton Property Management Ltd,"E-billing Discount: 29/08/2025 - 28/11/2025",-7.42,1/1,-7.42
+1883739,15/08/2025,29/05/2025,28/08/2025,Management Fee,29/08/2025,Newton Property Management Ltd,"Management Fee: 29/08/2025 - 28/11/2025",80.28,1/1,80.28
+1883739,15/08/2025,29/05/2025,28/08/2025,Insurance,26/08/2025,HDN- NIG - 2025-2026,"Quarterly Buildings Insurance: 26/08/2025 - 25/11/2025",173.18,1/1,173.18
+1933254,14/11/2025,29/08/2025,28/11/2025,Cleaning,07/10/2025,Columbus Facilities Maintenance Ltd,"Bulk uplift",132.00,1/35,3.77
+1933254,14/11/2025,29/08/2025,28/11/2025,Cleaning,05/11/2025,KC Janitorial Ltd,"Common Cleaning: 06/08/2025 - 05/11/2025",1586.22,1/35,45.33
+1933254,14/11/2025,29/08/2025,28/11/2025,Electricity,01/09/2025,Ecotricity DD,"Common electricity supply 1: 01/04/2025 - 01/10/2025",5053.31,1/35,144.38
+1933254,14/11/2025,29/08/2025,28/11/2025,Lift Maintenance,30/09/2025,Hart Lifts Ltd,"Lift maintenance contract: 01/07/2025 - 30/09/2025",263.40,1/35,7.52
+1933254,14/11/2025,29/08/2025,28/11/2025,Lift Maintenance,30/09/2025,Chess ICT Ltd,"Lift telephone charges: 01/07/2025 - 30/09/2025",138.10,1/35,3.96
+1933254,14/11/2025,29/08/2025,28/11/2025,Life System,08/08/2025,PTSG Electrical Services Ltd,"Test & Inspection of the Lighting Protection System",266.40,1/37,7.20
+1933254,14/11/2025,29/08/2025,28/11/2025,Life System,22/08/2025,PTM Security Solutions Ltd,"Door entry SIM card charge",10.50,1/35,0.30
+1933254,14/11/2025,29/08/2025,28/11/2025,Life System,08/09/2025,PTM Security Solutions Ltd,"Quarterly fire alarm service",94.56,1/35,2.70
+1933254,14/11/2025,29/08/2025,28/11/2025,Life System,10/09/2025,PTSG Electrical Services Ltd,"Repairs to the lightening protection system",582.35,1/37,15.74
+1933254,14/11/2025,29/08/2025,28/11/2025,Life System,30/09/2025,PTM Security Solutions Ltd,"Quarterly service and inspection of car park garage ventilation: 01/06/2025 - 30/09/2025",94.20,1/18,5.23
+1933254,14/11/2025,29/08/2025,28/11/2025,Life System,30/09/2025,PTM Security Solutions Ltd,"Quarterly smoke extract sys service: 01/06/2025 - 30/09/2025",160.20,1/35,4.57
+1933254,14/11/2025,29/08/2025,28/11/2025,Life System,02/10/2025,Integra Building Solutions Ltd,"Dry riser visual inspection",78.00,1/35,2.23
+1933254,14/11/2025,29/08/2025,28/11/2025,Life System,07/10/2025,ASD Electrical Contractors Ltd,"Emergency lighting test - lower car park",59.40,1/18,3.30
+1933254,14/11/2025,29/08/2025,28/11/2025,Life System,07/10/2025,ASD Electrical Contractors Ltd,"Emergency lighting test - upper car park",59.40,1/18,3.30
+1933254,14/11/2025,29/08/2025,28/11/2025,Life System,07/10/2025,ASD Electrical Contractors Ltd,"Emergency lighting test",59.40,1/35,1.69
+1933254,14/11/2025,29/08/2025,28/11/2025,Repairs,01/07/2025,Newton Property Management Ltd,"Attended site to program numbers as requested",-36.00,1/35,-1.03
+1933254,14/11/2025,29/08/2025,28/11/2025,Repairs,15/07/2025,PTM Security Solutions Ltd,"Monitoring of CCTV",118.80,1/35,3.40
+1933254,14/11/2025,29/08/2025,28/11/2025,Repairs,17/07/2025,ONESCO Ltd,"Trace & locate water ingress: 26/06/2025 - 17/07/2025",385.86,1/35,11.03
+1933254,14/11/2025,29/08/2025,28/11/2025,Repairs,26/08/2025,AB Decorators,"Repairs to floor 11, 4, 1 & stairwell to ground",780.00,1/35,22.29
+1933254,14/11/2025,29/08/2025,28/11/2025,Repairs,11/09/2025,ONESCO Ltd,"Access flat roof area, uplift decking slabs, remove debris, apply liquid plastic with rematt webbing around outlet area and decking area.",1230.00,1/37,33.24
+1933254,14/11/2025,29/08/2025,28/11/2025,Repairs,11/09/2025,PTM Security Solutions Ltd,"Attended site and re-set controller for car park ventilation system. Allowed system to cool down and monitored operation",178.20,1/18,9.90
+1933254,14/11/2025,29/08/2025,28/11/2025,Repairs,30/09/2025,PTM Security Solutions Ltd,"Attended site and tested GSM door access system following reports of fault",74.24,1/35,2.12
+1933254,14/11/2025,29/08/2025,28/11/2025,Repairs,07/10/2025,Columbus Facilities Maintenance Ltd,"Replace damaged section of rubber mat anti slip tile",528.00,1/35,15.08
+1933254,14/11/2025,29/08/2025,28/11/2025,Maintenance,08/09/2025,PTM Security Solutions Ltd,"Bi-Annual service and inspection of CCTV system",118.80,1/35,3.40
+1933254,14/11/2025,29/08/2025,28/11/2025,Maintenance,30/09/2025,PTM Security Solutions Ltd,"Door entry SIM card charge",10.92,1/35,0.31
+1933254,14/11/2025,29/08/2025,28/11/2025,Maintenance,31/10/2025,PTM Security Solutions Ltd,"Door entry SIM card charge",10.80,1/35,0.31
+1933254,14/11/2025,29/08/2025,28/11/2025,Management Fee,29/11/2025,Newton Property Management Ltd,"E-billing Discount: 29/11/2025 - 28/02/2026",-7.42,1/1,-7.42
+1933254,14/11/2025,29/08/2025,28/11/2025,Management Fee,29/11/2025,Newton Property Management Ltd,"Management Fee: 29/11/2025 - 28/02/2026",80.28,1/1,80.28
+1933254,14/11/2025,29/08/2025,28/11/2025,Insurance,26/11/2025,HDN- NIG - 2025-2026,"Quarterly Buildings Insurance: 26/11/2025 - 25/02/2026",173.18,1/1,173.18
+1968807,23/02/2026,29/11/2025,28/02/2026,Cleaning,05/02/2026,KC Janitorial Ltd,"Common Cleaning: 06/11/2025 - 05/02/2026",1586.22,1/35,45.33
+1968807,23/02/2026,29/11/2025,28/02/2026,Grounds,17/11/2025,Cleansite Solutions Ltd,"Bulk uplift",180.00,1/35,5.15
+1968807,23/02/2026,29/11/2025,28/02/2026,Grounds,15/01/2026,City Drain Clear,"Service clean car park drains/gullys",60.00,1/18,3.34
+1968807,23/02/2026,29/11/2025,28/02/2026,Electricity,01/12/2025,Ecotricity DD,"Common electricity supply 1: 01/06/2025 - 01/01/2026",3450.99,1/35,98.59
+1968807,23/02/2026,29/11/2025,28/02/2026,Lift Maintenance,31/12/2025,Chess ICT Ltd,"Lift telephone charges: 01/10/2025 - 31/12/2025",138.13,1/35,3.96
+1968807,23/02/2026,29/11/2025,28/02/2026,Life System,22/12/2025,PTM Security Solutions Ltd,"Door entry SIM card charge",10.80,1/35,0.31
+1968807,23/02/2026,29/11/2025,28/02/2026,Life System,31/12/2025,PTM Security Solutions Ltd,"Quarterly service and inspection of car park ventilation: 01/09/2025 - 31/12/2025",94.20,1/18,5.23
+1968807,23/02/2026,29/11/2025,28/02/2026,Life System,31/12/2025,PTM Security Solutions Ltd,"Quarterly smoke extract sys service: 01/09/2025 - 31/12/2025",66.00,1/35,1.88
+1968807,23/02/2026,29/11/2025,28/02/2026,Life System,31/12/2025,Hart Lifts Ltd,"Lift maintenance contract: 01/10/2025 - 31/12/2025",263.40,1/35,7.52
+1968807,23/02/2026,29/11/2025,28/02/2026,Life System,05/01/2026,VWS (UK) T/A Veolia Water Technologies,"Water testing & certification (6 month)",570.00,1/37,15.41
+1968807,23/02/2026,29/11/2025,28/02/2026,Repairs,31/10/2025,Ritchie Mackenzie & Co Ltd,"Service checks on 1 x Two Pump Booster Set",216.00,1/37,5.83
+1968807,23/02/2026,29/11/2025,28/02/2026,Repairs,14/11/2025,Hart Lifts Ltd,"Repairs to lift controller unit",291.60,1/35,8.33
+1968807,23/02/2026,29/11/2025,28/02/2026,Repairs,21/11/2025,Hart Lifts Ltd,"Renewed damaged lift door spring",191.88,1/35,5.48
+1968807,23/02/2026,29/11/2025,28/02/2026,Repairs,25/11/2025,Integra Building Solutions Ltd,"Replace dry riser inlet lock",90.00,1/35,2.57
+1968807,23/02/2026,29/11/2025,28/02/2026,Repairs,02/12/2025,PTM Security Solutions Ltd,"Attended site and inspected CCTV the DVR only holds APP 12 days of footage also there is no camera inside the lift cabin",59.40,1/35,1.69
+1968807,23/02/2026,29/11/2025,28/02/2026,Repairs,02/12/2025,ASD Electrical Contractors Ltd,"stairwell timeclock checked/re-set after report of faults between floors 2- 13",79.06,1/35,2.26
+1968807,23/02/2026,29/11/2025,28/02/2026,Repairs,16/12/2025,J.T. Mullen Building Services,"Trace & locate water ingress at common window- hole found on gutter behind window (hole sealed)",132.00,1/35,3.77
+1968807,23/02/2026,29/11/2025,28/02/2026,Repairs,21/12/2025,APS Safety Systems Limited,"Roof anchor inspection",388.80,1/37,10.51
+1968807,23/02/2026,29/11/2025,28/02/2026,Repairs,29/12/2025,Hart Lifts Ltd,"Return Lift to Service",160.80,1/35,4.60
+1968807,23/02/2026,29/11/2025,28/02/2026,Maintenance,30/11/2025,PTM Security Solutions Ltd,"Door entry SIM card charge",10.80,1/35,0.31
+1968807,23/02/2026,29/11/2025,28/02/2026,Maintenance,31/12/2025,PTM Security Solutions Ltd,"Quarterly service and inspection of car park ventilation: 01/09/2025 - 31/12/2025",94.20,1/18,5.23
+1968807,23/02/2026,29/11/2025,28/02/2026,Maintenance,31/12/2025,PTM Security Solutions Ltd,"Quarterly service and inspection of car park garage shutters: 01/09/2025 - 31/12/2025",520.08,1/35,14.86
+1968807,23/02/2026,29/11/2025,28/02/2026,Management Fee,01/03/2026,Newton Property Management Ltd,"E-billing Discount: 01/03/2026 - 28/05/2026",-7.72,1/1,-7.72
+1968807,23/02/2026,29/11/2025,28/02/2026,Management Fee,28/05/2026,Newton Property Management Ltd,"Management Fee: 01/03/2026 - 28/05/2026",86.50,1/1,86.50
+1968807,23/02/2026,29/11/2025,28/02/2026,Insurance,26/02/2026,DAWN- INTACT-26-27,"Quarterly buildings insurance: 26/02/2026 - 25/05/2026",181.01,1/1,181.01
+1968807,23/02/2026,29/11/2025,28/02/2026,Insurance,26/02/2026,DAWN ZURICH 26/27,"Annual Lift Insurance: 26/02/2026 - 25/02/2027",11.43,1/1,11.43
+2013624,15/05/2026,01/03/2026,28/05/2026,Cleaning,05/05/2026,KC Janitorial Ltd,"Common Cleaning: 06/02/2026 - 05/05/2026",1586.22,1/35,45.33
+2013624,15/05/2026,01/03/2026,28/05/2026,Electricity,01/03/2026,Ecotricity DD,"Common electricity supply 1: 01/01/2026 - 01/04/2026",2961.35,1/35,84.61
+2013624,15/05/2026,01/03/2026,28/05/2026,Miscellaneous,24/03/2026,PTM Security Solutions Ltd,"Door entry SIM card charge: 28/02/2026 - 24/03/2026",21.60,1/35,0.62
+2013624,15/05/2026,01/03/2026,28/05/2026,Lift Maintenance,31/03/2026,Hart Lifts Ltd,"Lift maintenance contract from 01/01/26- 31/03/26 : 01/01/2026 - 31/03/2026",263.40,1/35,7.52
+2013624,15/05/2026,01/03/2026,28/05/2026,Lift Maintenance,01/04/2026,Hart Lifts Ltd,"Lift maintenance contract: 01/04/2026 - 30/06/2026",263.40,1/35,7.52
+2013624,15/05/2026,01/03/2026,28/05/2026,Life System,17/12/2025,PTM Security Solutions Ltd,"Quarterly fire alarm service",94.56,1/35,2.70
+2013624,15/05/2026,01/03/2026,28/05/2026,Life System,31/01/2026,PTM Security Solutions Ltd,"Door entry SIM card charge",10.80,1/35,0.31
+2013624,15/05/2026,01/03/2026,28/05/2026,Life System,15/02/2026,PTM Security Solutions Ltd,"Reset fire alarm system",193.64,1/35,5.53
+2013624,15/05/2026,01/03/2026,28/05/2026,Life System,03/03/2026,PTM Security Solutions Ltd,"Bi-Annual CCTV maintenance",118.80,1/37,3.22
+2013624,15/05/2026,01/03/2026,28/05/2026,Life System,03/03/2026,PTM Security Solutions Ltd,"Quarterly service car park garage ventilation",94.20,1/18,5.23
+2013624,15/05/2026,01/03/2026,28/05/2026,Life System,24/03/2026,Integra Building Solutions Ltd,"Dry riser test Outlet seals replaced",204.00,1/37,5.51
+2013624,15/05/2026,01/03/2026,28/05/2026,Life System,31/03/2026,PTM Security Solutions Ltd,"Quarterly car park shutter inspection: 24/12/2025 - 31/03/2026",260.04,1/18,14.45
+2013624,15/05/2026,01/03/2026,28/05/2026,Life System,31/03/2026,PTM Security Solutions Ltd,"Quarterly car park shutter inspection x2: 24/12/2025 - 31/03/2026",260.04,1/18,14.45
+2013624,15/05/2026,01/03/2026,28/05/2026,Life System,31/03/2026,PTM Security Solutions Ltd,"Quarterly car park garage ventilation inspection: 19/12/2025 - 31/03/2026",94.20,1/18,5.23
+2013624,15/05/2026,01/03/2026,28/05/2026,Life System,31/03/2026,Chess ICT Ltd,"Lift telephone charges: 01/02/2026 - 31/03/2026",106.30,1/35,3.04
+2013624,15/05/2026,01/03/2026,28/05/2026,Life System,31/03/2026,PTM Security Solutions Ltd,"Quarterly smoke extract sys service: 17/12/2025 - 31/03/2026",66.00,1/35,1.88
+2013624,15/05/2026,01/03/2026,28/05/2026,Repairs,23/12/2025,PTM Security Solutions Ltd,"Door entry sim card change",36.00,1/35,1.03
+2013624,15/05/2026,01/03/2026,28/05/2026,Repairs,28/01/2026,Ritchie Mackenzie & Co Ltd,"Attended site to install new pump to replace missing pump",2167.49,1/37,58.58
+2013624,15/05/2026,01/03/2026,28/05/2026,Repairs,30/01/2026,Hart Lifts Ltd,"Repairs to lift (mis-use)",160.80,1/35,4.60
+2013624,15/05/2026,01/03/2026,28/05/2026,Repairs,05/02/2026,Argyle Locksmiths,"Lower car park door reset code",95.00,1/35,2.71
+2013624,15/05/2026,01/03/2026,28/05/2026,Repairs,16/02/2026,PTM Security Solutions Ltd,"Repair to upper car park shutter",237.60,1/18,13.20
+2013624,15/05/2026,01/03/2026,28/05/2026,Repairs,10/03/2026,PTSG Electrical Services Ltd,"To attend site and carry out the survey of 1x mansafe system located on the roof and certify",360.00,1/37,9.73
+2013624,15/05/2026,01/03/2026,28/05/2026,Maintenance,03/03/2026,PTM Security Solutions Ltd,"Quarterly car park lower shutter inspection",260.04,1/37,7.03
+2013624,15/05/2026,01/03/2026,28/05/2026,Maintenance,03/03/2026,PTM Security Solutions Ltd,"Quarterly car park upper shutter inspection",260.04,1/37,7.03
+2013624,15/05/2026,01/03/2026,28/05/2026,Management Fee,29/05/2026,Newton Property Management Ltd,"E-billing Discount: 29/05/2026 - 28/08/2026",-7.72,1/1,-7.72
+2013624,15/05/2026,01/03/2026,28/05/2026,Management Fee,28/08/2026,Newton Property Management Ltd,"Management Fee: 29/05/2026 - 28/08/2026",86.50,1/1,86.50
+2013624,15/05/2026,01/03/2026,28/05/2026,Insurance,26/05/2026,DAWN- INTACT-26-27,"Quarterly buildings insurance: 26/05/2026 - 25/08/2026",181.01,1/1,181.01
