@@ -12,14 +12,17 @@ description: >-
   invoice to its stated total, and produce a spreadsheet for year-end tax
   returns. Triggers include: "analyze my quarterly invoices", "factor invoice",
   "service charge invoice", "common charge", "track these costs for tax",
-  "highlight invoice anomalies", "categorize cost per vendor".
+  "highlight invoice anomalies", "categorize cost per vendor". Also triggers
+  whenever the user provides a single new invoice PDF to extend an existing
+  tracker — e.g. "here's this quarter's invoice", "add this invoice", "check my
+  latest factor invoice" — in which case append it to the CSVs and re-run.
 ---
 
 # Invoice Tracker
 
 Turn a stack of repeating invoices into (1) a clean, categorized cost-tracking
-spreadsheet for tax returns and (2) an anomaly report comparing the latest
-period against earlier ones.
+spreadsheet for tax returns and (2) a point-in-time anomaly report for **each**
+invoice, comparing it against the invoices dated before it.
 
 ## Division of labour (important)
 
@@ -31,7 +34,7 @@ period against earlier ones.
   detection, reconciliation and document writing. Never compute totals or
   "eyeball" anomalies by hand — let the script do it so results are repeatable.
 
-## Workflow
+## Workflow (first run / batch of invoices)
 
 1. **Locate the invoices.** Ask the user where they are if not obvious. Pick a
    working folder for outputs (e.g. an `output/` folder next to the invoices).
@@ -52,15 +55,35 @@ period against earlier ones.
    ```
    python scripts/build_tracker.py --input-dir <working-folder>
    ```
-   It writes `cost_tracker.xlsx` and `anomaly_report.md` into the same folder
-   (override with `--output-dir`). Requires `openpyxl` (`pip install openpyxl`).
+   It writes `cost_tracker.xlsx` plus one `anomaly_report_<invoice_no>.md` per
+   invoice into the same folder (override with `--output-dir`). Each invoice is
+   analysed as its own "current" period, compared only against the invoices
+   dated before it. Requires `openpyxl` (`pip install openpyxl`).
 
-5. **Confirm reconciliation.** Every invoice must show "Reconciles: yes"
-   (line-items sum == stated invoice total, within £0.01). If any says CHECK,
-   you mis-transcribed a line — fix the CSV and re-run before reporting results.
+5. **Confirm reconciliation.** Each report's Reconciliation line (and the
+   Summary sheet) must say it reconciles (line-items sum == stated invoice
+   total, within £0.01). If one says DOES NOT RECONCILE you mis-transcribed a
+   line — fix the CSV and re-run before reporting results.
 
-6. **Summarize for the user.** Walk through the anomalies (high severity first),
-   explain the tax-year totals, and point them to `cost_tracker.xlsx`.
+6. **Summarize for the user.** Lead with the newest invoice's report (high
+   severity findings first), explain the tax-year totals, and point them to
+   `cost_tracker.xlsx` and the per-invoice reports.
+
+## Adding a new invoice (the usual repeat trigger)
+
+When the user later drops in a **single new invoice PDF** (the common case once a
+tracker exists), do not start over:
+
+1. **Find the existing CSVs** (`line_items.csv`, `invoices.csv`) in the working
+   folder. If none exist, fall back to the first-run workflow above.
+2. **Read the new PDF** and extract its rows exactly as in steps 2–3.
+3. **Append** the new line rows to `line_items.csv` and the new footer row to
+   `invoices.csv`. Skip the append if that `invoice_no` is already present
+   (idempotent — never duplicate an invoice).
+4. **Re-run** `build_tracker.py`. It re-derives chronological order from the
+   period dates, so the new invoice becomes the current period automatically and
+   gets its own `anomaly_report_<invoice_no>.md`; earlier reports are unchanged.
+5. **Report** the new invoice's findings and the refreshed tax-year totals.
 
 ## CSV schemas
 
@@ -82,7 +105,7 @@ invoice_no,invoice_date,period_from,period_to,category,charge_date,vendor,descri
 - `total_amount` = full building charge; `share` = apportionment text like
   `1/35` or `1/1`; `your_cost` = the owner's column. Keep credits negative.
 
-## What the spreadsheet contains
+## Outputs
 
 `cost_tracker.xlsx` sheets:
 - **Summary** — per-invoice totals, reconciliation status, totals by tax year.
@@ -92,7 +115,11 @@ invoice_no,invoice_date,period_from,period_to,category,charge_date,vendor,descri
 - **By Category** / **By Vendor** — cost matrices (rows × each invoice + total).
 - **By Tax Year** — category × tax-year totals; the sheet to read off for a
   return.
-- **Anomalies** — every finding with severity, type and detail.
+- **Anomalies** — every finding across all invoices, with severity, type and detail.
+
+`anomaly_report_<invoice_no>.md` — one self-contained report per invoice, each
+with that invoice's reconciliation check, cost-by-category and cost-by-vendor
+tables, and its anomalies (grouped by type, high severity first).
 
 ## Anomaly checks (all in the script)
 
@@ -111,8 +138,10 @@ invoice_no,invoice_date,period_from,period_to,category,charge_date,vendor,descri
   the ratio band and above the materiality threshold.
 - **Credit / negative line** — informational list of discounts/reversals.
 
-The newest invoice (by period) is treated as the "current" period; drift checks
-compare it against all earlier ones.
+In each invoice's report that invoice is the "current" period, and drift checks
+(new/dropped vendor, recurring-item-missing, abnormal totals) compare it only
+against invoices dated before it. This point-in-time view means an older
+invoice's report never changes when later invoices are added.
 
 ## Tuning (flags)
 
@@ -133,5 +162,5 @@ compare it against all earlier ones.
   Accuracy depends on faithful transcription in step 2.
 - `assets/` holds a worked example — four quarterly Newton Property "Common
   Charge" invoice PDFs; running the skill on them produces the files in
-  `output/` (`line_items.csv`, `invoices.csv`, `cost_tracker.xlsx`,
-  `anomaly_report.md`).
+  `output/`: `line_items.csv`, `invoices.csv`, `cost_tracker.xlsx`, and one
+  `anomaly_report_<invoice_no>.md` per invoice.

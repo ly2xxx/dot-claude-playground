@@ -6,8 +6,9 @@ Reads two CSVs produced from the factor/service-charge invoices:
   - invoices.csv   : one row per invoice (footer totals + period)
 
 Writes:
-  - cost_tracker.xlsx : multi-sheet workbook for tax tracking
-  - anomaly_report.md : human-readable anomaly findings
+  - cost_tracker.xlsx            : multi-sheet workbook for tax tracking
+  - anomaly_report_<invoice>.md  : one point-in-time report per invoice, each
+                                   compared only against earlier invoices
 
 All money is treated as the owner's apportioned, VAT-inclusive cost
 (the "your_cost" column) unless stated otherwise. No figures are invented:
@@ -612,56 +613,86 @@ def _matrix_sheet(wb, title, items, order, invoices, key):
 # --------------------------------------------------------------------------
 # Markdown report
 # --------------------------------------------------------------------------
-def write_report(items, invoices, order, findings, cfg, out_path: Path):
-    by_inv = defaultdict(list)
-    for it in items:
-        by_inv[it["invoice_no"]].append(it)
-    lines = []
-    lines.append("# Quarterly invoice review\n")
-    lines.append(f"Invoices analysed (oldest to newest): {', '.join(order)}\n")
-    current = order[-1] if order else None
+def write_invoice_report(target_no, items, invoices, order, findings, cfg, out_path: Path):
+    """Per-invoice, point-in-time anomaly report for `target_no`.
 
-    lines.append("## Invoice totals\n")
-    lines.append("| Invoice | Period | Invoice total | Line-items sum | Reconciles |")
-    lines.append("|---|---|---:|---:|---|")
-    for no in order:
-        m = invoices.get(no, {})
-        s = round(sum(i["your_cost"] for i in by_inv[no]), 2)
-        ok = "yes" if m.get("invoice_total") is not None and abs(
-            s - m["invoice_total"]) <= 0.01 else "**CHECK**"
+    `order` ends with `target_no`; `items` covers only invoices up to it;
+    `findings` are those attributable to `target_no`."""
+    m = invoices.get(target_no, {})
+    cur_items = [it for it in items if it["invoice_no"] == target_no]
+    priors = order[:-1]
+
+    lines = []
+    lines.append(f"# Invoice {target_no} — anomaly report\n")
+    lines.append(f"- Invoice date: {fmt_date(m.get('invoice_date'))}")
+    lines.append(
+        f"- Charge period: {fmt_date(m.get('period_from'))} to "
+        f"{fmt_date(m.get('period_to'))}"
+    )
+    lines.append(
+        f"- Tax year (by period end): "
+        f"{tax_year(m.get('period_to'), cfg.tax_start_day, cfg.tax_start_month)}\n"
+    )
+
+    s = round(sum(i["your_cost"] for i in cur_items), 2)
+    stated = m.get("invoice_total")
+    if stated is not None:
+        ok = "reconciles" if abs(s - stated) <= 0.01 else "**DOES NOT RECONCILE**"
         lines.append(
-            f"| {no} | {fmt_date(m.get('period_from'))}-{fmt_date(m.get('period_to'))} "
-            f"| {m.get('invoice_total', 0):.2f} | {s:.2f} | {ok} |"
+            f"**Reconciliation:** line items sum to {s:.2f}; stated invoice total "
+            f"{stated:.2f} — {ok}.\n"
         )
+    else:
+        lines.append(f"**Reconciliation:** line items sum to {s:.2f}.\n")
+
+    lines.append("## Cost by category (this invoice)\n")
+    lines.append("| Category | Your cost |")
+    lines.append("|---|---:|")
+    cat_t = defaultdict(float)
+    for it in cur_items:
+        cat_t[it["category"]] += it["your_cost"]
+    for cat in sorted(cat_t, key=lambda c: -cat_t[c]):
+        lines.append(f"| {cat} | {round(cat_t[cat], 2):.2f} |")
+    lines.append(f"| **Total** | **{s:.2f}** |")
+    lines.append("")
+
+    lines.append("## Cost by source / vendor (this invoice)\n")
+    lines.append("| Vendor | Your cost |")
+    lines.append("|---|---:|")
+    ven_t = defaultdict(float)
+    for it in cur_items:
+        ven_t[it["vendor"]] += it["your_cost"]
+    for v in sorted(ven_t, key=lambda x: -ven_t[x]):
+        lines.append(f"| {v} | {round(ven_t[v], 2):.2f} |")
     lines.append("")
 
     sev_order = {"high": 0, "medium": 1, "low": 2}
-    by_type = defaultdict(list)
-    for f in findings:
-        by_type[f["type"]].append(f)
-
     n_high = sum(1 for f in findings if f["severity"] == "high")
     n_med = sum(1 for f in findings if f["severity"] == "medium")
     n_low = sum(1 for f in findings if f["severity"] == "low")
     lines.append(
-        f"## Anomalies: {len(findings)} total "
-        f"({n_high} high, {n_med} medium, {n_low} low)\n"
+        f"## Anomalies: {len(findings)} ({n_high} high, {n_med} medium, {n_low} low)\n"
     )
-    if current:
-        lines.append(
-            f"*Drift checks compare the current quarter (**{current}**) against the "
-            f"{len(order) - 1} earlier quarter(s).*\n"
-        )
+    if priors:
+        lines.append(f"*Compared against {len(priors)} earlier invoice(s): "
+                     f"{', '.join(priors)}.*\n")
+    else:
+        lines.append("*Earliest invoice on record — no prior period to compare "
+                     "against, so only within-invoice checks ran.*\n")
 
-    for atype in sorted(by_type, key=lambda t: min(sev_order.get(x["severity"], 3)
-                                                    for x in by_type[t])):
-        group = sorted(by_type[atype], key=lambda x: sev_order.get(x["severity"], 3))
-        lines.append(f"### {atype} ({len(group)})\n")
-        for f in group:
-            tag = f["severity"].upper()
-            loc = f" [{f['invoice_no']}]" if f["invoice_no"] else ""
-            lines.append(f"- **{tag}**{loc} {f['detail']}")
-        lines.append("")
+    if not findings:
+        lines.append("No anomalies detected.\n")
+    else:
+        by_type = defaultdict(list)
+        for f in findings:
+            by_type[f["type"]].append(f)
+        for atype in sorted(by_type, key=lambda t: min(sev_order.get(x["severity"], 3)
+                                                        for x in by_type[t])):
+            group = sorted(by_type[atype], key=lambda x: sev_order.get(x["severity"], 3))
+            lines.append(f"### {atype} ({len(group)})\n")
+            for f in group:
+                lines.append(f"- **{f['severity'].upper()}** {f['detail']}")
+            lines.append("")
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text("\n".join(lines), encoding="utf-8")
@@ -692,21 +723,31 @@ def main():
     order = sorted(invoices, key=lambda n: (invoices[n]["period_from"] or date.min,
                                             invoices[n]["invoice_date"] or date.min))
 
-    findings = detect_anomalies(items, invoices, order, cfg)
+    # One point-in-time report per invoice: each invoice is analysed as the
+    # "current" period, seeing only the invoices chronologically before it.
+    all_findings = []
+    reports = []
+    for idx, no in enumerate(order):
+        sub_order = order[: idx + 1]
+        sub_set = set(sub_order)
+        sub_items = [it for it in items if it["invoice_no"] in sub_set]
+        f = detect_anomalies(sub_items, invoices, sub_order, cfg)
+        rep = out_dir / f"anomaly_report_{no}.md"
+        write_invoice_report(no, sub_items, invoices, sub_order, f, cfg, rep)
+        all_findings.extend(f)
+        reports.append((no, rep, f))
+
     xlsx = out_dir / "cost_tracker.xlsx"
-    report = out_dir / "anomaly_report.md"
-    build_workbook(items, invoices, order, findings, cfg, xlsx)
-    write_report(items, invoices, order, findings, cfg, report)
+    build_workbook(items, invoices, order, all_findings, cfg, xlsx)
 
     grand = round(sum(it["your_cost"] for it in items), 2)
     print(f"Invoices: {len(order)}  Line items: {len(items)}  "
           f"Total your-cost: {grand:.2f}")
-    print(f"Anomalies: {len(findings)} "
-          f"(high={sum(1 for f in findings if f['severity']=='high')}, "
-          f"medium={sum(1 for f in findings if f['severity']=='medium')}, "
-          f"low={sum(1 for f in findings if f['severity']=='low')})")
     print(f"Wrote: {xlsx}")
-    print(f"Wrote: {report}")
+    print("Per-invoice reports (newest first):")
+    for no, rep, f in reversed(reports):
+        nh = sum(1 for x in f if x["severity"] == "high")
+        print(f"  {rep.name}: {len(f)} anomalies ({nh} high)")
 
 
 if __name__ == "__main__":
