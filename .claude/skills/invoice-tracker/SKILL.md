@@ -38,6 +38,9 @@ invoice, comparing it against the invoices dated before it.
 
 1. **Locate the invoices.** Ask the user where they are if not obvious. Pick a
    working folder for outputs (e.g. an `output/` folder next to the invoices).
+   **Ignore anything under an `adhoc/` folder** (e.g. `assets/adhoc/`): those are
+   one-off / non-quarterly documents the user keeps on purpose — never read them
+   into the CSVs or count them toward the tracker.
 
 2. **Read every invoice** with the Read tool. For each one capture: invoice
    number, invoice date, the charge period (From / To), and every charge line
@@ -160,6 +163,9 @@ invoice's report never changes when later invoices are added.
   sheet's other date columns.
 - The script never invents figures; it only aggregates and compares the CSVs.
   Accuracy depends on faithful transcription in step 2.
+- **Always skip files under any `adhoc/` folder** (e.g. `assets/adhoc/`). These
+  are deliberately kept out of scope — do not extract, count, or reconcile them,
+  whether on a first run or when adding a new invoice.
 - `assets/` holds a worked example — four quarterly Newton Property "Common
   Charge" invoice PDFs; running the skill on them produces the files in
   `output/`: `line_items.csv`, `invoices.csv`, `cost_tracker.xlsx`, and one
