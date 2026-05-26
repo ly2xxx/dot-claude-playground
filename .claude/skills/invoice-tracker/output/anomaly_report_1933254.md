@@ -38,24 +38,30 @@
 | Chess ICT Ltd | 3.96 |
 | Integra Building Solutions Ltd | 2.23 |
 
-## Anomalies: 29 (0 high, 21 medium, 8 low)
+## Anomalies: 32 (0 high, 24 medium, 8 low)
 
 *Compared against 1 earlier invoice(s): 1883739.*
 
 ### Charge date outside invoice period (8)
 
-- **MEDIUM** Charged 01/07/2025 (59 days before period start); period 29/08/2025-28/11/2025. "Attended site to program numbers as requested"
-- **MEDIUM** Charged 15/07/2025 (45 days before period start); period 29/08/2025-28/11/2025. "Monitoring of CCTV"
-- **MEDIUM** Charged 17/07/2025 (43 days before period start); period 29/08/2025-28/11/2025. "Trace & locate water ingress: 26/06/2025 - 17/07/2025"
-- **LOW** Charged 08/08/2025 (21 days before period start); period 29/08/2025-28/11/2025. "Test & Inspection of the Lighting Protection System"
-- **LOW** Charged 22/08/2025 (7 days before period start); period 29/08/2025-28/11/2025. "Door entry SIM card charge"
-- **LOW** Charged 26/08/2025 (3 days before period start); period 29/08/2025-28/11/2025. "Repairs to floor 11, 4, 1 & stairwell to ground"
-- **LOW** Charged 29/11/2025 (1 days after period end); period 29/08/2025-28/11/2025. "E-billing Discount: 29/11/2025 - 28/02/2026"
-- **LOW** Charged 29/11/2025 (1 days after period end); period 29/08/2025-28/11/2025. "Management Fee: 29/11/2025 - 28/02/2026"
+- **MEDIUM** Charged 01/07/2025 (59 days before period start); period 29/08/2025-28/11/2025; £-1.03. "Attended site to program numbers as requested"
+- **MEDIUM** Charged 15/07/2025 (45 days before period start); period 29/08/2025-28/11/2025; £3.40. "Monitoring of CCTV"
+- **MEDIUM** Charged 17/07/2025 (43 days before period start); period 29/08/2025-28/11/2025; £11.03. "Trace & locate water ingress: 26/06/2025 - 17/07/2025"
+- **LOW** Charged 08/08/2025 (21 days before period start); period 29/08/2025-28/11/2025; £7.20. "Test & Inspection of the Lighting Protection System"
+- **LOW** Charged 22/08/2025 (7 days before period start); period 29/08/2025-28/11/2025; £0.30. "Door entry SIM card charge"
+- **LOW** Charged 26/08/2025 (3 days before period start); period 29/08/2025-28/11/2025; £22.29. "Repairs to floor 11, 4, 1 & stairwell to ground"
+- **LOW** Charged 29/11/2025 (1 days after period end); period 29/08/2025-28/11/2025; £-7.42. "E-billing Discount: 29/11/2025 - 28/02/2026"
+- **LOW** Charged 29/11/2025 (1 days after period end); period 29/08/2025-28/11/2025; £80.28. "Management Fee: 29/11/2025 - 28/02/2026"
 
 ### Stale service period (1)
 
-- **MEDIUM** Service period 26/06/2025-17/07/2025 ends 43 days before the invoice quarter starts (29/08/2025). "Trace & locate water ingress: 26/06/2025 - 17/07/2"
+- **MEDIUM** Service period 26/06/2025-17/07/2025 ends 43 days before the invoice quarter starts (29/08/2025); £11.03. "Trace & locate water ingress: 26/06/2025 - 17/07/2"
+
+### Cross-invoice duplicate charge (3)
+
+- **MEDIUM** Ecotricity DD: service 01/04/2025-01/10/2025 overlaps 92d with inv 1883739 15/03/2025-01/07/2025; £144.38. "Common electricity supply 1: 01/04/2025 " vs "Common electricity supply 1: 15/03/2025 "
+- **MEDIUM** PTM Security Solutions Ltd: service 01/06/2025-30/09/2025 overlaps 36d with inv 1883739 26/06/2025-31/07/2025; £5.23. "Quarterly service and inspection of car " vs "Door entry SIM card charge: 26/06/2025 -"
+- **MEDIUM** PTM Security Solutions Ltd: service 01/06/2025-30/09/2025 overlaps 122d with inv 1883739 01/06/2025-30/09/2025; £5.23. "Quarterly service and inspection of car " vs "Quarterly service and inspection car par"
 
 ### New vendor (6)
 

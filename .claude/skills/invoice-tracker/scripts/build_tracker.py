@@ -216,7 +216,7 @@ def detect_anomalies(items, invoices, order, cfg) -> list:
                 sev,
                 it["invoice_no"],
                 f"Charged {fmt_date(cd)} ({direction}); period "
-                f"{fmt_date(pf)}-{fmt_date(pt)}. \"{it['description'][:60]}\"",
+                f"{fmt_date(pf)}-{fmt_date(pt)}; £{it['your_cost']:.2f}. \"{it['description'][:60]}\"",
                 it["vendor"],
                 it["category"],
                 it["your_cost"],
@@ -233,7 +233,7 @@ def detect_anomalies(items, invoices, order, cfg) -> list:
                     it["invoice_no"],
                     f"Service period {fmt_date(sf)}-{fmt_date(st)} ends "
                     f"{gap} days before the invoice quarter starts "
-                    f"({fmt_date(pf)}). \"{it['description'][:50]}\"",
+                    f"({fmt_date(pf)}); £{it['your_cost']:.2f}. \"{it['description'][:50]}\"",
                     it["vendor"],
                     it["category"],
                     it["your_cost"],
@@ -270,8 +270,68 @@ def detect_anomalies(items, invoices, order, cfg) -> list:
                 key[2],
             )
 
+    # ---- Near-duplicate within invoice (same vendor+service period+cost, different description) ----
+    svc_groups = defaultdict(list)
+    for it in cur_items:
+        sf, st = it["service_from"], it["service_to"]
+        if sf and st:
+            key = (it["vendor"], sf, st, round(it["your_cost"], 2))
+            svc_groups[key].append(it)
+    for key, group in svc_groups.items():
+        if len(group) > 1 and len({it["description"] for it in group}) > 1:
+            add(
+                "Possible duplicate line (same invoice)",
+                "high",
+                current,
+                f"{len(group)}x same vendor/period/cost with different descriptions: "
+                f"{key[0]} {fmt_date(key[1])}-{fmt_date(key[2])} {key[3]:.2f} each — "
+                + " | ".join(f"\"{it['description'][:40]}\"" for it in group),
+                key[0],
+                group[0]["category"],
+                key[3] * len(group),
+            )
+
     if not priors:
         return findings
+
+    # ---- Cross-invoice duplicate: same vendor + overlapping service period ----
+    prior_set = set(priors)
+    prior_items_list = [it for it in items if it["invoice_no"] in prior_set]
+    seen_cross: set = set()
+    for it in cur_items:
+        sf, st = it["service_from"], it["service_to"]
+        if not sf or not st:
+            continue
+        for pit in prior_items_list:
+            psf, pst = pit["service_from"], pit["service_to"]
+            if not psf or not pst:
+                continue
+            if it["vendor"] != pit["vendor"]:
+                continue
+            if sf > pst or st < psf:
+                continue  # no overlap
+            overlap_days = (min(st, pst) - max(sf, psf)).days + 1
+            shorter = min((st - sf).days + 1, (pst - psf).days + 1)
+            if overlap_days / shorter < 0.5:
+                continue  # consecutive billing periods — boundary overlap, not a duplicate
+            dedup_key = (it["vendor"], sf, st, pit["invoice_no"], psf, pst)
+            if dedup_key in seen_cross:
+                continue
+            seen_cross.add(dedup_key)
+            same_amt = abs(it["your_cost"] - pit["your_cost"]) < 0.01
+            sev = "high" if same_amt else "medium"
+            add(
+                "Cross-invoice duplicate charge",
+                sev,
+                current,
+                f"{it['vendor']}: service {fmt_date(sf)}-{fmt_date(st)} "
+                f"overlaps {overlap_days}d with inv {pit['invoice_no']} "
+                f"{fmt_date(psf)}-{fmt_date(pst)}; £{it['your_cost']:.2f}. "
+                f"\"{it['description'][:40]}\" vs \"{pit['description'][:40]}\"",
+                it["vendor"],
+                it["category"],
+                it["your_cost"],
+            )
 
     # ---- Vendor drift (current vs all priors) ----
     vendors_by_inv = {no: {i["vendor"] for i in by_inv[no]} for no in order}
@@ -559,7 +619,7 @@ def _line_flag_map(findings, items):
     """Best-effort: tag line items whose description/invoice is named in a
     line-level finding so the Line Items sheet can highlight them."""
     out = {}
-    line_types = {
+    snippet_types = {
         "Charge date outside invoice period",
         "Stale service period",
         "Possible duplicate line (same invoice)",
@@ -567,13 +627,18 @@ def _line_flag_map(findings, items):
     for it in items:
         tags = []
         for f in findings:
-            if f["type"] not in line_types:
-                continue
             if f["invoice_no"] != it["invoice_no"]:
                 continue
-            snippet = it["description"][:50]
-            if snippet and snippet[:30] in f["detail"]:
-                tags.append(f["type"])
+            ftype = f["type"]
+            if ftype in snippet_types:
+                snippet = it["description"][:50]
+                if snippet and snippet[:30] in f["detail"]:
+                    tags.append(ftype)
+            elif ftype == "Cross-invoice duplicate charge":
+                sf, st = it.get("service_from"), it.get("service_to")
+                if (f.get("vendor") == it["vendor"]
+                        and sf and fmt_date(sf) in f["detail"]):
+                    tags.append(ftype)
         if tags:
             out[id(it)] = "; ".join(sorted(set(tags)))
     return out

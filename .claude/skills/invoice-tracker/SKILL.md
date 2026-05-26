@@ -126,6 +126,8 @@ tables, and its anomalies (grouped by type, high severity first).
 
 ## Anomaly checks (all in the script)
 
+Every per-line finding (charge date, stale service period, duplicate, cross-invoice duplicate) includes the owner's charged amount (`£your_cost`) in the detail string so that items can be located quickly on the original invoice.
+
 - **Reconciliation mismatch** (high) — line items don't sum to the stated total.
 - **Charge date outside invoice period** — date of charge is before/after the
   period; severity scales with the gap (>180d high, >31d medium, else low).
@@ -140,6 +142,7 @@ tables, and its anomalies (grouped by type, high severity first).
 - **Abnormal category / vendor total** — current vs prior-period mean outside
   the ratio band and above the materiality threshold.
 - **Credit / negative line** — informational list of discounts/reversals.
+- **Cross-invoice duplicate charge** (high/medium) — same vendor found charging for a substantially overlapping service period in both the current invoice and a prior one; high when amounts also match, medium otherwise. Only raised when the overlap exceeds 50 % of the shorter service period — consecutive quarterly contracts whose billing windows share a few days at the boundary are ignored as normal scheduling, not duplicates. Within the same invoice, "Possible duplicate line (same invoice)" is also extended to catch same vendor + same service period + same amount appearing under different description wording (e.g. a spurious "x2" suffix).
 
 In each invoice's report that invoice is the "current" period, and drift checks
 (new/dropped vendor, recurring-item-missing, abnormal totals) compare it only

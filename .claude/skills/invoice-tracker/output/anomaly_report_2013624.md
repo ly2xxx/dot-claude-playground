@@ -37,22 +37,26 @@
 | Chess ICT Ltd | 3.04 |
 | Argyle Locksmiths | 2.71 |
 
-## Anomalies: 17 (0 high, 6 medium, 11 low)
+## Anomalies: 18 (1 high, 6 medium, 11 low)
 
 *Compared against 3 earlier invoice(s): 1883739, 1933254, 1968807.*
 
+### Possible duplicate line (same invoice) (1)
+
+- **HIGH** 2x same vendor/period/cost with different descriptions: PTM Security Solutions Ltd 24/12/2025-31/03/2026 14.45 each — "Quarterly car park shutter inspection: 2" | "Quarterly car park shutter inspection x2"
+
 ### Charge date outside invoice period (10)
 
-- **MEDIUM** Charged 17/12/2025 (74 days before period start); period 01/03/2026-28/05/2026. "Quarterly fire alarm service"
-- **MEDIUM** Charged 23/12/2025 (68 days before period start); period 01/03/2026-28/05/2026. "Door entry sim card change"
-- **MEDIUM** Charged 28/01/2026 (32 days before period start); period 01/03/2026-28/05/2026. "Attended site to install new pump to replace missing pump"
-- **MEDIUM** Charged 28/08/2026 (92 days after period end); period 01/03/2026-28/05/2026. "Management Fee: 29/05/2026 - 28/08/2026"
-- **LOW** Charged 31/01/2026 (29 days before period start); period 01/03/2026-28/05/2026. "Door entry SIM card charge"
-- **LOW** Charged 15/02/2026 (14 days before period start); period 01/03/2026-28/05/2026. "Reset fire alarm system"
-- **LOW** Charged 30/01/2026 (30 days before period start); period 01/03/2026-28/05/2026. "Repairs to lift (mis-use)"
-- **LOW** Charged 05/02/2026 (24 days before period start); period 01/03/2026-28/05/2026. "Lower car park door reset code"
-- **LOW** Charged 16/02/2026 (13 days before period start); period 01/03/2026-28/05/2026. "Repair to upper car park shutter"
-- **LOW** Charged 29/05/2026 (1 days after period end); period 01/03/2026-28/05/2026. "E-billing Discount: 29/05/2026 - 28/08/2026"
+- **MEDIUM** Charged 17/12/2025 (74 days before period start); period 01/03/2026-28/05/2026; £2.70. "Quarterly fire alarm service"
+- **MEDIUM** Charged 23/12/2025 (68 days before period start); period 01/03/2026-28/05/2026; £1.03. "Door entry sim card change"
+- **MEDIUM** Charged 28/01/2026 (32 days before period start); period 01/03/2026-28/05/2026; £58.58. "Attended site to install new pump to replace missing pump"
+- **MEDIUM** Charged 28/08/2026 (92 days after period end); period 01/03/2026-28/05/2026; £86.50. "Management Fee: 29/05/2026 - 28/08/2026"
+- **LOW** Charged 31/01/2026 (29 days before period start); period 01/03/2026-28/05/2026; £0.31. "Door entry SIM card charge"
+- **LOW** Charged 15/02/2026 (14 days before period start); period 01/03/2026-28/05/2026; £5.53. "Reset fire alarm system"
+- **LOW** Charged 30/01/2026 (30 days before period start); period 01/03/2026-28/05/2026; £4.60. "Repairs to lift (mis-use)"
+- **LOW** Charged 05/02/2026 (24 days before period start); period 01/03/2026-28/05/2026; £2.71. "Lower car park door reset code"
+- **LOW** Charged 16/02/2026 (13 days before period start); period 01/03/2026-28/05/2026; £13.20. "Repair to upper car park shutter"
+- **LOW** Charged 29/05/2026 (1 days after period end); period 01/03/2026-28/05/2026; £-7.72. "E-billing Discount: 29/05/2026 - 28/08/2026"
 
 ### New vendor (1)
 

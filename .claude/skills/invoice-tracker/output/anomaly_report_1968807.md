@@ -42,7 +42,7 @@
 | Integra Building Solutions Ltd | 2.57 |
 | ASD Electrical Contractors Ltd | 2.26 |
 
-## Anomalies: 23 (1 high, 11 medium, 11 low)
+## Anomalies: 24 (1 high, 12 medium, 11 low)
 
 *Compared against 2 earlier invoice(s): 1883739, 1933254.*
 
@@ -52,13 +52,17 @@
 
 ### Charge date outside invoice period (7)
 
-- **MEDIUM** Charged 28/05/2026 (89 days after period end); period 29/11/2025-28/02/2026. "Management Fee: 01/03/2026 - 28/05/2026"
-- **LOW** Charged 17/11/2025 (12 days before period start); period 29/11/2025-28/02/2026. "Bulk uplift"
-- **LOW** Charged 31/10/2025 (29 days before period start); period 29/11/2025-28/02/2026. "Service checks on 1 x Two Pump Booster Set"
-- **LOW** Charged 14/11/2025 (15 days before period start); period 29/11/2025-28/02/2026. "Repairs to lift controller unit"
-- **LOW** Charged 21/11/2025 (8 days before period start); period 29/11/2025-28/02/2026. "Renewed damaged lift door spring"
-- **LOW** Charged 25/11/2025 (4 days before period start); period 29/11/2025-28/02/2026. "Replace dry riser inlet lock"
-- **LOW** Charged 01/03/2026 (1 days after period end); period 29/11/2025-28/02/2026. "E-billing Discount: 01/03/2026 - 28/05/2026"
+- **MEDIUM** Charged 28/05/2026 (89 days after period end); period 29/11/2025-28/02/2026; £86.50. "Management Fee: 01/03/2026 - 28/05/2026"
+- **LOW** Charged 17/11/2025 (12 days before period start); period 29/11/2025-28/02/2026; £5.15. "Bulk uplift"
+- **LOW** Charged 31/10/2025 (29 days before period start); period 29/11/2025-28/02/2026; £5.83. "Service checks on 1 x Two Pump Booster Set"
+- **LOW** Charged 14/11/2025 (15 days before period start); period 29/11/2025-28/02/2026; £8.33. "Repairs to lift controller unit"
+- **LOW** Charged 21/11/2025 (8 days before period start); period 29/11/2025-28/02/2026; £5.48. "Renewed damaged lift door spring"
+- **LOW** Charged 25/11/2025 (4 days before period start); period 29/11/2025-28/02/2026; £2.57. "Replace dry riser inlet lock"
+- **LOW** Charged 01/03/2026 (1 days after period end); period 29/11/2025-28/02/2026; £-7.72. "E-billing Discount: 01/03/2026 - 28/05/2026"
+
+### Cross-invoice duplicate charge (1)
+
+- **MEDIUM** Ecotricity DD: service 01/06/2025-01/01/2026 overlaps 123d with inv 1933254 01/04/2025-01/10/2025; £98.59. "Common electricity supply 1: 01/06/2025 " vs "Common electricity supply 1: 01/04/2025 "
 
 ### New vendor (6)
 
