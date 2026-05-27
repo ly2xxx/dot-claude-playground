@@ -11,5 +11,6 @@ Feature: LLM-driven invoice extraction
     And the output is evaluated against the skill instructions
 
     Examples:
-      | model        |
+      | model               |
       | glm-4.6:cloud       |
+      | minimax-m2:cloud    |
