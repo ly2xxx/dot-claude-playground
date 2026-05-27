@@ -3,7 +3,7 @@
 import os
 from pytest_bdd import given, parsers, scenarios, then, when
 from deepeval.metrics import GEval
-from deepeval.test_case import LLMTestCase, LLMTestCaseParams
+from deepeval.test_case import LLMTestCase, SingleTurnParams
 from deepeval.models import OllamaModel
 
 # Bind scenarios
@@ -59,7 +59,7 @@ def _evaluate_with_deepeval(scenario_ctx):
     metric = GEval(
         name="Instruction Adherence",
         criteria="Determine whether the actual output provides a CSV format containing the invoice total exactly as requested.",
-        evaluation_params=[LLMTestCaseParams.INPUT, LLMTestCaseParams.ACTUAL_OUTPUT, LLMTestCaseParams.EXPECTED_OUTPUT],
+        evaluation_params=[SingleTurnParams.INPUT, SingleTurnParams.ACTUAL_OUTPUT, SingleTurnParams.EXPECTED_OUTPUT],
         threshold=0.5,
         model=ollama_model
     )
