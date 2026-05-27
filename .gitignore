@@ -33,6 +33,7 @@ venv.bak/
 .claude/settings.local.json
 .claude/skills/cv-polish/tests/fixtures
 .claude/skills/invoice-tracker/**/*.pdf
+.claude/skills/invoice-tracker/.deepeval/
 .claude/worktrees/
 
 

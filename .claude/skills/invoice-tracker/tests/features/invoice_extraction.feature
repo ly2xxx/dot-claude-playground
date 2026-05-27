@@ -12,4 +12,4 @@ Feature: LLM-driven invoice extraction
 
     Examples:
       | model        |
-      | gpt-4o-mini  |
+      | glm-4.6:cloud       |
