@@ -8,33 +8,35 @@ victorlee2012.vl@gmail.com | Glasgow, UK | [edisonideas.wordpress.com](https://e
 
 ## PROFILE
 
-Software engineer with 20+ years building resilient production systems across fintech, wealth management, and energy sectors — now specialising in GitLab CI/CD platform engineering and AI/ML tooling. Currently serving 50+ engineering teams at Barclays Wealth Management with Python-based developer platforms that reduced deployment failure investigation time by 85% and release evidence collection time by 70%. Combines deep backend engineering experience with hands-on GenAI integration (RAG, MCP, agentic workflows) and SRE automation.
+Software engineer with 20+ years building resilient production systems across fintech, wealth management, and energy sectors — now specialising in **GitLab CI/CD Platform:** Contributed to Barclays' enterprise-wide strategic migration to a unified GitLab Ultimate platform by designing and scaling reusable CI/CD pipeline frameworks for 50+ teams in Wealth Management, standardizing compliance and security controls. Combines deep backend engineering experience with hands-on GenAI integration (RAG, MCP, agentic workflows) and SRE automation.
 
-**Specialised in:** GitLab CI/CD Platform Architecture | Python & DevOps Automation | SRE & Release Engineering | GenAI Integration (LangFlow, Ollama, RAG, MCP) | Developer Experience & Productivity
+**Specialised in:** GitLab CI/CD Platform Architecture | Python & DevOps Automation | SRE & Release Engineering | GenAI Integration (LangFlow, Ollama, RAG, MCP,  SKILL) | Developer Experience & Productivity
 
 ---
 
 ## TECHNICAL SKILLS
 
 **Platform & Infrastructure**
-- CI/CD Platforms: GitLab CI/CD, GitHub Actions, Jenkins, TeamCity
-- Containerisation: Docker (working knowledge of Kubernetes, AWS ECS, Red Hat OpenShift)
-- Infrastructure as Code: Terraform (proficient), CloudFormation (learning)
+
+- CI/CD Platforms: GitLab CI/CD (proficient), GitHub Actions (basic), Jenkins, TeamCity
+- Containerisation: Docker (working knowledge of Kubernetes, Red Hat OpenShift, AWS ECS/EKS)
+- Infrastructure as Code: Terraform (working knowledge), CloudFormation (learning)
 - Cloud Platforms: AWS (EC2, RDS, S3, Lambda), Red Hat OpenShift clusters, PaaS solutions
 
 **AI/ML Operations & Tooling**
+
 - Vector Databases: FAISS, Weaviate, ChromaDB, Pinecone, AWS OpenSearch
-- AI Integration: LLM API orchestration, prompt engineering, RAG systems, MCP tool & agentic workflow development
+- AI Integration: LLM API orchestration, prompt engineering, RAG systems, MCP tool & agentic workflow, CLAUDE SKILL development
 - Automation: Python (4+ years), Bash, Groovy, PowerShell
-- ML Infrastructure: Model versioning, experiment tracking, feature stores (actively learning)
+- ML Infrastructure: basic knowledge of Apache Airflow, Databricks platforms, and MLflow
 
 **Observability & Reliability**
+
 - Monitoring & Logging: ELK Stack, Prometheus, Grafana, Tableau, OpenTelemetry (OTEL)
-- APM & Tracing: Distributed tracing, performance monitoring
-- Incident Response: Automated root cause analysis, knowledge base scoring systems
 
 **Development & APIs**
-- Languages: Python, Java, C/C++, SQL; TypeScript, Rust (learning)
+
+- Languages: Python, Java, C/C++, SQL (proficient); TypeScript, Rust (learning)
 - API Architecture: RESTful API design, microservices, event-driven systems
 - Databases: MS SQL Server, Oracle, AWS RDS, vector databases; Liquibase (schema migrations)
 
@@ -42,15 +44,16 @@ Software engineer with 20+ years building resilient production systems across fi
 
 ## WORK EXPERIENCE
 
-### BARCLAYS WEALTH MANAGEMENT | Glasgow, UK
+### BARCLAYS | Glasgow, UK
 
 **Platform Engineer / Senior Software Developer | May 2025 – Present (12+ months)**
 
-- Build and maintain GitLab CI/CD developer platform now serving 50+ engineering teams with 500+ daily pipeline executions, reducing deployment failure investigation time by 85% (2+ hours → <15 minutes) through automated log analysis and intelligent root cause detection, enhanced with Claude MCP tooling
-- Developed Python-based release automation framework, cutting evidence collection and audit trail generation from 3.5 hours to 1 hour per release
-- Co-developed Python-based security automation integrating Wiz vulnerability scanning: shield backend scan service and weekly GitLab pipeline framework covering 100+ repositories, reducing critical security exposure window from 14 days to <48 hours
-- Deployed Coder cloud development environments via Terraform-provisioned EC2 instances, eliminating the "works on my machine" barrier for non-technical stakeholders; optimised workspace Docker images from 11+ GB to 500 MB (UBI9-micro base), reducing cloud resource consumption per workspace by ~95%
+- Build and maintain GitLab CI/CD developer platform now serving 50+ engineering teams with 500+ daily pipeline executions, reducing deployment failure investigation time by 85% (2+ hours → <15 minutes) through automated log analysis and intelligent root cause detection, enhanced with Claude MCP/SKILL tooling
+- Developed Python-based release automation framework, cutting evidence collection and audit trail generation from 3.5 hours to 1 hour per release for the developer platform mentioned above
+- Co-developed Python-based security automation integrating Wiz vulnerability scanning: shield backend scan service and weekly GitLab pipeline framework covering 5000+ repositories, reducing critical security exposure window from 14 days to <48 hours
+- Deployed Coder cloud development environments via Terraform-provisioned EC2 instances, eliminating the "works on my machine" barrier for non-technical stakeholders; optimised workspace template Docker images from 11+ GB (UBER based) to 500 MB (UBI9-micro base) for non-technical users mainly after Claude based code exploration, reducing cloud resource consumption per workspace by ~95%
 - Prototyped Renovate-based automated dependency upgrade pipeline; validated the dependency management approach and directly shaped the architecture of the team's subsequent in-house maintenance solution
+- Project-managed delivery of CIO deck automation for GFED Technology (Jun–Aug 2025), leading a team of summer interns from business requirements through to implementation; reduced manual effort from 20 hours to 2 hours (90% reduction) and navigation clicks from ~215 to 50 (76% reduction), streamlining a critical risk and controls reporting process distributed to GFED Technology senior management
 
 **Senior Software Developer | Enterprise Architect | Nov 2024 – Apr 2025 (6 months)**
 
@@ -63,7 +66,7 @@ Software engineer with 20+ years building resilient production systems across fi
 
 - Accelerated release cadence from quarterly to monthly (4× improvement) by designing decoupled backend release architecture, enabling independent service deployments for the Plan and Invest platform serving 100K+ wealth management clients
 - Implemented downstream API monitoring framework using Java AOP + ELK + Tableau, reducing L3 support response time from 45 min to <10 min and eliminating 80% of test environment outages through proactive alerting
-- Led GenAI hackathon team (8 engineers) building an AI-powered code review assistant with ChatGPT integration, cutting review cycle time by 35%; subsequently adopted across 3 divisions serving 200+ developers
+- Led a GenAI hackathon team of 8 engineers to prototype a personalized wealth management AI assistant , successfully demonstrating the feasibility of tailoring complex banking workflows and financial advice using LLMs
 - Recruited and onboarded a team of 6 engineers with zero prior system knowledge, achieving full productivity within 1 quarter through a structured knowledge transfer programme
 
 **Senior Java Developer & Technical Team Lead | Little Book of Wonders, Barclays One | Nov 2016 – Apr 2022 (5.5 years)**
@@ -71,7 +74,7 @@ Software engineer with 20+ years building resilient production systems across fi
 - Drove AWS cloud migration for Little Book of Wonders (LBOW) testing environments with automated CHEF deployment, achieving 99.8% deployment success rate and reducing environment spin-up time from 2 days to 4 hours
 - Led development of critical features growing LBOW customer base 3× (30K → 90K users) while maintaining 99.9% uptime and sub-200ms API response times
 - Successfully upgraded Adobe AEM infrastructure (v6.0 → v6.3) for customer-facing platform with zero downtime, serving 100K+ users
-- Promoted to dual-team technical lead (2018) overseeing both Barclays One and LBOW, managing 12 engineers across public websites and backend Java microservices
+- Promoted to dual-team technical lead (2018) overseeing both Barclays One and LBOW, managing 12 engineers across public websites and backend Java services
 
 ---
 
@@ -80,7 +83,7 @@ Software engineer with 20+ years building resilient production systems across fi
 **Senior Associate & Team Lead | Jan 2007 – Apr 2015**
 
 - Transitioned from C++ to Java to architect high-frequency trading platforms for equity and credit derivatives, processing 10K+ transactions/day with <5ms latency SLA
-- Led Platform Trading System (PTS) team as Tech Lead (2013–2015), managing 6 developers and delivering 12+ major features annually across distributed microservices architecture
+- Senior developer in Pyramid Trading System (PTS) team as a junior Tech Lead (2013–2015), managing 6 developers and delivering 12+ major features annually across distributed microservices architecture
 - Achieved derivative trading certification, building domain expertise spanning both technical implementation and business requirements
 - Promoted twice (2008 Professional → Associate; 2013 Associate → Senior Associate) for exceptional technical delivery and cross-functional collaboration
 
@@ -99,20 +102,23 @@ Software engineer with 20+ years building resilient production systems across fi
 
 **University of Strathclyde | Glasgow, UK**
 Master of Business Administration (MBA) – Distinction | Oct 2018 – Jul 2022
+
 - Research: Hybrid workforce productivity optimisation post-pandemic
 
 **University of Glasgow | Glasgow, UK**
 MSc, Electrical & Electronic Engineering | Oct 2002 – Jul 2003
+
 - Thesis: Autonomous robot fleet for disaster recovery using C/C++ (legOS)
 
 **Donghua University | Shanghai, China**
 BSc, Industrial Automation Engineering | Oct 1998 – Jul 2002
+
 - Capstone: Fuzzy logic control system outperforming neural network approach
 
 ---
 
 ## KEY ACHIEVEMENTS & CERTIFICATIONS
 
-- **GitLab CI/CD Platform:** Designed and scaled CI/CD pipeline automation from 20 to 50+ engineering teams at Barclays Wealth Management
+- **GitLab CI/CD Platform:** direct contribution to Barclays overall strategic migration to Gitlab based developer platform [Customer case study: Barclays PLC](https://about.gitlab.com/customers/barclays-plc/)
 - **Derivative Trading Certification** (J.P. Morgan, 2011)
-- **Speaker/Blogger:** Active technology blog since 2016 — [edisonideas.wordpress.com](https://edisonideas.wordpress.com) — covering AI, DevOps, and platform engineering
+- **Speaker/Blogger:** Active technology blog since 2016 — [edisonideas.wordpress.com](https://edisonideas.wordpress.com) — covering AI, DevOps, and platform engineering, occasional speaker/judge at local AI/ML
