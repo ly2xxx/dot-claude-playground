@@ -8,9 +8,9 @@ victorlee2012.vl@gmail.com | Glasgow, UK | [edisonideas.wordpress.com](https://e
 
 ## PROFILE
 
-Software engineer with 20+ years building resilient production systems across fintech, wealth management, and energy sectors — now specialising in **GitLab CI/CD Platform:** Contributed to Barclays' enterprise-wide strategic migration to a unified GitLab Ultimate platform by designing and scaling reusable CI/CD pipeline frameworks for 50+ teams in Wealth Management, standardizing compliance and security controls. Combines deep backend engineering experience with hands-on GenAI integration (RAG, MCP, agentic workflows) and SRE automation.
+Software engineer with 20+ years building resilient production systems across fintech, wealth management, and energy sectors — now specialising in GitLab CI/CD platform engineering and GenAI adoption. Currently serving 50+ engineering teams at Barclays Global Functions, Engineering and Data as a platform engineer with developer platforms that reduced deployment failure investigation time by 85% and release evidence collection time by 70%. Combines deep backend engineering experience with hands-on GenAI integration (RAG, MCP, agentic workflows) and SRE automation.
 
-**Specialised in:** GitLab CI/CD Platform Architecture | Python & DevOps Automation | SRE & Release Engineering | GenAI Integration (LangFlow, Ollama, RAG, MCP,  SKILL) | Developer Experience & Productivity
+**Specialised in:** GitLab CI/CD Platform Architecture | Python & DevOps Automation | SRE & Release Engineering | GenAI Integration (LangFlow, Ollama, RAG, MCP,  Claude SKILL) | Developer Experience & Productivity
 
 ---
 
@@ -19,7 +19,7 @@ Software engineer with 20+ years building resilient production systems across fi
 **Platform & Infrastructure**
 
 - CI/CD Platforms: GitLab CI/CD (proficient), GitHub Actions (basic), Jenkins, TeamCity
-- Containerisation: Docker (working knowledge of Kubernetes, Red Hat OpenShift, AWS ECS/EKS)
+- Containerisation: Docker (working knowledge of Kubernetes, Red Hat OpenShift, AWS ECS, EKS and ECR)
 - Infrastructure as Code: Terraform (working knowledge), CloudFormation (learning)
 - Cloud Platforms: AWS (EC2, RDS, S3, Lambda), Red Hat OpenShift clusters, PaaS solutions
 
@@ -64,9 +64,9 @@ Software engineer with 20+ years building resilient production systems across fi
 
 **Senior Developer & Technical Team Lead | Plan & Invest | Apr 2022 – Nov 2024 (2.5 years)**
 
-- Accelerated release cadence from quarterly to monthly (4× improvement) by designing decoupled backend release architecture, enabling independent service deployments for the Plan and Invest platform serving 100K+ wealth management clients
+- Accelerated backend release cadence from quarterly to monthly (4× improvement) by designing decoupled backend release architecture, enabling independent service deployments for the Plan and Invest platform serving 100K+ wealth management clients
 - Implemented downstream API monitoring framework using Java AOP + ELK + Tableau, reducing L3 support response time from 45 min to <10 min and eliminating 80% of test environment outages through proactive alerting
-- Led a GenAI hackathon team of 8 engineers to prototype a personalized wealth management AI assistant , successfully demonstrating the feasibility of tailoring complex banking workflows and financial advice using LLMs
+- Led a GenAI hackathon team of 8 engineers to prototype a personalized wealth management assistant, demonstrating the feasibility of orchestrating LLMs on AWS to automate complex banking workflows and deliver tailored financial advice
 - Recruited and onboarded a team of 6 engineers with zero prior system knowledge, achieving full productivity within 1 quarter through a structured knowledge transfer programme
 
 **Senior Java Developer & Technical Team Lead | Little Book of Wonders, Barclays One | Nov 2016 – Apr 2022 (5.5 years)**
@@ -119,6 +119,6 @@ BSc, Industrial Automation Engineering | Oct 1998 – Jul 2002
 
 ## KEY ACHIEVEMENTS & CERTIFICATIONS
 
-- **GitLab CI/CD Platform:** direct contribution to Barclays overall strategic migration to Gitlab based developer platform [Customer case study: Barclays PLC](https://about.gitlab.com/customers/barclays-plc/)
+- **GitLab CI/CD Platform:** Contributed to Barclays' enterprise-wide strategic migration to a unified GitLab Ultimate platform; designed and scaled reusable CI/CD frameworks for 50+ Wealth Management teams, standardizing compliance and baking in security controls. [Customer case study: Barclays PLC](https://about.gitlab.com/customers/barclays-plc/)
 - **Derivative Trading Certification** (J.P. Morgan, 2011)
 - **Speaker/Blogger:** Active technology blog since 2016 — [edisonideas.wordpress.com](https://edisonideas.wordpress.com) — covering AI, DevOps, and platform engineering, occasional speaker/judge at local AI/ML
