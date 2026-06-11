@@ -2,6 +2,8 @@
 
 **Yang Li** | victorlee2012.vl@gmail.com | Glasgow, UK | GitHub: https://github.com/ly2xxx/
 
+"Full stack senior engineer. CTO-level strategy. AI native. Deep experience with Claude Code. Can set up OpenClaw. Leads and grows a team."
+
 ---
 
 Dear Hiring Manager,
