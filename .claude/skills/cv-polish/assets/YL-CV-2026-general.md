@@ -52,7 +52,7 @@ Lead Software engineer with 20+ years building resilient production systems acro
 
 **Platform Engineer / Senior Software Developer | May 2025 – Present (12+ months)**
 
-Provide Gitlab blueprint templates and cloud IDE platform for improved developer experience
+Architect enterprise GitLab CI/CD templates and secure cloud IDE workspaces to streamline developer experience across 50+ engineering teams.
 
 - Build and maintain GitLab CI/CD developer platform serving 50+ engineering teams with 500+ daily pipeline executions, reducing deployment failure investigation time by 85% (2+ hours → <15 minutes) through automated log analysis and intelligent root cause detection
 - Delivered production agentic ADLC tooling using Claude Code, custom MCP integrations, and AI SKILL development, accelerating developer productivity and automating deployment workflows across engineering teams — directly aligned with JPMorganChase's agentic pipeline engineering practice
@@ -63,7 +63,7 @@ Provide Gitlab blueprint templates and cloud IDE platform for improved developer
 
 **Senior Software Developer | Enterprise Architect | Nov 2024 – Apr 2025 (6 months)**
 
-Pioneer company GenAI adoption and proof of concept projects
+Pioneered enterprise GenAI adoption, local LLM experimentation, and automated asset dependency mapping and reporting across business units.
 
 - Led GenAI experimentation initiative using locally-hosted Ollama models (Llama 3, Mistral), eliminating cloud API costs (~$5K/month) while maintaining data security compliance in a regulated banking environment
 - Automated weekly assets dependency mapping across 15 business units using Python, eliminating manual tracking efforts and reducing architectural audit cycle times
@@ -72,7 +72,7 @@ Pioneer company GenAI adoption and proof of concept projects
 
 **Senior Developer & Technical Team Lead | Plan & Invest | Apr 2022 – Nov 2024 (2.5 years)**
 
-Plan & Invest is part of the company's wealth mobile/website offering composed of a monolithic frontend and distributed backend services
+Managed the BAU maintenance and improvements for the Plan & Invest wealth platform, decoupling backend services from monolithic frontend release cycles.
 
 - Accelerated backend release cadence from quarterly to monthly (4× improvement) by designing decoupled distributed service architecture for the Plan and Invest platform serving 100K+ wealth management clients
 - Designed an API monitoring framework using Java AOP + OTEL + ELK to link logs from different services together and trace requests end to end, reducing L3 support response time from 45 min to <10 min and eliminating 80% of test environment outages through proactive alerting
@@ -81,7 +81,7 @@ Plan & Invest is part of the company's wealth mobile/website offering composed o
 
 **Senior Java Developer & Technical Team Lead | Little Book of Wonders, Barclays One | Nov 2016 – Apr 2022 (5.5 years)**
 
-Little Book of Wonders is a customer events publish and organizer based on Adobe Experience Manager. Barclays One is a wealth portfolio readonly platform written in spring JAVA and AngularJS.
+Little Book of Wonders is a customer event publishing and management platform built on Adobe Experience Manager, and Barclays One is a read-only wealth portfolio portal developed using Spring/Java and AngularJS.
 
 - Drove AWS cloud migration for Little Book of Wonders testing environments, achieving 99.8% deployment success rate and reducing environment spin-up time from 2 days to 4 hours
 - Led development of critical Java backend features growing customer base 3× (30K → 90K users) while maintaining 99.9% uptime and sub-200ms API response times
@@ -93,7 +93,9 @@ Little Book of Wonders is a customer events publish and organizer based on Adobe
 
 **Senior Associate & Tech Lead | Jan 2007 – Apr 2015 (8 years)**
 
-- Architected Java-based high-frequency trading platforms for equity and credit derivatives, processing 10,000+ transactions/day with <5ms latency SLA — prime finance domain expertise directly applicable to Prime Finance Services
+Architected and delivered Java-based high-frequency trade capture platforms for derivatives.
+
+- Architected Java-based high-frequency trade capture platforms for equity and credit derivatives, processing 10,000+ transactions/day with <5ms latency SLA — prime finance domain expertise directly applicable to Prime Finance Services
 - Led Platform Trading System (PTS) team as junior Tech Lead (2013–2015), managing 4 developers and delivering 12+ major features annually
 - Designed and maintained resilient distributed applications across global infrastructure, contributing to performance tuning, fault tolerance, and operational stability in high-stakes financial systems
 - Acquired Financial Derivatives Certification (Charted Institue For Securities & Investment), building domain expertise spanning technical implementation and business requirements
@@ -104,6 +106,8 @@ Little Book of Wonders is a customer events publish and organizer based on Adobe
 ### ADVANTAGE ENERGY SOLUTIONS LTD (AESL) | Edinburgh, UK
 
 **Software Engineer | Feb 2004 – Jan 2007**
+
+Developed customer-facing energy consulting web platforms and introduced version control and CI pipelines to drive software process maturity.
 
 - Drove software development process maturity by implementing version control (SVN), CI pipelines, and localisation framework, reducing deployment errors by 60%
 - Built and maintained customer-facing web platform using C++, XML, XSLT on Windows Server, serving 500+ energy consulting clients across 5 countries
