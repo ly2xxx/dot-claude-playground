@@ -50,7 +50,7 @@ Lead Software engineer with 20+ years building resilient production systems acro
 
 ### BARCLAYS | Glasgow, UK
 
-**Platform Engineer / Senior Software Developer | May 2025 – Present (12+ months)**
+**Platform Engineer / Senior Software Developer | May 2025 – Present**
 
 Architect enterprise GitLab CI/CD templates and secure cloud IDE workspaces to streamline developer experience across 50+ engineering teams.
 
@@ -61,7 +61,7 @@ Architect enterprise GitLab CI/CD templates and secure cloud IDE workspaces to s
 - Provisioned Coder cloud development environments via Terraform on AWS EC2; optimised Docker workspace images from 11+ GB to 500 MB (UBI9-micro base), reducing per-workspace cloud resource consumption by ~95%
 - Project-managed CIO deck automation for GFED Technology (Jun–Aug 2025), leading a team of interns from requirements to implementation; reduced manual effort from 20 hours to 2 hours (90%) and navigation clicks from ~215 to 50 (76%)
 
-**Senior Software Developer | Enterprise Architect | Nov 2024 – Apr 2025 (6 months)**
+**Senior Software Developer | Enterprise Architect | Nov 2024 – Apr 2025**
 
 Pioneered enterprise GenAI adoption, local LLM experimentation, and automated asset dependency mapping and reporting across business units.
 
@@ -70,7 +70,7 @@ Pioneered enterprise GenAI adoption, local LLM experimentation, and automated as
 - Developed POC LangFlow-based AI workflows for automated tech asset discovery across 500+ enterprise applications
 - Promoted AI-native development practices through demos and knowledge-sharing, upskilling engineers on prompt engineering, RAG systems, and local LLM deployment
 
-**Senior Developer & Technical Team Lead | Plan & Invest | Apr 2022 – Nov 2024 (2.5 years)**
+**Senior Developer & Technical Team Lead | Plan & Invest | Apr 2022 – Nov 2024**
 
 Managed the BAU maintenance and improvements for the Plan & Invest wealth platform, decoupling backend services from monolithic frontend release cycles.
 
@@ -91,7 +91,7 @@ Little Book of Wonders is a customer event publishing and management platform bu
 
 ### J.P. MORGAN | Glasgow, UK
 
-**Senior Associate & Tech Lead | Jan 2007 – Apr 2015 (8 years)**
+**Senior Associate & Tech Lead | Jan 2007 – Apr 2015**
 
 Architected and delivered Java-based high-frequency trade capture platforms for derivatives.
 
