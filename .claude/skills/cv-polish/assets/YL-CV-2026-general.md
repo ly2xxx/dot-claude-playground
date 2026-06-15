@@ -52,6 +52,8 @@ Lead Software engineer with 20+ years building resilient production systems acro
 
 **Platform Engineer / Senior Software Developer | May 2025 – Present (12+ months)**
 
+Provide Gitlab blueprint templates and cloud IDE platform for improved developer experience
+
 - Build and maintain GitLab CI/CD developer platform serving 50+ engineering teams with 500+ daily pipeline executions, reducing deployment failure investigation time by 85% (2+ hours → <15 minutes) through automated log analysis and intelligent root cause detection
 - Delivered production agentic ADLC tooling using Claude Code, custom MCP integrations, and AI SKILL development, accelerating developer productivity and automating deployment workflows across engineering teams — directly aligned with JPMorganChase's agentic pipeline engineering practice
 - Developed Python-based release automation framework, cutting evidence collection and audit trail generation from 3.5 hours to 1 hour per release
@@ -61,6 +63,8 @@ Lead Software engineer with 20+ years building resilient production systems acro
 
 **Senior Software Developer | Enterprise Architect | Nov 2024 – Apr 2025 (6 months)**
 
+Pioneer company GenAI adoption and proof of concept projects
+
 - Led GenAI experimentation initiative using locally-hosted Ollama models (Llama 3, Mistral), eliminating cloud API costs (~$5K/month) while maintaining data security compliance in a regulated banking environment
 - Automated weekly assets dependency mapping across 15 business units using Python, eliminating manual tracking efforts and reducing architectural audit cycle times
 - Developed POC LangFlow-based AI workflows for automated tech asset discovery across 500+ enterprise applications
@@ -68,12 +72,16 @@ Lead Software engineer with 20+ years building resilient production systems acro
 
 **Senior Developer & Technical Team Lead | Plan & Invest | Apr 2022 – Nov 2024 (2.5 years)**
 
+Plan & Invest is part of the company's wealth mobile/website offering composed of a monolithic frontend and distributed backend services
+
 - Accelerated backend release cadence from quarterly to monthly (4× improvement) by designing decoupled distributed service architecture for the Plan and Invest platform serving 100K+ wealth management clients
 - Designed an API monitoring framework using Java AOP + OTEL + ELK to link logs from different services together and trace requests end to end, reducing L3 support response time from 45 min to <10 min and eliminating 80% of test environment outages through proactive alerting
 - Led a GenAI hackathon team of 8 engineers to prototype a personalised wealth management assistant orchestrating LLMs on AWS to automate complex banking workflows
 - Recruited and onboarded hire-to-desk engineers with zero prior system knowledge, achieving full productivity within 1 quarter through structured knowledge transfer and training
 
 **Senior Java Developer & Technical Team Lead | Little Book of Wonders, Barclays One | Nov 2016 – Apr 2022 (5.5 years)**
+
+Little Book of Wonders is a customer events publish and organizer based on Adobe Experience Manager. Barclays One is a wealth portfolio readonly platform written in spring JAVA and AngularJS.
 
 - Drove AWS cloud migration for Little Book of Wonders testing environments, achieving 99.8% deployment success rate and reducing environment spin-up time from 2 days to 4 hours
 - Led development of critical Java backend features growing customer base 3× (30K → 90K users) while maintaining 99.9% uptime and sub-200ms API response times
