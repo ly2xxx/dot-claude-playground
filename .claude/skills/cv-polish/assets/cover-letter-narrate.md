@@ -63,6 +63,10 @@ H:\code\yl\interview-code\java
 > In my current platform role, the focus is naturally on infrastructure and tooling optimization. I want to get back to core product engineering: building high-throughput, modern Java systems, and leveraging the latest runtime advancements like Java Virtual Threads and gRPC-based microservices to deliver scalable business capabilities, which I will never get a chance to do in my current role.
 >
 > That is why I am looking to transition. I want to bring my newly acquired platform and CI/CD skills back to core software product development. This Lead Java role (within the Commercial & Investment Bank here in Glasgow) feels like the perfect alignment—allowing me to bring my system design depth and passion for modern, high-performance Java back to the scale of JPMorgan."
+>
+> Lastly, just to set expectations: since claude code came out last year my coding workflow has shifted to an AI-first development model using agentic tools. If we write code today, I'll start by mapping out the architecture and logical steps first rather than worrying about raw syntax, as I'm used to using AI tools to handle the boilerplate.
+>
+> In fact, to give you a concrete example of this workflow: since speaking with Kieran last Friday, I collaborated with Claude Code to prototype a local, Kafka-based event-driven microservice demo that mimics what your team is currently building. If you're interested, I’d love to share my screen, show you the running system, and walk you through how we can productionize and scale this exact design for your new project."
 
 
 **"what are you looking for in your next role"** — use the sharper version:
