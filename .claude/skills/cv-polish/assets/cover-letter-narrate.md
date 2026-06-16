@@ -29,7 +29,6 @@ Best regards,
 3. **Will** you **fit** the team culture? (Glasgow-based, VP-level peer group)
 4. Your comp expectations (likely)
 
-
 Strategic talking points for you:
 
 ✅ Lead with your AI/agentic background — JD says AI/ML is a "preferred" plus, and this is your differentiator
@@ -41,7 +40,7 @@ Strategic talking points for you:
 
 **On the opening "why are you looking / why now" question:**
 
-> "After 8 years working for JP as C++ and JAVA developer, I joined Barclays as a senior JAVA developer in 2015 and was promoted to JAVA tech lead after a year. Since then I've been JAVA tech lead for various size projects teams between 3 and 10 people. My passion has always been software engineering, building software to solve realworld problems has always been one of my spare time hobbies. 
+> "After 8 years working for JP as C++ and JAVA developer, I joined Barclays as a senior JAVA developer in 2015 and was promoted to JAVA tech lead after a year. Since then I've been JAVA tech lead for various size projects teams between 3 and 10 people. My passion has always been software engineering, building software to solve realworld problems has always been one of my spare time hobbies.
 >
 > Ever since ChatGPT came out at end of 2022 I've shift my interests to Generative AI completely and spent 2-3 hours almost every day learning and coding in my spare time. In early 2024 I led a group of 8 colleagues to participate in Barclays' first GenAI hackathon, which led to company wide connections with colleagues who are enthusiastic about GenAI and I ended up hosting an internal chat group for the GenAI enthusiasts to share advanced ideas and topics. From this GenAI chat group connections I was recruited internally to CTO office as software architect responsible for using langflow with locally Ollama hosted LLMs for IT assets evaluation and rationalization. Unfortunately that project didn't last long before the company re-org, my CTO team was lift and shift to Global Functions and Enterprise Data department and I made the deliberate choice to join their Platform Engineering team in order to strengthern my CI/CD knowledge.
 >
@@ -49,17 +48,34 @@ Strategic talking points for you:
 
 > The second focus is generative AI. I've invested heavily in staying at the frontier of GenAI engineering over the past three years, building production tooling with LLMs, MCP protocol implementations, agentic framework and most recently Claude SKILLs. That's where I genuinely believe software engineering is heading, and I want my next role to be in an environment where that investment is valued and .accelerated rather than sidelined. From what I heard JPMorgan's engineering depth and scale in Glasgow felt like the right platform for achieving that."
 
+H:\code\yl\interview-code\java
+
+
+**On the opening "why are you looking / why now" question: - rewrite**
+
+>
+> "I actually spent a solid 8-year run here at JPMorgan as a Java and C++ developer before moving to Barclays in 2015, where I was promoted to Tech Lead. Over the last decade, I've led various agile teams of 3 to 10 engineers, but my core passion has always remained hands-on software architecture.
+>
+> A few years ago since chatgpt came out, I shifted my focus heavily toward Generative AI. After leading a team to enter the first internal Barclays GenAI hackathon and establishing our internal GenAI community, I was recruited into the CTO office as a software architect. There, we experimented building a platform using Langflow and local Ollama hosted LLM for IT asset rationalization. One year ago when a company reorg shifted my team to Global Functions and Enterprise Data, I made a deliberate choice to join Platform Engineering to learn modern CI/CD, cloud-native deployments, and infrastructure-as-code.
+>
+> While I've loved fast-learning and implementing platform tools—like writing custom release automation and pipeline analysis tooling—this past year's experience gave me a clear realization. I am most engaged and energized when I am architecting and building software that directly adds value to end-users, rather than focusing purely on enabling other teams through internal infrastructure support.
+>
+> In my current platform role, the focus is naturally on infrastructure and tooling optimization. I want to get back to core product engineering: building high-throughput, modern Java systems, and leveraging the latest runtime advancements like Java Virtual Threads and gRPC-based microservices to deliver scalable business capabilities, which I will never get a chance to do in my current role.
+>
+> That is why I am looking to transition. I want to bring my newly acquired platform and CI/CD skills back to core software product development. This Lead Java role (within the Commercial & Investment Bank here in Glasgow) feels like the perfect alignment—allowing me to bring my system design depth and passion for modern, high-performance Java back to the scale of JPMorgan."
+
+
 **"what are you looking for in your next role"** — use the sharper version:
 
-> "Two things really. First, I want to be closer to the product problem — I find myself most energised when I'm solving real user-facing problems, not just enabling others to do so. My personal projects over the past couple of years have all been in that space. 
+> "Two things really. First, I want to be closer to the product problem — I find myself most energised when I'm solving real user-facing problems, not just enabling others to do so. My personal projects over the past couple of years have all been in that space.
 >
 > Second, generative AI — I've invested seriously in staying at the frontier there, building production LLM tooling and agentic systems, and I want a team and environment where that investment is valued and accelerated rather than sidelined."
 
 **"can you give me an example of one of those personal projects?"**
 
-"Sure — I published a Python package called md-mcp to PyPI that implements the Model Context Protocol, which is Anthropic's open standard for connecting AI agents to external data sources. I built it to power a local knowledge base system where Claude can read and search markdown notes in real time. It's been my way of staying hands-on with agentic workflows outside of work — understanding how LLM tool-calling actually works at the protocol level rather than just reading about it." https://pypi.org/project/md-mcp/ 
+"Sure — I published a Python package called md-mcp to PyPI that implements the Model Context Protocol, which is Anthropic's open standard for connecting AI agents to external data sources. I built it to power a local knowledge base system where Claude can read and search markdown notes in real time. It's been my way of staying hands-on with agentic workflows outside of work — understanding how LLM tool-calling actually works at the protocol level rather than just reading about it." https://pypi.org/project/md-mcp/
 
-And just last weekend, I've further developed that project to an docker image based solution that takes dynamic local md knowledge base as attached volume, which further simplified the process. 
+And just last weekend, I've further developed that project to an docker image based solution that takes dynamic local md knowledge base as attached volume, which further simplified the process.
 
 https://hub.docker.com/r/ly2xxx/md-mcp
 
