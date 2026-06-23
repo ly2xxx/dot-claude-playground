@@ -47,12 +47,15 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 
 Architect enterprise GitLab CI/CD templates and secure cloud IDE workspaces to streamline developer experience across 50+ engineering teams.
 
-- Build and maintain GitLab CI/CD developer platform serving 50+ engineering teams with 500+ daily pipeline executions, reducing deployment failure investigation time by 85% (2+ hours → <15 minutes) through automated log analysis and intelligent root cause detection
-- Delivered production agentic ADLC tooling using Claude Code, custom MCP integrations, and AI SKILL development, accelerating developer productivity and automating deployment workflows across engineering teams — directly aligned with JPMorganChase's agentic pipeline engineering practice
+- Build and maintain GitLab CI/CD developer platform serving 50+ engineering teams with 500+ daily pipeline executions
+- Developed custom Python automation leveraging GitLab APIs to perform intelligent root cause analysis, cutting release pipelines investigation times by 85% (2+ hours → <15 minutes)
+- Delivered production agentic ADLC tooling using Claude Code, custom MCP integrations, and AI SKILL development, accelerating developer productivity and automating deployment workflows across engineering teams
 - Developed Python-based release automation framework, cutting evidence collection and audit trail generation from 3.5 hours to 1 hour per release
 - Co-developed Python-based security automation integrating Wiz vulnerability scanning covering 5,000+ repositories, reducing critical security exposure window from 14 days to <48 hours
 - Provisioned Coder cloud development environments via Terraform on AWS EC2; optimised Docker workspace images from 11+ GB to 500 MB (UBI9-micro base), reducing per-workspace cloud resource consumption by ~95%
 - Project-managed CIO deck automation for GFED Technology (Jun–Aug 2025), leading a team of interns from requirements to implementation; reduced manual effort from 20 hours to 2 hours (90%) and navigation clicks from ~215 to 50 (76%)
+
+
 
 **Senior Software Developer | Enterprise Architect | Nov 2024 – Apr 2025**
 
@@ -63,6 +66,8 @@ Pioneered enterprise GenAI adoption, local LLM experimentation, and automated as
 - Developed POC LangFlow-based AI workflows for automated tech asset discovery across 500+ enterprise applications
 - Promoted AI-native development practices through demos and knowledge-sharing, upskilling engineers on prompt engineering, RAG systems, and local LLM deployment
 
+
+
 **Senior Developer & Technical Team Lead | Plan & Invest | Apr 2022 – Nov 2024**
 
 Managed the BAU maintenance and improvements for the Plan & Invest wealth platform, decoupling backend services from monolithic frontend release cycles.
@@ -71,6 +76,8 @@ Managed the BAU maintenance and improvements for the Plan & Invest wealth platfo
 - Designed an API monitoring framework using Java AOP + OTEL + ELK to link logs from different services together and trace requests end to end, reducing L3 support response time from 45 min to <10 min and eliminating 80% of test environment outages through proactive alerting
 - Led a GenAI hackathon team of 8 engineers to prototype a personalised wealth management assistant orchestrating LLMs on AWS to automate complex banking workflows
 - Recruited and onboarded hire-to-desk engineers with zero prior system knowledge, achieving full productivity within 1 quarter through structured knowledge transfer and training
+
+
 
 **Senior Java Developer & Technical Team Lead | Little Book of Wonders, Barclays One | Nov 2016 – Apr 2022 (5.5 years)**
 
