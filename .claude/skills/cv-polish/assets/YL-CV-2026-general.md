@@ -8,41 +8,35 @@ victorlee2012.vl@gmail.com | Glasgow, UK | [LinkedIn](https://www.linkedin.com/i
 
 ## PROFILE
 
-Lead Software engineer with 20+ years building resilient production systems across fintech, wealth management, and energy sectors — now specialising in GitLab CI/CD platform engineering and GenAI adoption. Currently serving 50+ engineering teams at Barclays Global Functions and Enterprise Data as a platform engineer. Combines deep backend engineering experience with hands-on GenAI integration (RAG, MCP, agentic workflows) and SRE automation.
+Technically curious Lead Software Engineer with 20+ years building resilient production systems across investment bank, wealth management, and energy sectors — consistently drawn to the front line of emerging technology, now specialising in GitLab CI/CD platform engineering and GenAI adoption. Currently serving 50+ engineering teams at Barclays Global Functions and Enterprise Data as a platform engineer. Combines deep backend engineering experience with hands-on production GenAI integration (RAG, MCP, agentic workflows) and SRE automation.
 
-**Specialised in:** GitLab CI/CD Platform Architecture | Python & DevOps Automation | Java Enterprise Distributed Systems | SRE & Release Engineering | GenAI Integration (LangFlow, Ollama, RAG, MCP,  Claude SKILL) | Developer Experience & Productivity
+**Areas of Strength:** Mentorship & People Development | Knowledge Sharing & Team Upskilling | Graduate Onboarding | Cross-functional Collaboration | Process Improvement & Delivery Acceleration | Innovation Leadership | Forward Thinking
 
 ---
 
 ## TECHNICAL SKILLS
 
 **Languages & Core Engineering**
-
-- Languages: Java (10+ years), Python (4+ years, recent focus), C/C++, SQL; (Proficient) TypeScript, Rust (learning)
-- API Architecture: RESTful API design (Swagger/OpenAPI), distributed messaging, event-driven architectures
-- Distributed Systems & Messaging: Microservices, Kafka (basic knowledge), high-frequency trading platforms, resilient service design
-
-**Cloud & Infrastructure**
-
-- Cloud: AWS (EC2, RDS, S3, Lambda, ECS, EKS, ECR)
-- Infrastructure as Code: Terraform (hands-on/proficient), CloudFormation (learning)
-- Containerisation: Docker, Kubernetes, Red Hat OpenShift
-
-**CI/CD & Automation**
-
-- CI/CD Platforms: GitLab CI/CD (proficient), GitHub Actions, Jenkins, TeamCity
-- Automation: Python, Bash, Groovy, PowerShell
+`Core`       Python (4+ yrs) · Java (10+ yrs) · C/C++ · SQL · RESTful API design (Swagger/OpenAPI)
+`Competent`  Kafka · Distributed messaging · Microservices · Event-driven architecture
+`Learning`   TypeScript
 
 **Agentic AI & ML Tooling**
-
-- Agentic ADLC: Claude Code, MCP tool development, custom AI agent & SKILL development, Copilot-style developer workflows
-- AI Integration: LLM API orchestration, RAG systems, LangFlow, Ollama (Llama 3, Mistral)
-- Vector Databases: FAISS, Weaviate, ChromaDB, Pinecone, AWS OpenSearch
+`Core`       Claude Code · Claude SKILL · MCP tooling · LangChain · LangGraph · RAG systems · LLM API orchestration · LangFlow
+`Competent`   Openclaw with Ollama (GLM-5, Minimax-m3)· FAISS · Weaviate · ChromaDB · Pinecone · LangSmith
 
 **Observability & Reliability**
+`Core`       ELK Stack · Tableau · MS SQL Server · Oracle · Liquibase
+`Competent` Prometheus · Grafana · OpenTelemetry (OTEL)
 
-- Monitoring & Logging: ELK Stack, Prometheus, Grafana, Tableau, OpenTelemetry (OTEL)
-- Databases: MS SQL Server, Oracle, AWS RDS, vector databases; Liquibase (schema migrations)
+**Cloud & Infrastructure**
+`Core`       Docker · Kubernetes
+`Competent`  Terraform · Helm · AWS (EC2, S3, Lambda, ECS, EKS, ECR) · Red Hat OpenShift
+`Learning`   CloudFormation
+
+**CI/CD & Automation**
+`Core`       GitLab CI/CD · Python automation · Bash
+`Competent`  Jenkins · TeamCity · Groovy · PowerShell · GitHub Actions
 
 ---
 
@@ -133,10 +127,9 @@ BSc, Industrial Automation Engineering | Oct 1998 – Jul 2002
 
 ---
 
-## KEY ACHIEVEMENTS & CERTIFICATIONS
+## HIGHLIGHTS & CERTIFICATIONS
 
-- **J.P. Morgan Alumni:** 8-year tenure at JPMC building Java distributed trading systems for equity and credit derivatives; returning with 10+ additional years of cloud, AI/ML, and platform engineering leadership
-- **Agentic ADLC (Production):** Built Claude Code integrations, MCP tooling, and custom AI agents (Claude SKILL) at Barclays
+- **Agentic ADLC (Production):** Claude Code integrations, MCP tooling integration, and custom AI agents (Claude SKILL) at Barclays
 - **GitLab CI/CD at Scale:** Designed and scaled CI/CD automation serving 50+ engineering teams at Barclays; contributed to enterprise-wide GitLab Ultimate migration. [Barclays PLC case study](https://about.gitlab.com/customers/barclays-plc/)
 - **Financial Derivatives Certification** (CISI, 2010)
 - **Speaker/Blogger:** Active technology blog since 2016 — [edisonideas.wordpress.com](https://edisonideas.wordpress.com) — covering AI, DevOps, and platform engineering
