@@ -1,8 +1,7 @@
 # YANG LI
 
-**Lead Software Engineer | Java · Python · AWS · Distributed Systems**
-
-victorlee2012.vl@gmail.com | Glasgow, UK | [LinkedIn](https://www.linkedin.com/in/yang-li-78917021/)
+**victorlee2012.vl@gmail.com | Glasgow, UK | [LinkedIn
+](https://www.linkedin.com/in/yang-li-78917021/)**
 
 ---
 
