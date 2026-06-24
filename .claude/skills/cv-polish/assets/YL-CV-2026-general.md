@@ -16,26 +16,26 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 ## TECHNICAL SKILLS
 
 **Languages & Core Engineering**
-`Core`       Python (4+ yrs) · Java (10+ yrs) · C/C++ · SQL · RESTful API design (Swagger/OpenAPI)
-`Competent`  Kafka · Distributed messaging · Microservices · Event-driven architecture
-`Learning`   TypeScript
+`Proficient`  Python (4+ yrs) · Java (10+ yrs) · C/C++ · SQL · RESTful API design (Swagger/OpenAPI)
+`Familiar`    Kafka · Distributed messaging · Microservices · Event-driven architecture
+`Learning`    TypeScript
 
 **Agentic AI & ML Tooling**
-`Core`       Claude Code · Claude SKILL · MCP tooling · LangChain · LangGraph · RAG systems · LLM API orchestration · LangFlow
-`Competent`   Openclaw with Ollama (GLM-5, Minimax-m3)· FAISS · Weaviate · ChromaDB · Pinecone · LangSmith
+`Proficient`  Claude Code · Claude SKILL · MCP tooling · LangChain · LangGraph · RAG systems · LLM API orchestration · LangFlow
+`Familiar`    Openclaw with Ollama (GLM-5, Minimax-m3)· FAISS · Weaviate · ChromaDB · Pinecone · LangSmith
 
 **Observability & Reliability**
-`Core`       ELK Stack · Tableau · MS SQL Server · Oracle · Liquibase
-`Competent` Prometheus · Grafana · OpenTelemetry (OTEL)
+`Proficient`  ELK Stack · Tableau · MS SQL Server · Oracle · Liquibase
+`Familiar`    Prometheus · Grafana · OpenTelemetry (OTEL)
 
 **Cloud & Infrastructure**
-`Core`       Docker · Kubernetes
-`Competent`  Terraform · Helm · AWS (EC2, S3, Lambda, ECS, EKS, ECR) · Red Hat OpenShift
-`Learning`   CloudFormation
+`Proficient`  Docker · Kubernetes
+`Familiar`    Terraform · Helm · AWS (EC2, S3, Lambda, ECS, EKS, ECR) · Red Hat OpenShift
+`Learning`    CloudFormation
 
 **CI/CD & Automation**
-`Core`       GitLab CI/CD · Python automation · Bash
-`Competent`  Jenkins · TeamCity · Groovy · PowerShell · GitHub Actions
+`Proficient`  GitLab CI/CD · Python automation · Bash
+`Familiar`    Jenkins · TeamCity · Groovy · PowerShell · GitHub Actions
 
 ---
 
@@ -55,8 +55,6 @@ Architect enterprise GitLab CI/CD templates and secure cloud IDE workspaces to s
 - Provisioned Coder cloud development environments via Terraform on AWS EC2; optimised Docker workspace images from 11+ GB to 500 MB (UBI9-micro base), reducing per-workspace cloud resource consumption by ~95%
 - Project-managed CIO deck automation for GFED Technology (Jun–Aug 2025), leading a team of interns from requirements to implementation; reduced manual effort from 20 hours to 2 hours (90%) and navigation clicks from ~215 to 50 (76%)
 
-
-
 **Senior Software Developer | Enterprise Architect | Nov 2024 – Apr 2025**
 
 Pioneered enterprise GenAI adoption, local LLM experimentation, and automated asset dependency mapping and reporting across business units.
@@ -66,8 +64,6 @@ Pioneered enterprise GenAI adoption, local LLM experimentation, and automated as
 - Developed POC LangFlow-based AI workflows for automated tech asset discovery across 500+ enterprise applications
 - Promoted AI-native development practices through demos and knowledge-sharing, upskilling engineers on prompt engineering, RAG systems, and local LLM deployment
 
-
-
 **Senior Developer & Technical Team Lead | Plan & Invest | Apr 2022 – Nov 2024**
 
 Managed the BAU maintenance and improvements for the Plan & Invest wealth platform, decoupling backend services from monolithic frontend release cycles.
@@ -76,8 +72,6 @@ Managed the BAU maintenance and improvements for the Plan & Invest wealth platfo
 - Designed an API monitoring framework using Java AOP + OTEL + ELK to link logs from different services together and trace requests end to end, reducing L3 support response time from 45 min to <10 min and eliminating 80% of test environment outages through proactive alerting
 - Led a GenAI hackathon team of 8 engineers to prototype a personalised wealth management assistant orchestrating LLMs on AWS to automate complex banking workflows
 - Recruited and onboarded hire-to-desk engineers with zero prior system knowledge, achieving full productivity within 1 quarter through structured knowledge transfer and training
-
-
 
 **Senior Java Developer & Technical Team Lead | Little Book of Wonders, Barclays One | Nov 2016 – Apr 2022 (5.5 years)**
 
