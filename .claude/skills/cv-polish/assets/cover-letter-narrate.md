@@ -50,13 +50,11 @@ Strategic talking points for you:
 
 H:\code\yl\interview-code\java
 
-
 **On the opening "why are you looking / why now" question: - rewrite**
 
+> "I spent a solid 8-year at JPMorgan as a Java and C++ developer before moving to Barclays in 2015, where I was promoted to Tech Lead. Over the last decade, I've led various agile teams of 3 to 10 engineers, but my core passion has always remained hands-on software architecture.
 >
-> "I actually spent a solid 8-year run here at JPMorgan as a Java and C++ developer before moving to Barclays in 2015, where I was promoted to Tech Lead. Over the last decade, I've led various agile teams of 3 to 10 engineers, but my core passion has always remained hands-on software architecture.
->
-> A few years ago since chatgpt came out, I shifted my focus heavily toward Generative AI. After leading a team to enter the first internal Barclays GenAI hackathon and establishing our internal GenAI community, I was recruited into the CTO office as a software architect. There, we experimented building a platform using Langflow and local Ollama hosted LLM for IT asset rationalization. One year ago when a company reorg shifted my team to Global Functions and Enterprise Data, I made a deliberate choice to join Platform Engineering to learn modern CI/CD, cloud-native deployments, and infrastructure-as-code.
+> A few years ago since chatgpt came out, I shifted my focus heavily toward Generative AI(by converting myself to python developer working on hobby projects like RAG, ML every night for 2-3 hours, I kept myself close to the leading edge of the area). After leading a team to enter the first internal Barclays GenAI hackathon and establishing our internal GenAI community, I was recruited into the CTO office as a software architect. There, we experimented building a platform using Langflow and local Ollama hosted LLM for IT asset rationalization. One year ago when a company reorg shifted my team to Global Functions and Enterprise Data, I made a deliberate choice to join Platform Engineering to learn modern CI/CD, cloud-native deployments, and infrastructure-as-code.
 >
 > While I've loved fast-learning and implementing platform tools—like writing custom release automation and pipeline analysis tooling—this past year's experience gave me a clear realization. I am most engaged and energized when I am architecting and building software that directly adds value to end-users, rather than focusing purely on enabling other teams through internal infrastructure support.
 >
@@ -67,7 +65,6 @@ H:\code\yl\interview-code\java
 > Lastly, just to set expectations: since claude code came out last year my coding workflow has shifted to an AI-first development model using agentic tools. If we write code today, I'll start by mapping out the architecture and logical steps first rather than worrying about raw syntax, as I'm used to using AI tools to handle the boilerplate.
 >
 > In fact, to give you a concrete example of this workflow: since speaking with Kieran last Friday, I collaborated with Claude Code to prototype a local, Kafka-based event-driven microservice demo that mimics what your team is currently building. If you're interested, I’d love to share my screen, show you the running system, and walk you through how we can productionize and scale this exact design for your new project."
-
 
 **"what are you looking for in your next role"** — use the sharper version:
 
@@ -97,3 +94,86 @@ Strategic questions to ask HIM:
 - "How does the Glasgow team interact with the London/New York CIB teams?"
 - "Is there a particular programming language or stack the team is standardising on?"
 - **"What's your team's stance on AI-assisted development** — are you using GitHub Copilot / internal AI tools?
+
+---
+
+
+
+I am going to tell you a story about my incremental release process optimisation and you are going to design a diagram for me to show case the system during interview. Are you ready?
+
+This is a 3 phase projects, when I joined the team last year and worked on their "GitLab CI/CD developer platform serving 50+ engineering teams with 500+ daily pipeline executions" - the platform is a collection opinionated Gitlab yaml components covering infra/ci(build)/cd(deploy) for all prevailing language and tools, the weekly release was a pain: the gitlab code follows develop->ea->main model, with many of the internal project teams subscribe to our develop and ea tags as early adopters - each release involves: manually collecting screenshots from Kibana dashboards showing the 'develop' and 'ea' pipelines failure rates, manually go through the failed pipeline dashboard and follow the failed job link to investigate route cause (took half a day per release). So the full release from ea to main (T-1), then develop to ea (T) took a full day for the release person.
+
+After my observation doing a few release rounds I've decided to gradually automate the process:
+
+Phase 1 - Developed custom Python automation leveraging GitLab APIs to perform intelligent root cause analysis, cutting release pipelines investigation times by 85% (2+ hours → <15 minutes)
+
+*This basically starting from pipeline failure spreadsheets collected from Kibana dashboard, and call the python script to filter out failed jobs not needing investigation following a 5-step process:
+
+1 - locate pipeline url for the failed job
+
+2 - if later version of the same pipeline on the same code branch succeeded, pass and skip investigation
+
+3 - if latest version pipeline still failed but the original failed job pass on latest pipeline, skip investigation with caution
+
+4 - if the same job still failing on latest pipeline on the same code branch, trace back the earliest failed job in pipeline if it's an OPA job failure (means infra as code error), skip investigation with caution
+
+5 - if all above don't match then mark the failed job/pipeline as need human investigation
+
+With this automation, we significantly reduced pipelines need investigation from 100+ to around 10-20 per release
+
+Phase 2 - Delivered production agentic ADLC tooling using Claude Code, custom MCP integrations, and AI SKILL development, accelerating developer productivity and automating deployment workflows across engineering teams
+
+*This is a Claude SKILL where human being passed in failed pipeline url, and let Claude investigate the root cause. User has the option to pass in extra knowledge base (for example release delta, codebase extract in .md format) and let Claude gives a failure relevant score per knowledge source - this indicates whether a particular failure is related to a particular release or the CI/CD pipeline components in general
+
+Phase 3 - Developed Python-based release automation framework, cutting evidence collection and audit trail generation from 3.5 hours to 1 hour per release
+
+*The dedicated release-toolkit project offers a two-steps Gitlab pipeline
+
+Step1 - Collect Kibana dashboard screenshots and failed jobs csv automatically, generate release delta .md from Gitlab release url, call Phase 1 python script to filter out unnecessary investigation
+
+Step2 - Create release confluence page based on evidence collected in Step1, layout the filtered pipelines in a nice format on the confluence page for human investigation (using Phase 2 investigation SKILL), which is the only manual part
+
+**With all the above automation, now release time is reduced from 4 hours to 1 hour, allowing the team to move to more frequent release model - now they do 3 releases per week (2x develop to ea on Tue and Fri, and 1xea to main on Fri). Ask me any questions if anything is till not clear
+
+P.S - all credentials needed (Gitlab, Confluence, Kibana) are safely stored in Hashicop Vault
+
+
+
+---
+
+
+
+This is a great story—a clear three-phase evolution from fully manual to highly automated, with concrete metrics at each stage. Before I start drawing, let me confirm I've understood the structure and share my plan.
+
+Here's my understanding of what the diagram needs to convey:
+
+**The context/baseline:** A GitLab CI/CD developer platform (opinionated YAML components for infra/build/deploy) serving 50+ teams, 500+ daily pipelines, following a develop→ea→main release model with early-adopter teams subscribing to develop/ea tags. The original pain: manual Kibana screenshot collection + manual root-cause investigation of failed pipelines, taking ~a full day per release (ea→main at T-1, develop→ea at T).
+
+**Phase 1 — Python RCA automation:** Takes failure spreadsheets from Kibana, runs a 5-step filtering logic (locate pipeline URL → check if later pipeline succeeded → check if original job now passes → trace earliest OPA/IaC failure → else flag for human). Result: 100+ → 10–20 pipelines needing investigation; investigation time 2+ hrs → <15 min (85% cut).
+
+**Phase 2 — Agentic ADLC tooling (Claude SKILL + custom MCP):** Human passes a failed pipeline URL; Claude investigates root cause. Optional knowledge bases (release delta, codebase extract in .md) produce a per-source "failure relevance score" indicating whether a failure ties to a specific release vs. general CI/CD components.
+
+**Phase 3 — Release automation framework (release-toolkit):** A two-step GitLab pipeline. Step 1 auto-collects Kibana screenshots + failed-jobs CSV, generates release delta .md, calls the Phase 1 script to filter. Step 2 builds a Confluence release page laying out filtered pipelines for human investigation (using the Phase 2 SKILL)—the only remaining manual step.
+
+**The outcome:** Release time 4 hrs → 1 hr, enabling a shift from weekly to 3 releases/week (2× develop→ea Tue/Fri, 1× ea→main Fri). Credentials secured in HashiCorp Vault.
+
+A couple of quick questions before I draw, so the diagram lands well in an interview:
+
+1. **Layout preference:** Would you like (a) a left-to-right "journey" flow showing Before → Phase 1 → Phase 2 → Phase 3 → Outcome, or (b) a more architectural diagram showing the final release-toolkit system with the data flows (Kibana/GitLab/Confluence/Vault) and Phase 1/Phase 2 as embedded components? I'd lean toward **option (a)** since it best showcases the incremental optimization narrative for an interview, but I can do either—or a hybrid.
+2. **Metrics emphasis:** Should I prominently feature the before/after numbers (85% cut, 100+→10–20, 4h→1h, weekly→3×/week) as callout badges? I'd recommend yes.
+
+If option (a) with metric callouts sounds good, just say "go" and I'll build it on the canvas. Otherwise let me know your preference and I'll adjust.
+
+[ ]
+---
+---
+"When I joined this team, releases for our GitLab CI/CD platform — 50-plus teams, 500-plus daily pipelines — were weekly and painful. Every release meant manually pulling Kibana failure data and clicking through 100-plus failed pipelines to find root causes. A full day of work.
+I automated it in three phases.
+Phase 1: a Python tool on the GitLab APIs that intelligently filters failures with a five-step rule set — so instead of triaging 100-plus pipelines, you're left with 10 to 20. That cut investigation time 85 percent.
+Phase 2: a Claude SKILL with custom MCP integrations that does the actual root-cause analysis from a pipeline URL, and scores how relevant each failure is to a specific release versus the platform in general.
+Phase 3: a release-toolkit that ties it together — one pipeline auto-collects all the evidence and runs the Phase 1 filter, the next builds the Confluence release page for review. The only manual step left is a quick human review, all credentials secured in Vault.
+The result: release time went from four hours to one — which let the team move from weekly releases to three a week."
+
+And if you want a true 15-second hook to open with:
+"I took a manual, full-day weekly release process and automated it in three phases — Python triage, an agentic Claude root-cause tool, and an end-to-end release framework. Release time dropped from four hours to one, and the team went from weekly to three releases a week."
+Want me to trim further, or tweak the wording on any phase?
