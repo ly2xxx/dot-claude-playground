@@ -97,8 +97,6 @@ Strategic questions to ask HIM:
 
 ---
 
-
-
 I am going to tell you a story about my incremental release process optimisation and you are going to design a diagram for me to show case the system during interview. Are you ready?
 
 This is a 3 phase projects, when I joined the team last year and worked on their "GitLab CI/CD developer platform serving 50+ engineering teams with 500+ daily pipeline executions" - the platform is a collection opinionated Gitlab yaml components covering infra/ci(build)/cd(deploy) for all prevailing language and tools, the weekly release was a pain: the gitlab code follows develop->ea->main model, with many of the internal project teams subscribe to our develop and ea tags as early adopters - each release involves: manually collecting screenshots from Kibana dashboards showing the 'develop' and 'ea' pipelines failure rates, manually go through the failed pipeline dashboard and follow the failed job link to investigate route cause (took half a day per release). So the full release from ea to main (T-1), then develop to ea (T) took a full day for the release person.
@@ -137,11 +135,7 @@ Step2 - Create release confluence page based on evidence collected in Step1, lay
 
 P.S - all credentials needed (Gitlab, Confluence, Kibana) are safely stored in Hashicop Vault
 
-
-
 ---
-
-
 
 This is a great story—a clear three-phase evolution from fully manual to highly automated, with concrete metrics at each stage. Before I start drawing, let me confirm I've understood the structure and share my plan.
 
@@ -166,7 +160,9 @@ If option (a) with metric callouts sounds good, just say "go" and I'll build it 
 
 [ ]
 ---
+
 ---
+
 "When I joined this team, releases for our GitLab CI/CD platform — 50-plus teams, 500-plus daily pipelines — were weekly and painful. Every release meant manually pulling Kibana failure data and clicking through 100-plus failed pipelines to find root causes. A full day of work.
 I automated it in three phases.
 Phase 1: a Python tool on the GitLab APIs that intelligently filters failures with a five-step rule set — so instead of triaging 100-plus pipelines, you're left with 10 to 20. That cut investigation time 85 percent.
@@ -177,3 +173,26 @@ The result: release time went from four hours to one — which let the team move
 And if you want a true 15-second hook to open with:
 "I took a manual, full-day weekly release process and automated it in three phases — Python triage, an agentic Claude root-cause tool, and an end-to-end release framework. Release time dropped from four hours to one, and the team went from weekly to three releases a week."
 Want me to trim further, or tweak the wording on any phase?
+
+---
+
+
+
+I am going to tell you a project I worked on and you are going to design a diagram for me to show case the system during interview matching STAR. Are you ready?
+
+
+A few things that would help me build the most useful diagram:
+
+I am part of GitLab CI/CD developer platform serving 50+ engineering teams with 500+ daily pipeline executions
+
+* **What the system does** — the core purpose and what problem it solved.
+* Co-developed Python-based security automation integrating Wiz vulnerability scanning covering 5,000+ repositories, reducing critical security exposure window from 14 days to <48 hours
+* **Key components** — services, databases, APIs, frontends, queues, etc.
+* A centralized Wiz scan python restful service hosted on AWS EKS/EC2 (CICD using eksctl and helm) that supports single and batch wiz directory scan while called, with configurable pool of scan threads in batch mode (currently set to 3, timeout 15 minutes)
+* A weekly scheduled gitlab pipeline to call the restful endpoint in batch mode of 5,000+ repositories (the pipeline job figures out active repositories to scan from an upstream csv spreadsheet)
+* A separate gitlab pipeline to call the restful endpoint in single scan mode with higher timeout threshold for previous weekly timed out repository (timeout 30 minutes)
+* A third weekly scheduled job to collect scan results from wiz portal and email the report to vulnerabilities PM
+* **How data/requests flow** through those components.
+* csv -> gitlab pipeline collection -> restful call scan batch mode -> scan results -> PM
+* **Your specific role** — what you personally built or owned (helpful to highlight for the interview).
+* ochestrate the system design to connect the previously individual dots solution and fully automate the process end to end (restful service, collect csv input from AWS S3, call collegue written python script to weekly report to PM)
