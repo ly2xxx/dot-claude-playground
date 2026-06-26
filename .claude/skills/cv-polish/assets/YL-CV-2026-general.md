@@ -73,7 +73,7 @@ Managed the BAU maintenance and improvements for the Plan & Invest wealth platfo
 - Led a GenAI hackathon team of 8 engineers to prototype a personalised wealth management assistant orchestrating LLMs on AWS to automate complex banking workflows
 - Recruited and onboarded hire-to-desk engineers with zero prior system knowledge, achieving full productivity within 1 quarter through structured knowledge transfer and training
 
-**Senior Java Developer & Technical Team Lead | Little Book of Wonders, Barclays One | Nov 2016 – Apr 2022 (5.5 years)**
+**Senior Java Developer & Technical Team Lead | Little Book of Wonders, Barclays One | Apr 2015 – Apr 2022**
 
 Little Book of Wonders is a customer event publishing and management platform built on Adobe Experience Manager, and Barclays One is a read-only wealth portfolio portal developed using Spring/Java and AngularJS.
 
@@ -99,7 +99,7 @@ Architected and delivered Java-based high-frequency trade capture platforms for 
 
 ### ADVANTAGE ENERGY SOLUTIONS LTD (AESL) | Edinburgh, UK
 
-**Software Engineer | Feb 2004 – Jan 2007**
+**Software Engineer | Jan 2003 – Jan 2007**
 
 Developed customer-facing energy consulting web platforms and introduced version control and CI pipelines to drive software process maturity.
 
