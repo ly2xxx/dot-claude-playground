@@ -52,7 +52,7 @@ Architect enterprise GitLab CI/CD templates and secure cloud IDE workspaces to s
 - Delivered production agentic ADLC tooling using Claude Code, custom MCP integrations, and AI SKILL development, accelerating developer productivity and automating deployment workflows across engineering teams
 - Developed Python-based release automation framework, cutting evidence collection and audit trail generation from 3.5 hours to 1 hour per release
 - Co-developed Python-based security automation integrating Wiz vulnerability scanning covering 5,000+ repositories, reducing critical security exposure window from 14 days to <48 hours
-- Provisioned Coder cloud development environments via Terraform on AWS EC2; optimised Docker workspace images from 11+ GB to 500 MB (UBI9-micro base), reducing per-workspace cloud resource consumption by ~95%
+- Optimized Docker workspace images for Coder cloud environments on AWS EC2, achieving a 95% reduction in size (11+ GB to 500 MB) utilizing a UBI9-micro base to significantly lower infrastructure overhead
 - Project-managed CIO deck automation for GFED Technology (Jun–Aug 2025), leading a team of interns from requirements to implementation; reduced manual effort from 20 hours to 2 hours (90%) and navigation clicks from ~215 to 50 (76%)
 
 **Senior Software Developer | Enterprise Architect | Nov 2024 – Apr 2025**
