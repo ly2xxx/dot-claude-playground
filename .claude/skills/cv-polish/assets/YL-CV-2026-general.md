@@ -29,8 +29,8 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 `Familiar`    Prometheus · Grafana · OpenTelemetry (OTEL)
 
 **Cloud & Infrastructure**
-`Proficient`  Docker · Kubernetes
-`Familiar`    Terraform · Helm · AWS (EC2, S3, Lambda, ECS, EKS, ECR) · Red Hat OpenShift
+`Proficient`  Docker · Helm
+`Familiar`    Terraform · AWS (EC2, S3, Lambda, ECS, EKS, ECR) · Red Hat OpenShift · Kubernetes
 `Learning`    CloudFormation
 
 **CI/CD & Automation**
