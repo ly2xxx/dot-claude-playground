@@ -40,6 +40,17 @@ Strategic talking points for you:
 
 **On the opening "why are you looking / why now" question:**
 
+After 8 years at JPMorgan as a C++ and Java developer, I joined Barclays as a senior Java developer in 2015 and was promoted to tech lead within a year — since then I've led Java teams of 3 to 10 engineers across projects of varying size. Software engineering has always been the constant: building things that solve real problems, as much a hobby as a job.
+
+Since ChatGPT's release in late 2022, I've shifted a large part of that hobby energy into Generative AI — 2 to 3 hours most evenings, hands-on. In early 2024 I led a group of 8 colleagues into Barclays' first internal GenAI hackathon, which grew into a company-wide community of GenAI enthusiasts that I ended up hosting. That visibility got me recruited into the CTO office as a software architect, building an IT-asset rationalisation platform on LangFlow with locally-hosted Ollama models. However, that role didn't last long, A reorg after 6 months moved my team into Platform Engineering for another business unit Global Functions and Data Engineering, and I made the deliberate choice to stay there for a year to build real depth in CI/CD and cloud-native delivery — since it's given me the production-engineering rigour a lot of AI-only people lack.
+
+That combination is what I understand you're looking for: I use Claude Code daily as a development accelerant, but the more interesting work is what I've shipped with it — a Claude SKILL that investigates CI pipeline failures autonomously at work, an MCP server published to PyPI and Docker Hub, and a self-hosted observability and evaluation stack in my spare time (OpenTelemetry, Grafana, pytest-bdd/DeepEval) so agent behaviour is measured rather than assumed. That's the distinction I'd draw too: AI-assisted coding makes me faster; the work I actually want more of is architecting and deploying agents that do real work in production, with the engineering discipline to trust them there.
+
+Unfortunately my current role was made redundant in a recent reorg, and I am currently on garden leave until mid-September — sooner than the three-month notice most senior candidates are serving, so I can start earlier than a typical hire at this level.
+
+I'd be very glad to talk through the specifics of the role.
+
+
 > "After 8 years working for JP as C++ and JAVA developer, I joined Barclays as a senior JAVA developer in 2015 and was promoted to JAVA tech lead after a year. Since then I've been JAVA tech lead for various size projects teams between 3 and 10 people. My passion has always been software engineering, building software to solve realworld problems has always been one of my spare time hobbies.
 >
 > Ever since ChatGPT came out at end of 2022 I've shift my interests to Generative AI completely and spent 2-3 hours almost every day learning and coding in my spare time. In early 2024 I led a group of 8 colleagues to participate in Barclays' first GenAI hackathon, which led to company wide connections with colleagues who are enthusiastic about GenAI and I ended up hosting an internal chat group for the GenAI enthusiasts to share advanced ideas and topics. From this GenAI chat group connections I was recruited internally to CTO office as software architect responsible for using langflow with locally Ollama hosted LLMs for IT assets evaluation and rationalization. Unfortunately that project didn't last long before the company re-org, my CTO team was lift and shift to Global Functions and Enterprise Data department and I made the deliberate choice to join their Platform Engineering team in order to strengthern my CI/CD knowledge.
@@ -176,10 +187,7 @@ Want me to trim further, or tweak the wording on any phase?
 
 ---
 
-
-
 I am going to tell you a project I worked on and you are going to design a diagram for me to show case the system during interview matching STAR. Are you ready?
-
 
 A few things that would help me build the most useful diagram:
 
