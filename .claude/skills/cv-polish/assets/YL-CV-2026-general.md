@@ -7,7 +7,7 @@
 
 ## PROFILE
 
-Technically curious Lead Software Engineer with 20+ years building resilient production systems across investment bank, wealth management, and energy sectors — consistently drawn to the front line of emerging technology, now specialising in GitLab CI/CD platform engineering and GenAI adoption. Currently serving 50+ engineering teams at Barclays Global Functions and Enterprise Data as a platform engineer. Combines deep backend engineering experience with hands-on production GenAI integration (RAG, MCP, agentic workflows) and SRE automation.
+Technically curious Lead Software Engineer with 20+ years building resilient production systems across investment bank, wealth management, and energy sectors — consistently drawn to the front line of emerging technology, now specialising in GitLab CI/CD platform engineering and GenAI adoption. Currently serving 50+ engineering teams at Barclays Global Functions and Enterprise Data as a platform engineer. Combines deep backend engineering experience with hands-on production GenAI integration (MCP, agentic workflows) and SRE automation.
 
 **Areas of Strength:** Mentorship & People Development | Knowledge Sharing & Team Upskilling | Graduate Onboarding | Cross-functional Collaboration | Process Improvement & Delivery Acceleration | Innovation Leadership | Forward Thinking
 
@@ -47,12 +47,10 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 
 Architect enterprise GitLab CI/CD templates and secure cloud IDE workspaces, streamlining developer experience across 50+ engineering teams running 500+ daily pipeline executions.
 
-- Developed custom Python automation leveraging GitLab APIs to perform intelligent root cause analysis, cutting release pipeline investigation time by 85% (2+ hours → <15 minutes)
-- Delivered production agentic ADLC tooling using Claude Code, custom MCP integrations, and AI SKILL development, accelerating developer productivity and automating deployment workflows across engineering teams
-- Developed Python-based release automation framework, cutting evidence collection and audit trail generation from 3.5 hours to 1 hour per release
-- Co-developed Python-based security automation integrating Wiz vulnerability scanning covering 5,000+ repositories, reducing critical security exposure window from 14 days to <48 hours
-- Optimized Docker workspace images for Coder cloud environments on AWS EC2, achieving a 95% reduction in size (11+ GB to 500 MB) using a UBI9-micro base to significantly lower infrastructure overhead
-- Project-managed CIO deck automation for GFED Technology (Jun–Aug 2025), leading a team of interns from requirements to implementation; reduced manual effort from 20 hours to 2 hours (90%) and navigation clicks from ~215 to 50 (76%)
+- Built a phased release-automation framework combining Python-based deterministic API filtering with agentic Claude SKILL/GitLab MCP root-cause scoring — cut pipeline triage from 100+ candidates to 10–20 (investigation time down 85%, 2+ hours → <15 minutes), automated evidence collection and Confluence publishing, and reduced total release time from 4 hours to 1, unlocking a 3× release-cadence increase (weekly → three releases a week)
+- Co-developed Python-based security automation integrating Wiz vulnerability scanning across 5,000+ repositories on AWS EKS, reducing critical security exposure window from 14 days to <48 hours — mentored a junior engineer through the cloud deployment
+- Optimised Docker workspace images for Coder cloud environments on AWS EC2 by 95% (11+ GB → 500 MB) using a UBI9-micro base, materially lowering infrastructure overhead
+- Project-managed CIO deck automation for GFED Technology, leading a team of interns from requirements to implementation; reduced manual effort by 90% (20 hours → 2 hours)
 
 **Senior Software Developer | Enterprise Architect | Nov 2024 – Apr 2025**
 

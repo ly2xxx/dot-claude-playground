@@ -6,9 +6,9 @@
 
 ## PROFILE
 
-AI Solution Architect and Lead Software Engineer with 20+ years building resilient, secure production systems across investment banking, wealth management, and energy — now leading enterprise adoption of agentic AI. Combines hands-on production GenAI engineering (LangGraph, MCP, RAG, Claude Code/SKILL) with the security, observability, and governance discipline built over a career in regulated, high-stakes systems. Currently architects agentic developer tooling for 50+ engineering teams at Barclays; independently ships production-pattern AI systems — published to PyPI and Docker Hub — with self-hosted observability and automated evaluation built in from the start, not bolted on.
+Technically curious Lead Software Engineer with 20+ years building resilient production systems across investment bank, wealth management, and energy sectors — consistently drawn to the front line of emerging technology, now specialising in GitLab CI/CD platform engineering and GenAI adoption. Currently serving 50+ engineering teams at Barclays Global Functions and Enterprise Data as a platform engineer. Combines deep backend engineering experience with hands-on production GenAI integration (MCP, agentic workflows) and SRE automation.
 
-**Areas of Strength:** AI Solution Architecture & Governance | Secure & Responsible AI Design | Stakeholder Alignment & Executive Communication | Mentorship & Team Upskilling | Cross-functional Collaboration | Innovation Leadership
+**Areas of Strength:** Mentorship & People Development | Knowledge Sharing & Team Upskilling | Graduate Onboarding | Cross-functional Collaboration | Process Improvement & Delivery Acceleration | Innovation Leadership | Forward Thinking
 
 ---
 
