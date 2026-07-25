@@ -129,8 +129,7 @@ BSc, Industrial Automation Engineering | Oct 1998 – Jul 2002
 
 ## HIGHLIGHTS & CERTIFICATIONS
 
-- **Production Agentic AI:** Built and shipped Claude Code integrations, MCP tooling, and custom Claude SKILLs at Barclays — plus an independent portfolio of published AI engineering artifacts (PyPI, Docker Hub)
-- **Secure & Responsible AI:** Data-sensitivity-based local/cloud model routing, privacy-aware telemetry, read-only data boundaries — security-automation pedigree from leading Wiz vulnerability scanning across 5,000+ repositories
-- **GitLab CI/CD at Scale:** Designed and scaled CI/CD automation serving 50+ engineering teams at Barclays; contributed to enterprise-wide GitLab Ultimate migration. [Barclays PLC case study](https://about.gitlab.com/customers/barclays-plc/)
+- **Production Agentic AI:** Built and shipped a container image bundling Claude Code, Git/JIRA MCP tooling, and custom Claude SKILLs — including the pipeline triage SKILL — for developers at Barclays
+- **GitLab CI/CD at Scale:** Contributed to designing and scaling CI/CD automation serving 50+ engineering teams at Barclays, and to the enterprise-wide GitLab Ultimate migration. [Barclays PLC case study](https://about.gitlab.com/customers/barclays-plc/)
 - **Financial Derivatives Certification** (CISI, 2010)
 - **Blogger:** Active technology blog since 2016 — [edisonideas.wordpress.com](https://edisonideas.wordpress.com)
