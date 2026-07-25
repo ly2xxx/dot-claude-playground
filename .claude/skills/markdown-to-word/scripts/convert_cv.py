@@ -89,6 +89,12 @@ def add_formatted_text(paragraph, text, font_size=9.5, font_name="Calibri", colo
                 run.font.color.rgb = color
 
 
+def _is_contact_line(line):
+    """A header line carrying an email or a markdown link is the contact line,
+    not the tagline — even when the whole line is wrapped in **bold**."""
+    return '@' in line or '](' in line or 'http' in line
+
+
 def apply_paragraph_format(p, space_before=0, space_after=3, line_spacing=1.15):
     p.paragraph_format.space_before = Pt(space_before)
     p.paragraph_format.space_after = Pt(space_after)
@@ -96,7 +102,8 @@ def apply_paragraph_format(p, space_before=0, space_after=3, line_spacing=1.15):
 
 
 def add_skill_backtick_bullet(doc, label, content):
-    """Render a `Label`  content skill line as a bullet with bolded label prefix."""
+    """Render a `Label`  content (or **Label:** content) skill line as a bullet
+    with a bolded label prefix."""
     p = doc.add_paragraph(style='List Bullet')
     apply_paragraph_format(p, space_before=0, space_after=2, line_spacing=1.15)
 
@@ -107,6 +114,37 @@ def add_skill_backtick_bullet(doc, label, content):
     run.font.color.rgb = RGBColor(51, 51, 51)
 
     add_formatted_text(p, content, font_size=9.5, color=RGBColor(51, 51, 51))
+
+
+def add_italic_note(doc, text, space_before=2, space_after=4):
+    """Muted italic lead-in line (section intros, degree/timeframe lines)."""
+    p = doc.add_paragraph()
+    apply_paragraph_format(p, space_before=space_before, space_after=space_after,
+                           line_spacing=1.15)
+    add_formatted_text(p, text, font_size=9.5, color=RGBColor(85, 85, 85),
+                       default_italic=True)
+    return p
+
+
+def add_body_bullet(doc, text, space_after=2.5):
+    p = doc.add_paragraph(style='List Bullet')
+    apply_paragraph_format(p, space_before=0, space_after=space_after, line_spacing=1.15)
+    add_formatted_text(p, text, font_size=9.5, color=RGBColor(51, 51, 51))
+    return p
+
+
+def add_subheader(doc, text, size=10, color=RGBColor(17, 17, 17),
+                  space_before=6, space_after=2):
+    p = doc.add_paragraph()
+    apply_paragraph_format(p, space_before=space_before, space_after=space_after,
+                           line_spacing=1.0)
+    p.paragraph_format.keep_with_next = True
+    run = p.add_run(text)
+    run.bold = True
+    run.font.name = 'Calibri'
+    run.font.size = Pt(size)
+    run.font.color.rgb = color
+    return p
 
 
 def main():
@@ -138,11 +176,21 @@ def main():
     current_section = "HEADER"
     # Backtick skill line pattern: `Label`  content
     backtick_re = re.compile(r'^`(\w[\w\s]*)`\s+(.+)$')
+    # Bold-label skill line pattern: **Label:** content
+    boldlabel_re = re.compile(r'^\*\*([^*]+?):\*\*\s+(.+)$')
+    # Raw HTML block lines (e.g. <div align="center" markdown="1"> ... </div>).
+    # These are GitHub-rendering hints only; Word layout is driven by the styling
+    # rules below, so they must be skipped rather than printed literally.
+    html_line_re = re.compile(r'^</?(div|p|span|br|center|img|a)\b[^>]*>$', re.I)
 
     i = 0
     while i < len(lines):
         line = lines[i].strip()
         if not line:
+            i += 1
+            continue
+
+        if html_line_re.match(line):
             i += 1
             continue
 
@@ -180,7 +228,8 @@ def main():
                 run.font.name = 'Calibri'
                 run.font.size = Pt(18)
                 run.font.color.rgb = RGBColor(26, 54, 93)
-            elif line.startswith('**') and line.endswith('**') and len(line) > 4:
+            elif (line.startswith('**') and line.endswith('**') and len(line) > 4
+                    and not _is_contact_line(line)):
                 # Tagline subtitle
                 p = doc.add_paragraph()
                 p.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
@@ -191,11 +240,20 @@ def main():
                 run.font.size = Pt(11)
                 run.font.color.rgb = RGBColor(44, 95, 138)  # #2C5F8A accent blue
             else:
-                # Contact / links line
+                # Contact / links line. Strip a whole-line ** wrapper first —
+                # otherwise the inline parser treats the entire line as one bold
+                # run and any [text](url) inside it renders as literal markdown.
+                # The wrapper still carries intent, so re-apply it as default_bold.
+                text = line
+                emphasised = (text.startswith('**') and text.endswith('**')
+                              and len(text) > 4)
+                if emphasised:
+                    text = text[2:-2].strip()
                 p = doc.add_paragraph()
                 p.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
                 apply_paragraph_format(p, space_before=0, space_after=8, line_spacing=1.0)
-                add_formatted_text(p, line, font_size=9.5, color=RGBColor(51, 51, 51))
+                add_formatted_text(p, text, font_size=9.5, color=RGBColor(51, 51, 51),
+                                   default_bold=emphasised)
 
         # ── PROFILE ──────────────────────────────────────────────────────────
         elif "PROFILE" in current_section:
@@ -210,9 +268,13 @@ def main():
         # ── TECHNICAL SKILLS ─────────────────────────────────────────────────
         elif "SKILLS" in current_section:
             bt_match = backtick_re.match(line)
+            bl_match = boldlabel_re.match(line)
             if bt_match:
                 # `Core`/`Competent`/`Learning` lines → formatted bullet
                 add_skill_backtick_bullet(doc, bt_match.group(1), bt_match.group(2).strip())
+            elif bl_match:
+                # **Proficient:** / **Familiar:** lines → same bullet treatment
+                add_skill_backtick_bullet(doc, bl_match.group(1), bl_match.group(2).strip())
             elif line.startswith('**') and line.endswith('**') and len(line) > 4:
                 # Skill category subheader (10pt, near-black)
                 p = doc.add_paragraph()
@@ -296,9 +358,25 @@ def main():
         # ── HIGHLIGHTS / CERTIFICATIONS / ACHIEVEMENTS ───────────────────────
         elif any(kw in current_section for kw in ("HIGHLIGHTS", "CERTIFICATIONS", "ACHIEVEMENTS")):
             if line.startswith('- '):
-                p = doc.add_paragraph(style='List Bullet')
-                apply_paragraph_format(p, space_before=0, space_after=2.5, line_spacing=1.15)
-                add_formatted_text(p, line[2:].strip(), font_size=9.5, color=RGBColor(51, 51, 51))
+                add_body_bullet(doc, line[2:].strip())
+
+        # ── ANY OTHER SECTION (e.g. PORTFOLIO, PROJECTS, PUBLICATIONS) ───────
+        # Generic fallback so a section the CV happens to use is never silently
+        # dropped. Renders with the same visual vocabulary as the named sections.
+        else:
+            if line.startswith('- '):
+                add_body_bullet(doc, line[2:].strip())
+            elif line.startswith('### '):
+                add_subheader(doc, line[4:].strip(), size=10.5, space_before=8)
+            elif line.startswith('**') and line.endswith('**') and len(line) > 4:
+                add_subheader(doc, line[2:-2].strip())
+            elif line.startswith('*') and line.endswith('*') and len(line) > 2:
+                # Italic section lead-in
+                add_italic_note(doc, line[1:-1].strip())
+            else:
+                p = doc.add_paragraph()
+                apply_paragraph_format(p, space_before=2, space_after=4, line_spacing=1.15)
+                add_formatted_text(p, line, font_size=9.5, color=RGBColor(51, 51, 51))
 
         i += 1
 

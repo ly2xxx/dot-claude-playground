@@ -1,6 +1,10 @@
+<div align="center" markdown="1">
+
 # YANG LI
 
-**victorlee2012.vl@gmail.com | Glasgow, UK | [LinkedIn](https://www.linkedin.com/in/yang-li-78917021/) | [AI Engineering Portfolio](https://github.com/ly2xxx/public-demo/blob/main/demo.md)**
+**victorlee2012.vl@gmail.com | Glasgow, UK | [LinkedIn](https://www.linkedin.com/in/yang-li-78917021/)**
+
+</div>
 
 ---
 
@@ -15,24 +19,24 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 ## TECHNICAL SKILLS
 
 **Agentic AI & LLM Engineering**
-`Proficient`  LangGraph · LangChain · Claude Code · Claude SKILL development · MCP (Model Context Protocol) tool development · RAG systems · Prompt engineering · LLM API orchestration · LangFlow
-`Familiar`    Azure OpenAI concepts · FAISS · Weaviate · Pinecone · LangSmith
+**Proficient:** LangGraph · LangChain · Claude Code · Claude SKILL development · MCP (Model Context Protocol) tool development · RAG systems · Prompt engineering · LLM API orchestration · LangFlow
+**Familiar:** Azure OpenAI concepts · FAISS · Weaviate · Pinecone · LangSmith
 
 **Evaluation & Observability (AI-specific)**
-`Proficient`  OpenTelemetry (OTEL) for LLM/agent tracing · Prometheus · Grafana · Tempo · pytest-bdd + DeepEval (LLM evaluation, tool-routing assertions) · ELK Stack
-`Familiar`    LLM-as-judge evaluation design · multi-model cost/accuracy benchmarking
+**Proficient:** OpenTelemetry (OTEL) for LLM/agent tracing · Prometheus · Grafana · Tempo · pytest-bdd + DeepEval (LLM evaluation, tool-routing assertions) · ELK Stack
+**Familiar:** LLM-as-judge evaluation design · multi-model cost/accuracy benchmarking
 
 **Secure & Responsible AI**
-`Proficient`  Data-sensitivity-based model routing (local vs. cloud) · privacy-aware telemetry design · read-only data-boundary design
-`Familiar`    AI governance frameworks · responsible AI principles (bias awareness, explainability, human-in-the-loop)
+**Proficient:** Data-sensitivity-based model routing (local vs. cloud) · privacy-aware telemetry design · read-only data-boundary design
+**Familiar:** AI governance frameworks · responsible AI principles (bias awareness, explainability, human-in-the-loop)
 
 **Cloud, Security & Platform Engineering**
-`Proficient`  Docker · Helm · GitLab CI/CD · Python automation · security automation at scale (Wiz, 5,000+ repositories)
-`Familiar`    AWS (EC2, ECS, EKS) · Terraform · Kubernetes · Red Hat OpenShift
+**Proficient:** Docker · Helm · GitLab CI/CD · Python automation · security automation at scale (Wiz, 5,000+ repositories)
+**Familiar:** AWS (EC2, ECS, EKS) · Terraform · Kubernetes · Red Hat OpenShift
 
 **Languages & Core Engineering**
-`Proficient`  Python (4+ yrs, AI/automation focus) · Java (10+ yrs, distributed systems) · SQL · RESTful API design (Swagger/OpenAPI)
-`Familiar`    C/C++ · Kafka · Event-driven architecture · Microservices
+**Proficient:** Python (4+ yrs, AI/automation focus) · Java (10+ yrs, distributed systems) · SQL · RESTful API design (Swagger/OpenAPI)
+**Familiar:** C/C++ · Kafka · Event-driven architecture · Microservices
 
 ---
 

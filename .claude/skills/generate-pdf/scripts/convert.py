@@ -1,8 +1,22 @@
 """
 PDF Generator Script
-Converts markdown files to professionally styled PDFs
+Converts markdown files to professionally styled PDFs.
+
+Two pipelines:
+
+  default   markdown -> HTML -> PDF (xhtml2pdf). General-purpose document
+            styling: docs, guides, notes, cheatsheets.
+
+  --cv      markdown -> .docx (markdown-to-word skill) -> PDF (LibreOffice).
+            Use for CVs. This is the pipeline that produced the reference
+            CVs (YL-CV-2026-CityFM.pdf / YL-CV-2026-general.pdf, whose
+            metadata reads Author=python-docx, Producer=LibreOffice).
+            The default HTML pipeline does NOT reproduce that look — it has
+            no notion of CV sections, justifies body text, and renders at
+            document rather than CV scale.
 """
 
+import subprocess
 import sys
 import markdown
 from pathlib import Path
@@ -11,6 +25,85 @@ from pathlib import Path
 if sys.platform == 'win32':
     sys.stdout.reconfigure(encoding='utf-8', errors='replace')
     sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
+
+# Sibling skill that owns the CV-aware markdown -> .docx styling.
+CV_CONVERTER = (Path(__file__).resolve().parent.parent.parent
+                / 'markdown-to-word' / 'scripts' / 'convert_cv.py')
+
+SOFFICE_CANDIDATES = [
+    r'C:\Program Files\LibreOffice\program\soffice.exe',
+    r'C:\Program Files (x86)\LibreOffice\program\soffice.exe',
+    '/usr/bin/soffice',
+    '/usr/bin/libreoffice',
+    '/Applications/LibreOffice.app/Contents/MacOS/soffice',
+]
+
+
+def find_soffice():
+    """Locate the LibreOffice binary, or return None."""
+    from shutil import which
+    for name in ('soffice', 'libreoffice'):
+        found = which(name)
+        if found:
+            return found
+    for path in SOFFICE_CANDIDATES:
+        if Path(path).exists():
+            return path
+    return None
+
+
+def convert_cv_to_pdf(md_file):
+    """CV pipeline: markdown -> .docx -> .pdf, output beside the source file."""
+    md_path = Path(md_file).resolve()
+    if not md_path.exists():
+        print(f"Error: File not found: {md_file}")
+        sys.exit(1)
+
+    if not CV_CONVERTER.exists():
+        print(f"Error: CV converter not found at {CV_CONVERTER}")
+        print("The --cv pipeline requires the sibling 'markdown-to-word' skill.")
+        sys.exit(1)
+
+    soffice = find_soffice()
+    if not soffice:
+        print("Error: LibreOffice not found — required to convert .docx to PDF.")
+        print("Install LibreOffice, or generate the .docx only via the "
+              "markdown-to-word skill and export to PDF from Word.")
+        sys.exit(1)
+
+    # Step 1: markdown -> .docx (CV-aware styling)
+    print(f"[1/2] Building .docx via markdown-to-word ...")
+    result = subprocess.run([sys.executable, str(CV_CONVERTER), str(md_path)],
+                            capture_output=True, text=True,
+                            encoding='utf-8', errors='replace')
+    if result.returncode != 0:
+        print("Error: .docx conversion failed")
+        print(result.stdout, result.stderr)
+        sys.exit(1)
+    print(result.stdout.strip())
+
+    docx_path = md_path.with_suffix('.docx')
+    if not docx_path.exists():
+        print(f"Error: expected .docx not produced at {docx_path}")
+        sys.exit(1)
+
+    # Step 2: .docx -> .pdf (LibreOffice), written beside the source
+    print(f"[2/2] Converting to PDF via LibreOffice ...")
+    result = subprocess.run(
+        [soffice, '--headless', '--convert-to', 'pdf',
+         '--outdir', str(md_path.parent), str(docx_path)],
+        capture_output=True, text=True, encoding='utf-8', errors='replace')
+
+    pdf_path = md_path.with_suffix('.pdf')
+    if result.returncode != 0 or not pdf_path.exists():
+        print("Error: LibreOffice PDF conversion failed")
+        print(result.stdout, result.stderr)
+        sys.exit(1)
+
+    print(f"DOCX generated: {docx_path} ({docx_path.stat().st_size / 1024:.1f} KB)")
+    print(f"PDF generated:  {pdf_path} ({pdf_path.stat().st_size / 1024:.1f} KB)")
+    return str(pdf_path)
 
 def convert_md_to_pdf(md_file):
     """Convert a markdown file to a styled PDF"""
@@ -191,13 +284,19 @@ def convert_md_to_pdf(md_file):
         sys.exit(1)
 
 def main():
-    if len(sys.argv) != 2:
-        print("Usage: python convert.py <markdown-file>")
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    flags = {a for a in sys.argv[1:] if a.startswith('--')}
+
+    if len(args) != 1:
+        print("Usage: python convert.py [--cv] <markdown-file>")
         print("Example: python convert.py docs/guide.md")
+        print("Example: python convert.py --cv assets/YL-CV-2026-AI.md")
         sys.exit(1)
 
-    md_file = sys.argv[1]
-    convert_md_to_pdf(md_file)
+    if '--cv' in flags:
+        convert_cv_to_pdf(args[0])
+    else:
+        convert_md_to_pdf(args[0])
 
 if __name__ == "__main__":
     main()
