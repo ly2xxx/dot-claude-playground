@@ -16,7 +16,7 @@ AI Solution Architect and Lead Software Engineer with 20+ years building resilie
 
 **Agentic AI & LLM Engineering**
 `Proficient`  LangGraph · LangChain · Claude Code · Claude SKILL development · MCP (Model Context Protocol) tool development · RAG systems · Prompt engineering · LLM API orchestration · LangFlow
-`Familiar`    Azure OpenAI / Vertex AI concepts · FAISS · Weaviate · ChromaDB · Pinecone · LangSmith
+`Familiar`    Azure OpenAI concepts · FAISS · Weaviate · Pinecone · LangSmith
 
 **Evaluation & Observability (AI-specific)**
 `Proficient`  OpenTelemetry (OTEL) for LLM/agent tracing · Prometheus · Grafana · Tempo · pytest-bdd + DeepEval (LLM evaluation, tool-routing assertions) · ELK Stack
@@ -28,7 +28,7 @@ AI Solution Architect and Lead Software Engineer with 20+ years building resilie
 
 **Cloud, Security & Platform Engineering**
 `Proficient`  Docker · Helm · GitLab CI/CD · Python automation · security automation at scale (Wiz, 5,000+ repositories)
-`Familiar`    AWS (EC2, S3, Lambda, ECS, EKS, ECR) · Terraform · Kubernetes · Red Hat OpenShift
+`Familiar`    AWS (EC2, ECS, EKS) · Terraform · Kubernetes · Red Hat OpenShift
 
 **Languages & Core Engineering**
 `Proficient`  Python (4+ yrs, AI/automation focus) · Java (10+ yrs, distributed systems) · SQL · RESTful API design (Swagger/OpenAPI)
@@ -54,9 +54,8 @@ AI Solution Architect and Lead Software Engineer with 20+ years building resilie
 
 Architect secure agentic developer tooling and enterprise GitLab CI/CD platform serving 50+ engineering teams running 500+ daily pipeline executions.
 
-- Delivered production agentic ADLC tooling using Claude Code, custom MCP integrations, and Claude SKILL development, automating deployment-failure investigation and cutting root-cause analysis time by 85% (2+ hours → <15 minutes)
+- Built a phased release-automation framework combining Python-based deterministic API filtering with agentic Claude SKILL/GitLab MCP root-cause scoring — cut pipeline triage from 100+ candidates to 10–20 (investigation time down 85%, 2+ hours → <15 minutes), automated evidence collection and Confluence publishing, and reduced total release time from 4 hours to 1, unlocking a 3× release-cadence increase (weekly → three releases a week)
 - Co-developed Python-based security automation integrating Wiz vulnerability scanning across 5,000+ repositories on AWS EKS, reducing critical security exposure window from 14 days to <48 hours — mentored a junior engineer through the cloud deployment
-- Developed Python-based release automation framework, cutting evidence collection and audit-trail generation from 3.5 hours to 1 hour per release
 - Optimised Docker workspace images for Coder cloud environments on AWS EC2 by 95% (11+ GB → 500 MB) using a UBI9-micro base, materially lowering infrastructure overhead
 - Project-managed CIO deck automation for GFED Technology, leading a team of interns from requirements to implementation; reduced manual effort by 90% (20 hours → 2 hours)
 
@@ -113,14 +112,17 @@ Architected and delivered Java-based high-frequency trading platforms for equity
 
 **University of Strathclyde | Glasgow, UK**
 Master of Business Administration (MBA) – Distinction | Oct 2018 – Jul 2022
+
 - Research: Hybrid workforce productivity optimisation post-pandemic
 
 **University of Glasgow | Glasgow, UK**
 MSc, Electrical & Electronic Engineering | Oct 2002 – Jul 2003
+
 - Thesis: Autonomous robot fleet for disaster recovery using C/C++ (legOS)
 
 **Donghua University | Shanghai, China**
 BSc, Industrial Automation Engineering | Oct 1998 – Jul 2002
+
 - Capstone: Fuzzy logic control system outperforming a neural-network approach
 
 ---
