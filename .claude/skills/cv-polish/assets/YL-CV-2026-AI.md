@@ -58,7 +58,7 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 
 Architect secure agentic developer tooling and enterprise GitLab CI/CD platform serving 50+ engineering teams running 500+ daily pipeline executions.
 
-- Built a phased release-automation framework combining Python-based deterministic API filtering with agentic Claude SKILL/GitLab MCP root-cause scoring — cut pipeline triage from 100+ candidates to 10–20 (investigation time down 85%, 2+ hours → <15 minutes), automated evidence collection and Confluence publishing, and reduced total release time from 4 hours to 1, unlocking a 3× release-cadence increase (weekly → three releases a week)
+- Built a phased release-automation framework combining Python-based deterministic API filtering with agentic Claude SKILL/GitLab MCP root-cause scoring — cut pipeline triage from 100+ candidates to 10–20 (investigation time down 85%, 2+ hours → <15 minutes), automated evidence collection and Confluence publishing, and reduced total release time from 4 hours to 1, unlocking a release-cadence increase (two → three releases a week)
 - Co-developed Python-based security automation integrating Wiz vulnerability scanning across 5,000+ repositories on AWS EKS, reducing critical security exposure window from 14 days to <48 hours — mentored a junior engineer through the cloud deployment
 - Optimised Docker workspace images for Coder cloud environments on AWS EC2 by 95% (11+ GB → 500 MB) using a UBI9-micro base, materially lowering infrastructure overhead
 - Project-managed CIO deck automation for GFED Technology, leading a team of interns from requirements to implementation; reduced manual effort by 90% (20 hours → 2 hours)

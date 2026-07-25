@@ -17,7 +17,6 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 **Languages & Core Engineering**
 `Proficient`  Python (4+ yrs) · Java (10+ yrs) · C/C++ · SQL · RESTful API design (Swagger/OpenAPI)
 `Familiar`    Kafka · Distributed messaging · Microservices · Event-driven architecture
-`Learning`    TypeScript
 
 **Agentic AI & ML Tooling**
 `Proficient`  Claude Code · Claude SKILL · MCP tooling · LangChain · LangGraph · RAG systems · LLM API orchestration · LangFlow
@@ -30,11 +29,10 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 **Cloud & Infrastructure**
 `Proficient`  Docker · Helm
 `Familiar`    Terraform · AWS (EC2, S3, Lambda, ECS, EKS, ECR) · Red Hat OpenShift · Kubernetes
-`Learning`    CloudFormation
 
 **CI/CD & Automation**
-`Proficient`  GitLab CI/CD · Python automation · Bash
-`Familiar`    Jenkins · TeamCity · Groovy · PowerShell · GitHub Actions
+`Proficient`  GitLab CI/CD · Python automation
+`Familiar`    Jenkins · TeamCity · Groovy · PowerShell · GitHub Actions · Bash
 
 ---
 
@@ -46,7 +44,7 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 
 Architect enterprise GitLab CI/CD templates and secure cloud IDE workspaces, streamlining developer experience across 50+ engineering teams running 500+ daily pipeline executions.
 
-- Built a phased release-automation framework combining Python-based deterministic API filtering with agentic Claude SKILL/GitLab MCP root-cause scoring — cut pipeline triage from 100+ candidates to 10–20 (investigation time down 85%, 2+ hours → <15 minutes), automated evidence collection and Confluence publishing, and reduced total release time from 4 hours to 1, unlocking a 3× release-cadence increase (weekly → three releases a week)
+- Built a phased release-automation framework combining Python-based deterministic API filtering with agentic Claude SKILL/GitLab MCP root-cause scoring — cut pipeline triage from 100+ candidates to 10–20 (investigation time down 85%, 2+ hours → <15 minutes), automated evidence collection and Confluence publishing, and reduced total release time from 4 hours to 1, unlocking a release-cadence increase (two → three releases a week)
 - Co-developed Python-based security automation integrating Wiz vulnerability scanning across 5,000+ repositories on AWS EKS, reducing critical security exposure window from 14 days to <48 hours — mentored a junior engineer through the cloud deployment
 - Optimised Docker workspace images for Coder cloud environments on AWS EC2 by 95% (11+ GB → 500 MB) using a UBI9-micro base, materially lowering infrastructure overhead
 - Project-managed CIO deck automation for GFED Technology, leading a team of interns from requirements to implementation; reduced manual effort by 90% (20 hours → 2 hours)
@@ -124,6 +122,8 @@ BSc, Industrial Automation Engineering | Oct 1998 – Jul 2002
 ---
 
 ## HIGHLIGHTS & CERTIFICATIONS
+
+
 
 - **Production Agentic AI:** Built and shipped a container image bundling Claude Code, Git/JIRA MCP tooling, and custom Claude SKILLs — including the pipeline triage SKILL — for developers at Barclays
 - **GitLab CI/CD at Scale:** Contributed to designing and scaling CI/CD automation serving 50+ engineering teams at Barclays, and to the enterprise-wide GitLab Ultimate migration. [Barclays PLC case study](https://about.gitlab.com/customers/barclays-plc/)
