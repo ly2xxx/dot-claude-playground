@@ -132,6 +132,5 @@ BSc, Industrial Automation Engineering | Oct 1998 – Jul 2002
 - **Production Agentic AI:** Built and shipped Claude Code integrations, MCP tooling, and custom Claude SKILLs at Barclays — plus an independent portfolio of published AI engineering artifacts (PyPI, Docker Hub)
 - **Secure & Responsible AI:** Data-sensitivity-based local/cloud model routing, privacy-aware telemetry, read-only data boundaries — security-automation pedigree from leading Wiz vulnerability scanning across 5,000+ repositories
 - **GitLab CI/CD at Scale:** Designed and scaled CI/CD automation serving 50+ engineering teams at Barclays; contributed to enterprise-wide GitLab Ultimate migration. [Barclays PLC case study](https://about.gitlab.com/customers/barclays-plc/)
-- **J.P. Morgan Alumni:** 8-year tenure building Java distributed trading systems for equity and credit derivatives, prime-finance domain expertise
 - **Financial Derivatives Certification** (CISI, 2010)
-- **Speaker/Blogger:** Active technology blog since 2016 — [edisonideas.wordpress.com](https://edisonideas.wordpress.com) — covering AI, DevOps, and platform engineering
+- **Blogger:** Active technology blog since 2016 — [edisonideas.wordpress.com](https://edisonideas.wordpress.com)
