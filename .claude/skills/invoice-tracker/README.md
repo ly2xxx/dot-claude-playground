@@ -12,7 +12,7 @@ anomaly report for each invoice**.
   items, abnormally high/low amounts, charges dated outside the invoice period,
   stale service periods, duplicate lines, and credits.
 - Produces `cost_tracker.xlsx` (Summary, Line Items, By Category, By Vendor,
-  By Tax Year, Anomalies) and one `anomaly_report_<invoice_no>.md` per invoice.
+  By Tax Year, Anomalies) and one `anomaly_report_<invoice_no>_<invoice_date>.md` per invoice.
 
 ## How the work is split
 

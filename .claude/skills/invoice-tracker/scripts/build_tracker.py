@@ -7,8 +7,9 @@ Reads two CSVs produced from the factor/service-charge invoices:
 
 Writes:
   - cost_tracker.xlsx            : multi-sheet workbook for tax tracking
-  - anomaly_report_<invoice>.md  : one point-in-time report per invoice, each
-                                   compared only against earlier invoices
+  - anomaly_report_<invoice>_<invoice_date>.md : one point-in-time report per
+                                   invoice, each compared only against earlier
+                                   invoices
 
 All money is treated as the owner's apportioned, VAT-inclusive cost
 (the "your_cost" column) unless stated otherwise. No figures are invented:
@@ -797,7 +798,9 @@ def main():
         sub_set = set(sub_order)
         sub_items = [it for it in items if it["invoice_no"] in sub_set]
         f = detect_anomalies(sub_items, invoices, sub_order, cfg)
-        rep = out_dir / f"anomaly_report_{no}.md"
+        inv_date = invoices[no].get("invoice_date")
+        date_suffix = f"_{inv_date.strftime('%Y-%m-%d')}" if inv_date else ""
+        rep = out_dir / f"anomaly_report_{no}{date_suffix}.md"
         write_invoice_report(no, sub_items, invoices, sub_order, f, cfg, rep)
         all_findings.extend(f)
         reports.append((no, rep, f))

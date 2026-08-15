@@ -103,3 +103,38 @@ invoice_no,invoice_date,period_from,period_to,category,charge_date,vendor,descri
 2013624,15/05/2026,01/03/2026,28/05/2026,Management Fee,29/05/2026,Newton Property Management Ltd,"E-billing Discount: 29/05/2026 - 28/08/2026",-7.72,1/1,-7.72
 2013624,15/05/2026,01/03/2026,28/05/2026,Management Fee,28/08/2026,Newton Property Management Ltd,"Management Fee: 29/05/2026 - 28/08/2026",86.50,1/1,86.50
 2013624,15/05/2026,01/03/2026,28/05/2026,Insurance,26/05/2026,DAWN- INTACT-26-27,"Quarterly buildings insurance: 26/05/2026 - 25/08/2026",181.01,1/1,181.01
+2060244,15/08/2026,29/05/2026,28/08/2026,Cleaning,21/05/2026,KC Janitorial Ltd,"Rubbish removal - pump room",180.00,1/35,5.15
+2060244,15/08/2026,29/05/2026,28/08/2026,Cleaning,05/08/2026,KC Janitorial Ltd,"Common Cleaning: 06/05/2026 - 05/08/2026",1586.22,1/35,45.33
+2060244,15/08/2026,29/05/2026,28/08/2026,Electricity,01/06/2026,Ecotricity DD,"Common electricity supply 1: 01/04/2026 - 30/06/2026",3402.36,1/35,97.21
+2060244,15/08/2026,29/05/2026,28/08/2026,Miscellaneous,31/07/2026,PTM Security Solutions Ltd,"Door entry SIM card charge: 01/07/2026 - 31/07/2026",12.60,1/35,0.36
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,01/03/2026,PTM Security Solutions Ltd,"Annual monitoring fee PMV",294.00,1/35,8.40
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,03/03/2026,PTM Security Solutions Ltd,"Quarterly smoke extract sys service",66.00,1/35,1.88
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,07/05/2026,ASD Electrical Contractors Ltd,"Emergency lighting test",59.40,1/35,1.69
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,07/05/2026,ASD Electrical Contractors Ltd,"Emergency lighting test",118.80,1/35,3.38
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,30/05/2026,PTM Security Solutions Ltd,"Sim card charge for the GSM door access system",12.60,1/35,0.36
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,11/06/2026,PTM Security Solutions Ltd,"Quarterly service and inspection of car park ventilation : 01/06/2026 - 01/09/2026",94.20,1/18,5.23
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,11/06/2026,PTM Security Solutions Ltd,"Quarterly smoke extract sys service",66.00,1/35,1.88
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,11/06/2026,PTM Security Solutions Ltd,"Quarterly fire alarm service: 03/03/2026 - 11/06/2026",189.12,1/35,5.40
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,30/06/2026,Chess ICT Ltd,"Lift telephone charges: 01/04/2026 - 30/06/2026",183.52,1/35,5.24
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,01/07/2026,VWS (UK) T/A Veolia Water Technologies,"Technical service agreement: 01/07/2024 - 30/06/2027",570.00,1/37,15.41
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,01/07/2026,VWS (UK) T/A Veolia Water Technologies,"Water testing & certification (6 months)",570.00,1/37,15.41
+2060244,15/08/2026,29/05/2026,28/08/2026,Life System,09/07/2026,PTSG Electrical Services Ltd,"Lightning conductor - Annual test & inspection",266.40,1/37,7.20
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,20/02/2026,PTM Security Solutions Ltd,"Repair/replace lock barrel",74.24,1/35,2.12
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,15/04/2026,PTM Security Solutions Ltd,"Adjusted car park shutter",178.20,1/18,9.90
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,30/04/2026,Ritchie Mackenzie & Co Ltd,"Service checks of 1x booster set",216.00,1/37,5.83
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,07/05/2026,ASD Electrical Contractors Ltd,"Emergency lighting repair",483.96,1/35,13.82
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,07/05/2026,Argyle Locksmiths,"fit lock on cctv cupboard door",293.60,1/35,8.39
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,22/05/2026,Hart Lifts Ltd,"Loler defect works",234.00,1/35,6.68
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,29/05/2026,Argyle Locksmiths,"Staple fit new padlock",130.00,1/35,3.71
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,09/06/2026,Argyle Locksmiths,"Repair lock on upper car park door, replace latch",120.00,1/35,3.43
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,19/06/2026,Martyn Reid Property Maintenance,"Mastic repairs to open joint on cladding",630.00,1/37,17.03
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,24/06/2026,ASD Electrical Contractors Ltd,"To attend site regarding report that the lower car park lights weren't staying on long enough after being activated, increased time on the PIR sensors as required",102.90,1/18,5.71
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,25/06/2026,PTM Security Solutions Ltd,"Attended site and found the CCTV dead, the power supply and monitor require replacement (quote to follow)",118.80,1/35,3.40
+2060244,15/08/2026,29/05/2026,28/08/2026,Repairs,08/07/2026,PTM Security Solutions Ltd,"Attended site and replaced 2x rim units, programmed and tested",334.20,1/35,9.55
+2060244,15/08/2026,29/05/2026,28/08/2026,Maintenance,30/04/2026,PTM Security Solutions Ltd,"Sim card charge for the GSM door access system",15.00,1/35,0.43
+2060244,15/08/2026,29/05/2026,28/08/2026,Maintenance,01/06/2026,PTM Security Solutions Ltd,"Door entry sim card change: 01/06/2026 - 30/06/2026",12.60,1/35,0.36
+2060244,15/08/2026,29/05/2026,28/08/2026,Maintenance,11/06/2026,PTM Security Solutions Ltd,"Quarterly service and inspection of car park shutter (lower) : 01/06/2026 - 01/09/2026",260.04,1/18,14.45
+2060244,15/08/2026,29/05/2026,28/08/2026,Maintenance,11/06/2026,PTM Security Solutions Ltd,"Quarterly service and inspection of the car park shutter (upper) : 01/06/2026 - 01/09/2026",260.04,1/18,14.45
+2060244,15/08/2026,29/05/2026,28/08/2026,Management Fee,29/08/2026,Newton Property Management Ltd,"E-billing Discount: 29/08/2026 - 28/11/2026",-7.72,1/1,-7.72
+2060244,15/08/2026,29/05/2026,28/08/2026,Management Fee,28/08/2026,Newton Property Management Ltd,"Management Fee: 29/08/2026 - 28/11/2026",86.50,1/1,86.50
+2060244,15/08/2026,29/05/2026,28/08/2026,Insurance,28/08/2026,DAWN- INTACT-26-27,"Quarterly buildings insurance: 26/08/2026 - 25/11/2026",181.01,1/1,181.01

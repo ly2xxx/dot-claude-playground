@@ -58,8 +58,8 @@ invoice, comparing it against the invoices dated before it.
    ```
    python scripts/build_tracker.py --input-dir <working-folder>
    ```
-   It writes `cost_tracker.xlsx` plus one `anomaly_report_<invoice_no>.md` per
-   invoice into the same folder (override with `--output-dir`). Each invoice is
+   It writes `cost_tracker.xlsx` plus one `anomaly_report_<invoice_no>_<invoice_date>.md`
+   per invoice into the same folder (override with `--output-dir`). Each invoice is
    analysed as its own "current" period, compared only against the invoices
    dated before it. Requires `openpyxl` (`pip install openpyxl`).
 
@@ -85,7 +85,7 @@ tracker exists), do not start over:
    (idempotent — never duplicate an invoice).
 4. **Re-run** `build_tracker.py`. It re-derives chronological order from the
    period dates, so the new invoice becomes the current period automatically and
-   gets its own `anomaly_report_<invoice_no>.md`; earlier reports are unchanged.
+   gets its own `anomaly_report_<invoice_no>_<invoice_date>.md`; earlier reports are unchanged.
 5. **Report** the new invoice's findings and the refreshed tax-year totals.
 
 ## CSV schemas
@@ -120,7 +120,7 @@ invoice_no,invoice_date,period_from,period_to,category,charge_date,vendor,descri
   return.
 - **Anomalies** — every finding across all invoices, with severity, type and detail.
 
-`anomaly_report_<invoice_no>.md` — one self-contained report per invoice, each
+`anomaly_report_<invoice_no>_<invoice_date>.md` — one self-contained report per invoice, each
 with that invoice's reconciliation check, cost-by-category and cost-by-vendor
 tables, and its anomalies (grouped by type, high severity first).
 
@@ -172,4 +172,10 @@ invoice's report never changes when later invoices are added.
 - `assets/` holds a worked example — four quarterly Newton Property "Common
   Charge" invoice PDFs; running the skill on them produces the files in
   `output/`: `line_items.csv`, `invoices.csv`, `cost_tracker.xlsx`, and one
-  `anomaly_report_<invoice_no>.md` per invoice.
+  `anomaly_report_<invoice_no>_<invoice_date>.md` per invoice.
+- Per-invoice report filenames always include the invoice date
+  (`anomaly_report_<invoice_no>_<invoice_date>.md`, e.g.
+  `anomaly_report_2060244_2026-08-15.md`, date as `YYYY-MM-DD`) — this lets
+  reports be told apart and sorted chronologically straight from a file
+  listing, without opening each one. Keep this suffix whenever the script or
+  these docs are touched.
