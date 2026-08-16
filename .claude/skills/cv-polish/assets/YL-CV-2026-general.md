@@ -26,13 +26,9 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 `Proficient`  ELK Stack · Tableau · MS SQL Server · Oracle · Liquibase
 `Familiar`    Prometheus · Grafana · OpenTelemetry (OTEL)
 
-**Cloud & Infrastructure**
-`Proficient`  Docker · Helm
-`Familiar`    Terraform · AWS (EC2, S3, Lambda, ECS, EKS, ECR) · Red Hat OpenShift · Kubernetes
-
-**CI/CD & Automation**
-`Proficient`  GitLab CI/CD · Python automation
-`Familiar`    Jenkins · TeamCity · Groovy · PowerShell · GitHub Actions · Bash
+**Cloud, Security & Platform Engineering**
+`Proficient` Docker · GitLab CI/CD · Python automation · security automation at scale (Wiz, 5,000+ repositories)
+`Familiar` AWS (EC2, ECS, EKS) · Terraform · Kubernetes · Helm · Red Hat OpenShift
 
 ---
 
@@ -122,8 +118,6 @@ BSc, Industrial Automation Engineering | Oct 1998 – Jul 2002
 ---
 
 ## HIGHLIGHTS & CERTIFICATIONS
-
-
 
 - **Production Agentic AI:** Built and shipped a container image bundling Claude Code, Git/JIRA MCP tooling, and custom Claude SKILLs — including the pipeline triage SKILL — for developers at Barclays
 - **GitLab CI/CD at Scale:** Contributed to designing and scaling CI/CD automation serving 50+ engineering teams at Barclays, and to the enterprise-wide GitLab Ultimate migration. [Barclays PLC case study](https://about.gitlab.com/customers/barclays-plc/)
