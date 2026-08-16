@@ -26,10 +26,6 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 **Proficient:** OpenTelemetry (OTEL) for LLM/agent tracing · Prometheus · Grafana · Tempo · pytest-bdd + DeepEval (LLM evaluation, tool-routing assertions) · ELK Stack
 **Familiar:** LLM-as-judge evaluation design · multi-model cost/accuracy benchmarking
 
-**Secure & Responsible AI**
-**Proficient:** Data-sensitivity-based model routing (local vs. cloud) · privacy-aware telemetry design · read-only data-boundary design
-**Familiar:** AI governance frameworks · responsible AI principles (bias awareness, explainability, human-in-the-loop)
-
 **Cloud, Security & Platform Engineering**
 **Proficient:** Docker · Helm · GitLab CI/CD · Python automation · security automation at scale (Wiz, 5,000+ repositories)
 **Familiar:** AWS (EC2, ECS, EKS) · Terraform · Kubernetes · Red Hat OpenShift
@@ -44,8 +40,8 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 
 *A self-directed engineering journey since 2023 — each stage solving a real enterprise AI-adoption blocker. Full write-up with source links: [github.com/ly2xxx/public-demo](https://github.com/ly2xxx/public-demo/blob/main/demo.md)*
 
-- **md-mcp** — containerised MCP server exposing markdown knowledge bases to any MCP client. Published to [PyPI](https://pypi.org/project/md-mcp/) and Docker Hub, with a Helm chart, healthchecks, and a working pytest-bdd/DeepEval test suite verified across multiple LLMs
-- **langgraph_ollama** — multi-agent RAG system (LangGraph + Ollama) with full self-hosted observability: OpenTelemetry traces every agent node and LLM call into Tempo, Prometheus, and Grafana — zero external dependencies, privacy-aware by design (call shape logged, never content)
+- **md-mcp** — Containerised MCP server exposing markdown knowledge bases to any MCP client. Published to [PyPI](https://pypi.org/project/md-mcp/) and Docker Hub, with a Helm chart, healthchecks, and a working pytest-bdd/DeepEval test suite verified across multiple LLMs
+- **langgraph_ollama** — Multi-agent RAG and autonomous coding agent harness (LangGraph + Ollama) with full self-hosted observability: OpenTelemetry traces graph nodes, tool routing, and LLM calls into Tempo, Prometheus, and Grafana — zero external dependencies, privacy-aware by design (call shape logged, never content)
 - **Evaluation harness** — Gherkin specs → pytest-bdd → DeepEval, running the same behavioural test suite across a portfolio of models to select for cost and accuracy on evidence, not assumption
 
 ---
