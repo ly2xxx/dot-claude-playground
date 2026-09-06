@@ -27,8 +27,8 @@ Technically curious Lead Software Engineer with 20+ years building resilient pro
 **Familiar:** LLM-as-judge evaluation design · multi-model cost/accuracy benchmarking
 
 **Cloud, Security & Platform Engineering**
-**Proficient:** Docker · Helm · GitLab CI/CD · Python automation · security automation at scale (Wiz, 5,000+ repositories)
-**Familiar:** AWS (EC2, ECS, EKS) · Terraform · Kubernetes · Red Hat OpenShift
+**Proficient:** Docker · GitLab CI/CD · Release automation · Security automation
+**Familiar:** AWS (EC2, ECS, EKS) · Terraform · Kubernetes · Helm · Red Hat OpenShift
 
 **Languages & Core Engineering**
 **Proficient:** Python (4+ yrs, AI/automation focus) · Java (10+ yrs, distributed systems) · SQL · RESTful API design (Swagger/OpenAPI)
